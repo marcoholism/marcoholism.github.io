@@ -11,7 +11,7 @@
       li {margin: 1rem 0;padding: 0}
       nav a {color: #fff; background-color: rgb(31,26,69); text-decoration: none; display: block; padding: 0.25rem .5rem; margin: 0 0 0.15rem}
       nav a:hover {padding: 0.25rem .5rem; background-color: rgb(74,36,104);}
-      main a {color: rgb(170,97,218); background-color: #000; text-decoration: underline;}
+      main a {color: rgb(170,97,218); text-decoration: underline;}
       div.content {display: block;background-color: #111;}
       nav, main, header {display:block;}
       header {background-color: #fff;background-image: url('header.webp');background-repeat: no-repeat;background-position: center;background-size: cover;}
