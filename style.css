@@ -2,7 +2,7 @@
       @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
       
       /* global */
-      html {font-family: Roboto;background: #002447; color: #fff;}
+      html {font-family: Roboto;background: #050733; color: #fff;}
       body {margin: 3rem auto 3rem; padding: 0; width: 85%; min-width: 45rem;max-width: 90rem;font-size: 90%;}
       h1, h2 {font-weight: normal}
       h2 {margin: 1rem 0 0;}
