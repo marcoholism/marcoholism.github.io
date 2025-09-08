@@ -5,33 +5,56 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow, noarchive">
+    <link rel="icon" type="image/x-icon" href="LOGO.png">
     <style>
-      html {font-family: sans-serif;background: #111111; color: #fff;background-image: url('header.webp');background-repeat: no-repeat;background-position: top;background-size: 100% auto;}
-      body {margin: 10rem auto 3rem; padding: 1rem; max-width: 40rem}
+      /* Stuff */
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+      
+      /* global */
+      html {font-family: Roboto;background: #333; color: #fff;}
+      body {margin: 3rem auto 3rem; padding: 0; width: 85%; min-width: 45rem;max-width: 90rem;font-size: 90%;}
       h1, h2 {font-weight: normal}
-      h2 {margin: 3rem 0 0;}
+      h2 {margin: 1rem 0 0;}
       p {line-height: 1.5;}
       ul {list-style: none; margin: .25rem 0; padding:0;}
       li {margin: 1rem 0;padding: 0}
-      a {color: #fff; background-color: #000; text-decoration: none; display: block; padding: 0.5rem; border-radius: 5px;}
-      a:hover {padding: 0.5rem 0.75rem;}
-      p.impressum {text-align:center;}
-      p.impressum a {font-size: 80%;color: #666; background-color: transparent; text-decoration: underline;padding:0;}
+      nav a {color: #fff; background-color: rgb(31,26,69); text-decoration: none; display: block; padding: 0.25rem .5rem; margin: 0 0 0.15rem}
+      nav a:hover {padding: 0.25rem .5rem; background-color: rgb(74,36,104);}
+      main a {color: rgb(170,97,218); background-color: #000; text-decoration: underline;}
+      div.content {display: block;background-color: #111;}
+      nav, main, header {display:block;}
+      header {background-color: #fff;background-image: url('header.webp');background-repeat: no-repeat;background-position: center;background-size: cover;}
+      header {height: 15rem;border-radius: 15px 15px 0 0;}
+      h1 {text-indent: -9000px;}
+      nav {background: #111; width: 19%; float: left; padding: 0.15rem 0.5%;}
+      main {background: #111; width: 75%; float: right;padding: 1rem 2.5%;}
+      
+      /* Footer */
+      footer {clear: both; background-color: rgb(31,26,69);padding: 0.15rem 1rem;color: rgb(170,97,218);}
+      p.impressum {font-size: 80%;text-align:center;}
+      p.impressum a {color: rgb(170,97,218); background-color: transparent; text-decoration: underline;padding:0;}
       p.impressum a:hover {padding: 0;}
     </style>
   </head>
   <body>
-    <h1>marcoholism</h1>
-    <p>Hi, ich bin Marco. 👋 Unter marcoholism teile ich alles Mögliche zum Thema Videospiele. Vor allem die älteren Pokémon-Spiele und die The Legend of Zelda Reihe haben es mir angetan.</p>
-    <h2>Wo ihr mich findet</h2>
-    <ul>
-      <li><a href="https://twitch.tv/marcoholism">Twitch</a></li>
-      <li><a href="https://threads.com/@marco.holism">Threads</a></li>
-    </ul>
-    <h2>Anderer Kram</h2>
-    <p><a href="/pokemonyellow100percent.sav.zip">Pokémon Gelb 100 %-Sav.-File</a></p>
-    <p><a href="/GelbeEdition100Prozent.numbers.zip">Pokémon Gelb 100 %-Liste (Numbers-Datei)</a></p>
-    
-    <p class="impressum"><a href="/impressum.html">Impressum</a>
+    <header>
+      <h1>marcoholism</h1>
+    </header>
+    <div class="content">
+    <main>
+      <h2>Willkommen bei marcoholism</h2>
+      <p>Hi, ich bin Marco. Unter marcoholism teile ich alles Mögliche zum Thema Videospiele. Vor allem die älteren Pokémon-Spiele und die The Legend of Zelda Reihe haben es mir angetan. Ihr findet mich auf <a href="https://twitch.tv/marcoholism">Twitch</a> und <a href="https://threads.com/@marco.holism">Threads</a>.</p>
+      <p>Zuletzt habe ich Pokémon Gelb zu 100 Prozent durchgespielt. Dazu zählten für mich neben einem Living-Dex, auch alle Items, versteckten Items und Ingame-Tausch-Pokémon zu erhalten. Und um das geheime Minispiel angehen zu könnne, musste ich Pokémon Stadium bis zu Runde 2 spielen und den Premium Cup in dieser etwas schwierigeren Version meistern. Dafür habe ich mit einigen Pokémon extra das etwas aufwändigere EV-Training in Gen 1 absolviert. Alles in allem kann ich aber sagen, dass es eine ganz wunderbare Reise war und aktuell ziehe ich durch Johto und Kanto und wiederhole das Ganze mit 100 weiteren Pokémon.</p>
+      <h2>Anderer Kram</h2>
+      <p>Außerdem habe ich euch hier meine <a href="/pokemonyellow100percent.sav.zip">Pokémon Gelb 100 %-Sav.-File</a> hochgeladen sowie meine <a href="/GelbeEdition100Prozent.numbers.zip">Pokémon Gelb 100 %-Liste (Numbers-Datei)</a>.</p>
+    </main>
+    <nav>
+      <a href="">Start</a>
+      <!--<a href="">Pokémon</a>-->
+    </nav>
+    <footer>
+      <p class="impressum">2025 marcoholism - <a href="/impressum.html">Impressum</a>
+    </footer>
+        </div>
   </body>
 </html>
