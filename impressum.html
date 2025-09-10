@@ -1,20 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-  <head>
-    <title>marcoholism</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow, noarchive">
-    <link rel="icon" type="image/x-icon" href="/LOGO.png">
-    <link rel="stylesheet" type="text/css" href="/style.css">
-  </head>
-  <body>
-    <header>
-      <h1>marcoholism</h1>
-    </header>
-    <div class="content">
-    <main>
-      <h2>Impressum</h2>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Impressum - MarcoHolism</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Open Sans';
+      font-weight: 300;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #a855f7, #ec4899, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 2s infinite;
+    }
+    
+    h1 a {
+      text-decoration: none;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .card-container {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 1000px;
+      width: 100%;
+      margin-top: 2rem;
+    }
+    @media (min-width: 768px) {
+      .card-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .card {
+      background: rgba(27, 27, 47, 0.8);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card h2 {
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+    .card a {
+      color: white;
+      text-decoration: underline;
+      transition: opacity 0.2s;
+    }
+    .card a:hover {
+      opacity: 0.85;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.875rem;
+      color: #9ca3af;
+    }
+    footer a {
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="/">MarcoHolism</a></h1>
+  </header>
+
+  <main class="card-container">
+    <div class="card" style="border-color: rgba(147,51,234,0.4)">
+      <h2 style="color: #c084fc">Impressum</h2>
       <p>
         Marco Dörfler<br>
         c/o LEADERLY UG<br>
@@ -22,18 +98,19 @@
         44575 Castrop-Rauxel<br><br>
         E-Mail: impressum@marcoholism.us<br>
       </p>
-      <h2>Datenschutz</h2>
+    </div>
+
+    <div class="card" style="border-color: rgba(236,72,153,0.4)">
+      <h2 style="color: #f9a8d4">Datenschutz</h2>
       <p>Diese Website wird bei GitHub gehostet. Ich tracke keine Besuche und habe keinen Zugriff auf die Server-Log-Datei. Bitte die <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a> bachten.
       <p>Da ich hauptsächlich über Twitch streame, gilt insbesondere die <a href="https://legal.twitch.com/legal/privacy-notice/">Datenschutzerklärung von Twitch</a><br>
       Für Affiliate-Links bei Amazon die <a href="https://www.amazon.de/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GX7NJQ4ZB8MHFRNJ">Datenschutzerklärung von Amazon</a></p>
-    </main>
-    <nav>
-      <a href="/">Start</a>
-      <!--<a href="">Pokémon</a>-->
-    </nav>
-    <footer>
-      <p class="impressum">2025 marcoholism - <a href="/impressum.html">Impressum</a>
-    </footer>
-        </div>
-  </body>
+    </div>
+    
+  </main>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear());</script> marcoholism – Alle Rechte vorbehalten - <a href="/impressum">Impressum</a>
+  </footer>
+</body>
 </html>
