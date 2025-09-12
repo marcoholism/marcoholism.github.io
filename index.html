@@ -247,7 +247,7 @@ footer a { color:#9ca3af; }
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
-const particleCount = window.innerWidth < 768 ? 40 : 80;
+const particleCount = window.innerWidth < 768 ? 10 : 30;
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
@@ -264,7 +264,16 @@ class Particle {
     this.size = Math.random() * 3 + 1;
     this.speedX = (Math.random() - 0.5) * 0.5;
     this.speedY = Math.random() * 1 + 0.5;
-    this.color = `rgba(168,85,247,${Math.random()})`;
+
+    // Subtile Farbvariation: Lila/Pink/Türkis Töne
+    const baseColors = [
+      [168,85,247],   // lila
+      [59,130,246],   // blau
+      [236,72,153]    // pink
+    ];
+    const c = baseColors[Math.floor(Math.random() * baseColors.length)];
+    const alpha = Math.random() * 0.6 + 0.4; // 0.4 bis 1.0
+    this.color = `rgba(${c[0]},${c[1]},${c[2]},${alpha})`;
   }
   update() {
     this.x += this.speedX;
