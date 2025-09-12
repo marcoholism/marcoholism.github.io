@@ -118,7 +118,7 @@ body {
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
-const particleCount = 80;
+const particleCount = window.innerWidth < 768 ? 40 : 80;
 
 function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 window.addEventListener('resize', resizeCanvas);
