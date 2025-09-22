@@ -640,5 +640,22 @@
         "ability": "Feuchtigkeit"
       }
     ]
+  },
+  {
+    "title": "Kanto 6",
+    "pokemon": [
+      {
+        "name": "Mew",
+        "img": "151",
+        "gender": "",
+        "game": "LetsGo",
+        "trainer": "Marco",
+        "id": "510611",
+        "ball": "pokeball",
+        "level": 1,
+        "nature": "Hastig",
+        "ability": "-"
+      }
+    ]
   }
 ]
