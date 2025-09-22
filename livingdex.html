@@ -213,12 +213,12 @@ async function loadDex() {
         <span class="name">${p.name}</span>
       </div>
       <img src="pkmnicons/${p.img}.png" alt="${p.name}">
-      <div class="icons">
-        <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
-        <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
-      </div>
+        <div class="icons">
+    <span class="level">Lv. ${p.level}</span>
+    <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
+    <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
+  </div>
       <div class="trainer-info">
-    <div class="level">Lv. ${p.level}</div>
     <div class="ot-id">
       OT: ${p.trainer}<br>ID: ${p.id}
     </div>
@@ -226,7 +226,7 @@ async function loadDex() {
       ${p.nature}<br>${p.ability}
     </div>
   </div>
-    `;
+  `;
   } else {
     // Leeres Feld
     slot.innerHTML = `<div class="name">–</div>`;
