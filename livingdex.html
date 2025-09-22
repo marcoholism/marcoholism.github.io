@@ -171,7 +171,7 @@ async function loadDex() {
       const p = boxData.pokemon[i];
       if (p) {
         slot.innerHTML = `
-          <div class="name"><img src="/pkmnicons/${p.ball}"> ${p.name}</div>
+          <div class="name"><img src="/pkmnicons/${p.ball}.png"> ${p.name}</div>
           <img src="/pkmnicons/${p.img}.png" alt="${p.name}">
           <div class="icons">
             <span class="gender ${p.gender}">${p.gender === 'male' ? '♂' : p.gender === 'female' ? '♀' : '–'}</span>
