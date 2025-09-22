@@ -56,33 +56,9 @@
         "trainer": "Marco",
         "id": "609524"
       },
-      {
-        "name": "Schiggy",
-        "img": "007",
-        "ball": "pokeball",
-        "gender": "-",
-        "game": "-",
-        "trainer": "-",
-        "id": "-"
-      },
-      {
-        "name": "Schillok",
-        "img": "008",
-        "ball": "pokeball",
-        "gender": "-",
-        "game": "-",
-        "trainer": "-",
-        "id": "-"
-      },
-      {
-        "name": "Turtok",
-        "img": "009",
-        "ball": "pokeball",
-        "gender": "-",
-        "game": "-",
-        "trainer": "-",
-        "id": "-"
-      },
+      null,
+      null,
+      null,
       {
         "name": "Raupy",
         "img": "010",

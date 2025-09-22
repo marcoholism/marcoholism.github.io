@@ -175,29 +175,30 @@ async function loadDex() {
     grid.className = 'grid';
 
     for (let i = 0; i < 30; i++) {
-      const slot = document.createElement('div');
-      slot.className = 'slot';
+  const slot = document.createElement('div');
+  slot.className = 'slot';
 
-      const p = boxData.pokemon[i];
-      if (p) {
-        slot.innerHTML = `
-          <div class="name-ball">
-            <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="12">
-            <span class="name">${p.name}</span>
-          </div>
-          <img src="/pkmnicons/${p.img}.png" alt="${p.name}">
-          <div class="icons">
-            <span class="gender ${p.gender}">${p.gender === 'male' ? '♂' : p.gender === 'female' ? '♀' : '–'}</span>
-            <span title="Spiel"><img width="15" src="/pkmnicons/${p.game}.png" alt="${p.game}"></span>
-          </div>
-          <div class="trainer">OT: ${p.trainer}<br>ID: ${p.id}</div>
-        `;
-      } else {
-        slot.innerHTML = `<div class="name">–</div>`;
-      }
+  const p = boxData.pokemon[i];
+  if(p){
+    slot.innerHTML = `
+      <div class="name-ball">
+        <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="20">
+        <span class="name">${p.name}</span>
+      </div>
+      <img src="pkmnicons/${p.img}.png" alt="${p.name}">
+      <div class="icons">
+        <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
+        <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
+      </div>
+      <div class="trainer">OT: ${p.trainer}<br>ID: ${p.id}</div>
+    `;
+  } else {
+    // Leeres Feld
+    slot.innerHTML = `<div class="name">–</div>`;
+  }
 
-      grid.appendChild(slot);
-    }
+  grid.appendChild(slot);
+}
 
     box.appendChild(grid);
     container.appendChild(box);
