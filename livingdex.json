@@ -647,6 +647,7 @@
       {
         "name": "Mew",
         "img": "151",
+        "gender": "genderless"
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
