@@ -135,7 +135,7 @@ h1 {
   }
   .slot{
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    grid-template-columns: auto 50px auto auto auto;
     align-items:center;
     min-height:60px;
     padding:6px;
@@ -146,6 +146,7 @@ h1 {
     display:flex;
     align-items:center;
     justify-content:flex-start;
+    gap:4px;
   }
   .pokemon-img{
     grid-column:2;
@@ -168,12 +169,17 @@ h1 {
     font-size:0.7rem;
     color: var(--text-muted);
   }
-  .trainer-info .ot-id{text-align:left;}
-  .trainer-info .nature-ability{text-align:left;}
+  .trainer-info .ot-id{
+    text-align:left;
+    margin-bottom:2px;
+  }
   .trainer-info .nature-ability{
     grid-column:5;
     justify-self:end;
     text-align:right;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
   }
   .box h2{font-size:1.1rem;}
 }
