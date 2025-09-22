@@ -129,22 +129,24 @@ h1 {
   width: 100%;
   margin-top: 4px;
   font-size: 0.6rem;
-  gap: 4px;
+  gap: 8px;
   color: var(--text-muted);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 3px;
 }
-
-.trainer-info .ot-id {
-  flex: 1;
-  text-align: left;
-  line-height: 1.1;
-}
-
+.trainer-info .ot-id,
 .trainer-info .nature-ability {
   flex: 1;
+  line-height: 1.2;
+}
+.trainer-info .ot-id {
+  text-align: left;
+}
+.trainer-info .nature-ability {
   text-align: right;
-  line-height: 1.1;
 }
 
+/* Mobile Ansicht */
 @media (max-width: 600px) {
   .grid {
     display: flex;
@@ -164,11 +166,23 @@ h1 {
     margin: 0;
   }
   .slot .name, 
-  .slot .icons, 
-  .slot .trainer-info {
+  .slot .icons {
     font-size: 0.7rem;
     margin: 0 0 0 6px;
     text-align: left;
+  }
+  .trainer-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 4px;
+    font-size: 0.65rem;
+  }
+  .trainer-info .ot-id,
+  .trainer-info .nature-ability {
+    text-align: left;
+    width: 100%;
   }
   .box h2 {
     font-size: 1.1rem;
