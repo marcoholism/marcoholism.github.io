@@ -153,59 +153,62 @@ h1 {
 
   .slot {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 Spalten */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 gleich breite Spalten */
     align-items: center;
-    justify-content: start;
-    min-height: auto;
     gap: 8px;
     padding: 6px;
     text-align: left;
   }
 
-  .slot img {
-    max-width: 40px;
-    height: auto;
-    margin: 0;
-  }
-
+  /* Spalte 1: Ball + Name → linksbündig */
   .name-ball {
     display: flex;
-    align-items: left;
+    align-items: center;
+    justify-content: flex-start;
     gap: 4px;
   }
-
   .slot .name {
     font-size: 0.75rem;
     font-weight: 600;
   }
 
-  .icons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    font-size: 0.7rem;
+  /* Spalte 2: Pokémon-Bild → zentriert */
+  .slot img {
+    max-width: 40px;
+    height: auto;
+    margin: 0 auto;   /* zentriert in der Spalte */
+    display: block;
   }
 
+  /* Spalte 3: Level + Gender + Spiel → nebeneinander */
+  .icons {
+    display: flex;
+    flex-direction: row;   /* nebeneinander */
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.7rem;
+  }
   .icons .level {
     font-weight: 700;
     font-size: 0.75rem;
     color: #f3f4f6;
   }
 
-  .trainer-info {
-    display: block;
+  /* Spalte 4: OT + ID → linksbündig */
+  .trainer-info .ot-id {
+    text-align: left;
     font-size: 0.7rem;
     color: var(--text-muted);
     line-height: 1.2;
   }
 
-  .trainer-info .ot-id {
-    margin-bottom: 2px;
-  }
-
+  /* Spalte 5: Wesen + Fähigkeit → rechtsbündig */
   .trainer-info .nature-ability {
-    margin-top: 2px;
+    text-align: right;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.2;
   }
 
   .box h2 {
