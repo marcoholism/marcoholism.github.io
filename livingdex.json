@@ -1751,5 +1751,106 @@
         "ability": "-"
       }
     ]
+  },
+  {
+    "title": "Pikachu",
+    "pokemon": [
+      {
+        "name": "Pikachu",
+        "img": "025g",
+        "gender": "male",
+        "game": "Galar",
+        "trainer": "Ash",
+        "id": "201023",
+        "ball": "pokeball",
+        "level": 25,
+        "nature": "Robust",
+        "ability": "Statik"
+      },
+      {
+        "name": "Pikachu",
+        "img": "025h",
+        "gender": "male",
+        "game": "Galar",
+        "trainer": "Ash",
+        "id": "201023",
+        "ball": "pokeball",
+        "level": 25,
+        "nature": "Robust",
+        "ability": "Statik"
+      },
+      {
+        "name": "Pikachu",
+        "img": "025i",
+        "gender": "male",
+        "game": "Galar",
+        "trainer": "Ash",
+        "id": "201023",
+        "ball": "pokeball",
+        "level": 25,
+        "nature": "Robust",
+        "ability": "Statik"
+      },
+      {
+        "name": "Pikachu",
+        "img": "025j",
+        "gender": "male",
+        "game": "Galar",
+        "trainer": "Ash",
+        "id": "201023",
+        "ball": "pokeball",
+        "level": 25,
+        "nature": "Robust",
+        "ability": "Statik"
+      },
+      {
+        "name": "Pikachu",
+        "img": "025k",
+        "gender": "male",
+        "game": "Galar",
+        "trainer": "Ash",
+        "id": "201023",
+        "ball": "pokeball",
+        "level": 25,
+        "nature": "Robust",
+        "ability": "Statik"
+      },
+      {
+        "name": "Pikachu",
+        "img": "025l",
+        "gender": "male",
+        "game": "Galar",
+        "trainer": "Ash",
+        "id": "201023",
+        "ball": "pokeball",
+        "level": 25,
+        "nature": "Robust",
+        "ability": "Statik"
+      },
+      {
+        "name": "Pikachu",
+        "img": "025m",
+        "gender": "male",
+        "game": "Galar",
+        "trainer": "Ash",
+        "id": "201023",
+        "ball": "pokeball",
+        "level": 25,
+        "nature": "Robust",
+        "ability": "Statik"
+      },
+      {
+        "name": "Pikachu",
+        "img": "025o",
+        "gender": "male",
+        "game": "Galar",
+        "trainer": "Ash",
+        "id": "201023",
+        "ball": "pokeball",
+        "level": 25,
+        "nature": "Robust",
+        "ability": "Statik"
+      }
+    ]
   }
 ]
