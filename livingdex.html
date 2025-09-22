@@ -69,14 +69,14 @@ h1 {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
-  padding: 4px;
+  padding: 6px;
   font-size: 0.65rem;
   display: flex;
-  flex-direction: column; /* Name oben, bottom unten */
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  min-height: 110px;
+  min-height: 120px;
   transition: transform .15s;
 }
 
@@ -85,12 +85,13 @@ h1 {
   background: rgba(255,255,255,0.1);
 }
 
-/* Name-Ball oben */
+/* Name + Ball oben */
 .name-ball {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
+  margin-bottom: 4px;
 }
 
 .name-ball .ball {
@@ -104,17 +105,16 @@ h1 {
   color: #f3f4f6;
 }
 
-/* Bottom container: Pokemon Bild + Icons */
-.slot .bottom {
+/* Middle: Pokemon image + level + icons */
+.middle {
   display: flex;
-  flex-direction: row;
   align-items: flex-end; /* bottom-aligned */
   justify-content: center;
   gap: 6px;
-  margin-top: auto; /* schiebt Container nach unten */
+  margin-bottom: 4px;
 }
 
-.slot .bottom img.pokemon {
+.middle img.pokemon {
   max-width: 50px;
   height: auto;
 }
@@ -147,12 +147,11 @@ h1 {
 .gender.female { background: #ef4444; }
 .gender.genderless { background: #6b7280; }
 
-/* Trainer Infos */
+/* Trainer Infos + Nature/Ability */
 .trainer-info {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 4px;
   font-size: 0.6rem;
   gap: 4px;
   color: var(--text-muted);
@@ -169,7 +168,7 @@ h1 {
   text-align: right;
 }
 
-/* Mobile Version */
+/* Mobile Layout */
 @media (max-width: 600px) {
   .grid {
     display: grid;
@@ -180,28 +179,28 @@ h1 {
   .slot {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 Spalten: Ball+Name | Bild | Icons | OT/ID | Nature/Ability */
-    gap: 6px;
     align-items: center;
     justify-items: start;
     min-height: 50px;
     padding: 6px;
+    gap: 6px;
   }
 
   .name-ball {
     justify-content: flex-start;
   }
 
-  .slot img.pokemon {
-    display: block;
-    margin: 0 auto;
+  .middle {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .middle img.pokemon {
     max-width: 40px;
-    height: auto;
   }
 
   .icons {
     justify-content: center;
-    align-items: center;
-    gap: 4px;
     font-size: 0.7rem;
   }
 
@@ -243,22 +242,26 @@ async function loadDex() {
       slot.className = 'slot';
 
       const p = boxData.pokemon[i];
-      if(p){
+      if (p) {
+        // Slot-Inhalt aufbauen
         slot.innerHTML = `
+          <!-- Name + Ball -->
           <div class="name-ball">
             <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="12">
             <span class="name">${p.name}</span>
           </div>
-          
-          <div class="bootm">
-            <img src="pkmnicons/${p.img}.png" alt="${p.name}">
+
+          <!-- Pokemon Bild + Level + Gender + Game -->
+          <div class="middle">
+            <img class="pokemon" src="pkmnicons/${p.img}.png" alt="${p.name}">
             <div class="icons">
               <span class="level">Lv. ${p.level}</span>
               <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
               <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
             </div>
           </div>
-            
+
+          <!-- Trainer + Nature/Ability -->
           <div class="trainer-info">
             <div class="ot-id">
               OT: ${p.trainer}<br>ID: ${p.id}
@@ -269,6 +272,7 @@ async function loadDex() {
           </div>
         `;
       } else {
+        // Leeres Feld
         slot.innerHTML = `<div class="name">–</div>`;
       }
 
@@ -279,7 +283,9 @@ async function loadDex() {
     container.appendChild(box);
   });
 }
+
 loadDex();
 </script>
+
 </body>
 </html>
