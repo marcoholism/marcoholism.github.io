@@ -128,69 +128,77 @@ h1 {
 .trainer-info .nature-ability{text-align:right;}
 
 /* MOBILE */
-@media(max-width:600px){
-  .grid{
-    grid-template-columns:1fr;
-    gap:6px;
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 
-  .slot{
-    display:grid;
-    grid-template-columns: 5rem 1.5rem auto auto auto;
-    align-items:center; /* Vertikal zentriert */
-    min-height:60px;
-    padding:6px;
-    gap:6px;
+  .slot {
+    display: grid;
+    grid-template-columns: 5rem 1.5rem 1fr 1fr; /* 4 Spalten */
+    align-items: center; /* Vertikal zentriert */
+    min-height: 60px;
+    padding: 6px;
+    gap: 6px;
   }
 
-  .name-ball{
-    grid-column:1;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:4px;
+  .name-ball {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
   }
 
-  .pokemon-img{
-    grid-column:2;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  .pokemon-img-icons {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
   }
 
-  .icons{
-    grid-column:3;
-    display:flex;
-    align-items:center; /* Vertikal zentriert */
-    gap:4px;
-    font-size:0.7rem;
+  .pokemon-img-icons img {
+    max-width: 40px;
+    height: auto;
   }
 
-  .trainer-info{
-    display:flex;
-    flex-direction:column;
-    justify-content:center; /* Vertikal zentriert innerhalb der Spalte */
-    font-size:0.7rem;
+  .icons {
+    display: flex;
+    align-items: center; /* Vertikal zentriert innerhalb der Icons */
+    justify-content: center;
+    gap: 4px;
+    font-size: 0.7rem;
+  }
+
+  .icons .level {
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: #f3f4f6;
+  }
+
+  .trainer-info {
+    grid-column: 3 / 5; /* erstreckt sich über die letzten beiden Spalten */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* OT/ID + Wesen/Fähigkeit */
+    gap: 4px;
+    align-items: center; /* Vertikal zentriert */
+    font-size: 0.7rem;
     color: var(--text-muted);
-    gap:2px;
-  }
-  .trainer-info .ot-id{
-    grid-column:4;
-    display:flex;
-    text-align:left;
   }
 
-  .trainer-info .nature-ability{
-    grid-column:5;
-    justify-self:end;
-    display:flex;
-    flex-direction:column;
-    justify-content:center; /* Vertikal zentriert */
-    text-align:right;
+  .trainer-info .ot-id {
+    text-align: left;
   }
 
-  .box h2{
-    font-size:1.1rem;
+  .trainer-info .nature-ability {
+    text-align: right;
+  }
+
+  .box h2 {
+    font-size: 1.1rem;
   }
 }
 </style>
