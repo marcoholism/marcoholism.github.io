@@ -56,29 +56,23 @@ h1 {
   grid-template-columns:repeat(6,1fr);
   gap:8px;
 }
+
+/* DESKTOP SLOT */
 .slot{
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
   padding: 6px;
   font-size:0.65rem;
-  display:flex;
-  flex-direction:row;
-  align-items:flex-end; /* Bottom-aligned */
-  justify-content:space-between;
-  min-height:120px;
-  transition: transform .15s;
-}
-.slot:hover{
-  transform:scale(1.05);
-  background: rgba(255,255,255,0.1);
+  display:grid;
+  grid-template-rows: auto 1fr auto auto;
+  row-gap:4px;
+  min-height:130px;
 }
 .name-ball{
   display:flex;
   align-items:center;
   gap:4px;
-  flex:1;
-  justify-content:flex-start;
 }
 .name-ball .ball{
   display:inline-block;
@@ -90,17 +84,19 @@ h1 {
   color:#f3f4f6;
 }
 .pokemon-img{
-  max-width:50px;
-  height:auto;
-  flex-shrink:0;
   display:flex;
   align-items:flex-end;
+  justify-content:center;
+}
+.pokemon-img img{
+  max-width:50px;
+  height:auto;
 }
 .icons{
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:4px;
-  font-size:0.65rem;
 }
 .icons .level{
   font-weight:700;
@@ -123,25 +119,21 @@ h1 {
 .trainer-info{
   display:flex;
   justify-content:space-between;
-  flex:2;
   font-size:0.6rem;
   gap:4px;
   color:var(--text-muted);
 }
-.trainer-info .ot-id{
-  text-align:left;
-}
-.trainer-info .nature-ability{
-  text-align:right;
-}
+.trainer-info .ot-id{text-align:left;}
+.trainer-info .nature-ability{text-align:right;}
 
-/* Mobile */
+/* MOBILE */
 @media(max-width:600px){
   .grid{
     grid-template-columns:1fr;
     gap:6px;
   }
   .slot{
+    display:flex;
     flex-direction:row;
     align-items:center;
     justify-content:flex-start;
@@ -160,6 +152,7 @@ h1 {
   }
   .box h2{font-size:1.1rem;}
 }
+
 </style>
 </head>
 <body>
