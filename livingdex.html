@@ -135,8 +135,8 @@ async function loadDex() {
       if (dexData[index]) {
         const p = dexData[index];
         slot.innerHTML = `
-          <img src="${p.img}" alt="${p.name}">
           <div class="name">${p.name}</div>
+          <img src="${p.img}" alt="${p.name}">
           <div class="icons">
             <span class="gender ${p.gender}">${p.gender === 'male' ? '♂' : p.gender === 'female' ? '♀' : '–'}</span>
             <span title="Spiel">${p.game}</span>
