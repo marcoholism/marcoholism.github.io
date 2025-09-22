@@ -5,29 +5,38 @@
       {
         "name": "Bisasam",
         "img": "001",
-        "ball": "pokeball",
         "gender": "male",
         "game": "sv",
         "trainer": "Marco",
-        "id": "609524"
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 60,
+        "nature": "Hitzig",
+        "ability": "Notdünger"
       },
       {
         "name": "Bisaknosp",
         "img": "002",
-        "ball": "pokeball",
         "gender": "male",
         "game": "sv",
         "trainer": "Marco",
-        "id": "609524"
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 60,
+        "nature": "Hitzig",
+        "ability": "Notdünger"
       },
       {
         "name": "Bisaflor",
         "img": "003",
-        "ball": "pokeball",
         "gender": "male",
         "game": "sv",
         "trainer": "Marco",
-        "id": "609524"
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 60,
+        "nature": "Kühn",
+        "ability": "Notdünger"
       },
       {
         "name": "Glumanda",

@@ -116,6 +116,33 @@ h1 {
   line-height: 1.1;
 }
 
+.trainer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 4px;
+  font-size: 0.6rem;
+  gap: 4px;
+}
+
+.trainer-info .level {
+  font-weight: 700;
+  font-size: 0.7rem; /* etwas größer */
+}
+
+.trainer-info .ot-id {
+  text-align: center;
+  flex: 1;
+  line-height: 1.1;
+}
+
+.trainer-info .nature-ability {
+  text-align: right;
+  flex: 1;
+  line-height: 1.1;
+}
+
 @media (max-width: 600px) {
   .grid {
     display: flex;
@@ -182,7 +209,7 @@ async function loadDex() {
   if(p){
     slot.innerHTML = `
       <div class="name-ball">
-        <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="20">
+        <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="12">
         <span class="name">${p.name}</span>
       </div>
       <img src="pkmnicons/${p.img}.png" alt="${p.name}">
@@ -190,7 +217,15 @@ async function loadDex() {
         <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
         <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
       </div>
-      <div class="trainer">OT: ${p.trainer}<br>ID: ${p.id}</div>
+      <div class="trainer-info">
+    <div class="level">Lv. ${p.level}</div>
+    <div class="ot-id">
+      OT: ${p.trainer}<br>ID: ${p.id}
+    </div>
+    <div class="nature-ability">
+      ${p.nature}<br>${p.ability}
+    </div>
+  </div>
     `;
   } else {
     // Leeres Feld
