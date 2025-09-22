@@ -81,6 +81,16 @@ h1 {
   margin-bottom: 2px;
   color: #f3f4f6;
 }
+.name-ball {
+  display: flex;
+  align-items: center;   
+  justify-content: center;
+  gap: 4px;
+}
+.name-ball .ball {
+  display: inline-block;
+  vertical-align: middle;
+}
 .slot .icons {
   display: flex;
   gap: 4px;
@@ -171,7 +181,10 @@ async function loadDex() {
       const p = boxData.pokemon[i];
       if (p) {
         slot.innerHTML = `
-          <div class="name"><img src="/pkmnicons/${p.ball}.png" width="15"> ${p.name}</div>
+          <div class="name-ball">
+            <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="20">
+            <span class="name">${p.name}</span>
+          </div>
           <img src="/pkmnicons/${p.img}.png" alt="${p.name}">
           <div class="icons">
             <span class="gender ${p.gender}">${p.gender === 'male' ? '♂' : p.gender === 'female' ? '♀' : '–'}</span>
