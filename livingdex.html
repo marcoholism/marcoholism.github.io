@@ -135,7 +135,7 @@ async function loadDex() {
       if (p) {
         slot.innerHTML = `
           <div class="name">${p.name}</div>
-          <img src="${p.img}" alt="${p.name}">
+          <img src="/pkmnicons/Pokémon-Icon_${p.img}.png" alt="${p.name}">
           <div class="icons">
             <span class="gender ${p.gender}">${p.gender === 'male' ? '♂' : p.gender === 'female' ? '♀' : '–'}</span>
             <span title="Spiel">${p.game}</span>

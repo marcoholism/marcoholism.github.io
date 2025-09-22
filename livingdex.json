@@ -1,27 +1,83 @@
 [
   {
-    "title": "Kanto Starter",
+    "title": "Kanto 1",
     "pokemon": [
       {
         "name": "Bisasam",
-        "img": "https://www.pokewiki.de/images/1/1c/Pokémon-Icon_001.png",
+        "img": "001",
         "gender": "male",
-        "game": "Karmesin",
+        "game": "Karmesin/Purpur",
         "trainer": "Marco",
-        "id": "123456"
+        "id": "609524"
+      },
+      {
+        "name": "Bisaknosp",
+        "img": "002",
+        "gender": "male",
+        "game": "Karmesin/Purpur",
+        "trainer": "Marco",
+        "id": "609524"
+      },
+      {
+        "name": "Bisaflor",
+        "img": "003",
+        "gender": "male",
+        "game": "Karmesin/Purpur",
+        "trainer": "Marco",
+        "id": "609524"
       },
       {
         "name": "Glumanda",
-        "img": "https://www.pokewiki.de/images/f/f3/Sprite_004_RG.png",
-        "gender": "female",
-        "game": "Smaragd",
-        "trainer": "Ash",
-        "id": "987654"
+        "img": "004",
+        "gender": "male",
+        "game": "Karmesin/Purpur",
+        "trainer": "Marco",
+        "id": "609524"
+      },
+      {
+        "name": "Glutexo",
+        "img": "005",
+        "gender": "male",
+        "game": "Karmesin/Purpur",
+        "trainer": "Marco",
+        "id": "609524"
+      },
+      {
+        "name": "Glurak",
+        "img": "006",
+        "gender": "male",
+        "game": "Karmesin/Purpur",
+        "trainer": "Marco",
+        "id": "609524"
+      },
+      {
+        "name": "Schiggy",
+        "img": "007",
+        "gender": "-",
+        "game": "-",
+        "trainer": "-",
+        "id": "-"
+      },
+      {
+        "name": "Schillok",
+        "img": "008",
+        "gender": "-",
+        "game": "-",
+        "trainer": "-",
+        "id": "-"
+      },
+      {
+        "name": "Turtok",
+        "img": "009",
+        "gender": "-",
+        "game": "-",
+        "trainer": "-",
+        "id": "-"
       }
     ]
   },
   {
-    "title": "Johto Shinys",
+    "title": "Kanto 2",
     "pokemon": [
       {
         "name": "Endivie",
