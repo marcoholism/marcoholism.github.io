@@ -6,7 +6,7 @@
         "name": "Bisasam",
         "img": "001",
         "gender": "male",
-        "game": "sv",
+        "game": "Paldea",
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
@@ -18,11 +18,11 @@
         "name": "Bisaknosp",
         "img": "002",
         "gender": "male",
-        "game": "sv",
+        "game": "Paldea",
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": 61,
         "nature": "Hitzig",
         "ability": "Notdünger"
       },
@@ -30,40 +30,49 @@
         "name": "Bisaflor",
         "img": "003",
         "gender": "male",
-        "game": "sv",
+        "game": "Paldea",
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": 61,
         "nature": "Kühn",
         "ability": "Notdünger"
       },
       {
         "name": "Glumanda",
         "img": "004",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "sv",
+        "game": "Paldea",
         "trainer": "Marco",
-        "id": "609524"
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 60,
+        "nature": "Froh",
+        "ability": "Großbrand"
       },
       {
         "name": "Glutexo",
         "img": "005",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "sv",
+        "game": "Paldea",
         "trainer": "Marco",
-        "id": "609524"
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 61,
+        "nature": "Sacht",
+        "ability": "Großbrand"
       },
       {
         "name": "Glurak",
         "img": "006",
-        "ball": "pokeball",
         "gender": "male",
         "game": "sv",
         "trainer": "Marco",
-        "id": "609524"
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 62,
+        "nature": "Solo",
+        "ability": "Großbrand"
       },
       null,
       null,
@@ -71,83 +80,99 @@
       {
         "name": "Raupy",
         "img": "010",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "lg",
+        "game": "LetsGo",
         "trainer": "Marco",
-        "id": "510611"
+        "id": "510611",
+        "ball": "pokeball",
+        "level": 3,
+        "nature": "Solo",
+        "ability": "-"
       },
       {
         "name": "Safcon",
         "img": "011",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "lg",
+        "game": "LetsGo",
         "trainer": "Marco",
-        "id": "510611"
+        "id": "510611",
+        "ball": "pokeball",
+        "level": 4,
+        "nature": "Robust",
+        "ability": "-"
       },
       {
         "name": "Smettbo",
         "img": "012",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "lg",
+        "game": "LetsGo",
         "trainer": "Marco",
-        "id": "510611"
+        "id": "510611",
+        "ball": "pokeball",
+        "level": 5,
+        "nature": "Hitzig",
+        "ability": "-"
       },
       {
         "name": "Hornliu",
         "img": "013",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "lg",
+        "game": "LetsGo",
         "trainer": "Marco",
-        "id": "510611"
+        "id": "510611",
+        "ball": "pokeball",
+        "level": 5,
+        "nature": "Robust",
+        "ability": "-"
       },
       {
         "name": "Kokuna",
         "img": "014",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "lg",
+        "game": "LetsGo",
         "trainer": "Marco",
-        "id": "510611"
+        "id": "510611",
+        "ball": "pokeball",
+        "level": 6,
+        "nature": "Kühn",
+        "ability": "-"
       },
       {
         "name": "Bibor",
         "img": "015",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "lg",
+        "game": "LetsGo",
         "trainer": "Marco",
-        "id": "510611"
+        "id": "510611",
+        "ball": "pokeball",
+        "level": 14,
+        "nature": "Scheu",
+        "ability": "-"
       },
       {
         "name": "Taubsi",
         "img": "016",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "lg",
+        "game": "LetsGo",
         "trainer": "Marco",
-        "id": "510611"
-      },
-      {
-        "name": "Tauboga",
-        "img": "017",
+        "id": "510611",
         "ball": "pokeball",
-        "gender": "-",
-        "game": "-",
-        "trainer": "-",
-        "id": "-"
+        "level": 3,
+        "nature": "Zaghaft",
+        "ability": "-"
       },
+      null,
       {
         "name": "Tauboss",
         "img": "018",
-        "ball": "pokeball",
         "gender": "male",
-        "game": "lg",
+        "game": "LetsGo",
         "trainer": "Marco",
-        "id": "510611"
+        "id": "510611",
+        "ball": "pokeball",
+        "level": 64,
+        "nature": "Mild",
+        "ability": "-"
       }
     ]
   }
