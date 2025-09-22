@@ -127,6 +127,18 @@ h1 {
 .trainer-info .ot-id{text-align:left;}
 .trainer-info .nature-ability{text-align:right;}
 
+/* Desktop-Hover für Slots */
+@media(min-width:601px){
+  .slot {
+    transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  }
+  .slot:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+  }
+}
+
 /* MOBILE */
 @media (max-width: 600px) {
   .grid {
@@ -211,7 +223,7 @@ h1 {
 }</style>
 </head>
 <body>
-<h1>Living Dex Tracker</h1>
+<h1>MarcoHolism Pokémon HOME</h1>
 <div class="container"></div>
 
 <script>
