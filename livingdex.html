@@ -114,26 +114,25 @@ h1 {
 <script>
 async function loadDex() {
   const response = await fetch('livingdex.json');
-  const dexData = await response.json();
+  const boxes = await response.json();
 
   const container = document.querySelector('.container');
   container.innerHTML = '';
 
-  let index = 0;
-  for (let i = 1; i <= 47; i++) {
+  boxes.forEach(boxData => {
     const box = document.createElement('div');
     box.className = 'box';
-    box.innerHTML = `<h2>Box ${i}</h2>`;
+    box.innerHTML = `<h2>${boxData.title}</h2>`;
 
     const grid = document.createElement('div');
     grid.className = 'grid';
 
-    for (let j = 0; j < 30; j++) {
+    for (let i = 0; i < 30; i++) {
       const slot = document.createElement('div');
       slot.className = 'slot';
 
-      if (dexData[index]) {
-        const p = dexData[index];
+      const p = boxData.pokemon[i];
+      if (p) {
         slot.innerHTML = `
           <div class="name">${p.name}</div>
           <img src="${p.img}" alt="${p.name}">
@@ -148,15 +147,14 @@ async function loadDex() {
       }
 
       grid.appendChild(slot);
-      index++;
     }
 
     box.appendChild(grid);
     container.appendChild(box);
-  }
+  });
 }
-
 loadDex();
+
 </script>
 </body>
 </html>

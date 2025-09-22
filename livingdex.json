@@ -1,26 +1,38 @@
 [
   {
-    "name": "Bisasam",
-    "img": "https://www.pokewiki.de/images/1/1c/Pokémon-Icon_001.png",
-    "gender": "male",
-    "game": "Karmesin",
-    "trainer": "Marco",
-    "id": "12345"
+    "title": "Kanto Starter",
+    "pokemon": [
+      {
+        "name": "Bisasam",
+        "img": "https://www.pokewiki.de/images/1/1c/Pokémon-Icon_001.png",
+        "gender": "male",
+        "game": "Karmesin",
+        "trainer": "Marco",
+        "id": "123456"
+      },
+      {
+        "name": "Glumanda",
+        "img": "https://www.pokewiki.de/images/f/f3/Sprite_004_RG.png",
+        "gender": "female",
+        "game": "Smaragd",
+        "trainer": "Ash",
+        "id": "987654"
+      }
+      // … bis zu 30 Pokémon
+    ]
   },
   {
-    "name": "Glumanda",
-    "img": "https://www.pokewiki.de/images/f/fb/Sugimori_004.png",
-    "gender": "female",
-    "game": "Purpur",
-    "trainer": "Lena",
-    "id": "54321"
-  },
-  {
-    "name": "Schiggy",
-    "img": "https://www.pokewiki.de/images/4/49/Sugimori_007.png",
-    "gender": "genderless",
-    "game": "Pokémon GO",
-    "trainer": "Chris",
-    "id": "77777"
+    "title": "Johto Shinys",
+    "pokemon": [
+      {
+        "name": "Endivie",
+        "img": "https://www.pokewiki.de/images/4/4f/Sprite_152_G.png",
+        "gender": "female",
+        "game": "Gold",
+        "trainer": "Marco",
+        "id": "223344"
+      }
+      // … bis zu 30 Pokémon
+    ]
   }
 ]
