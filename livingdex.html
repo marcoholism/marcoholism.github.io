@@ -129,33 +129,44 @@ h1 {
   width: 100%;
   margin-top: 4px;
   font-size: 0.6rem;
-  gap: 4px;
+  gap: 8px;
   color: var(--text-muted);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 3px;
 }
-
-.trainer-info .ot-id {
-  flex: 1;
-  text-align: left;
-  line-height: 1.1;
-}
-
+.trainer-info .ot-id,
 .trainer-info .nature-ability {
   flex: 1;
+  line-height: 1.2;
+}
+.trainer-info .ot-id {
+  text-align: left;
+}
+.trainer-info .nature-ability {
   text-align: right;
-  line-height: 1.1;
 }
 
+/* Mobile Ansicht */
 @media (max-width: 600px) {
+  /* Eltern-Grid auf 1 Spalte runterbrechen */
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Jeder Slot ist jetzt eine Tabellenzeile */
   .slot {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* alle Spalten gleich breit */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 Spalten gleich breit */
     align-items: center;
     gap: 6px;
     padding: 6px;
     text-align: left;
+    min-height: auto; /* nicht fix klemmen */
   }
 
-  /* Spalte 1: Pokéball + Name linksbündig */
+  /* Spalte 1: Pokéball + Name links */
   .name-ball {
     display: flex;
     align-items: center;
@@ -163,7 +174,7 @@ h1 {
     gap: 4px;
   }
 
-  /* Spalte 2: Bild zentrieren */
+  /* Spalte 2: Pokémon-Bild zentrieren */
   .slot img.pokemon {
     display: block;
     margin: 0 auto;
@@ -171,33 +182,33 @@ h1 {
     height: auto;
   }
 
-  /* Spalte 3: Level + Gender + Game nebeneinander */
+  /* Spalte 3: Level, Gender, Game nebeneinander */
   .icons {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 4px;
+    font-size: 0.7rem;
   }
 
-  /* Spalte 4: OT + ID linksbündig */
+  /* Spalte 4: OT/ID links */
   .trainer-info .ot-id {
     text-align: left;
   }
 
-  /* Spalte 5: Wesen + Fähigkeit rechtsbündig */
+  /* Spalte 5: Wesen/Fähigkeit rechts */
   .trainer-info .nature-ability {
     text-align: right;
   }
 
   .trainer-info {
-    display: contents; /* jede Info bleibt in der richtigen Grid-Spalte */
+    display: contents; /* sorgt dafür, dass ot-id und nature-ability
+                          direkt in Spalte 4 und 5 landen */
     font-size: 0.7rem;
     color: var(--text-muted);
     line-height: 1.2;
   }
 }
-
 </style>
 </head>
 <body>
