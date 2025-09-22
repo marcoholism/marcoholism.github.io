@@ -75,7 +75,7 @@ h1 {
   font-size: 0.65rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Name oben, Bild+Icons unten */
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   min-height: 110px;
@@ -85,6 +85,12 @@ h1 {
 .slot:hover { 
   transform: scale(1.05); 
   background: rgba(255,255,255,0.1); 
+}
+
+.slot img {
+  max-width: 50px;
+  height: auto;
+  margin-bottom: 2px;
 }
 
 .name-ball {
@@ -106,27 +112,13 @@ h1 {
   color: #f3f4f6;
 }
 
-/* Bottom Container für Bild + Icons */
-.slot .bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 2px;
-}
-
-.slot .bottom img.pokemon {
-  max-width: 50px;
-  height: auto;
-  margin: 0;
-}
-
 .icons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   font-size: 0.65rem;
+  margin-bottom: 2px;
 }
 
 .icons .level {
@@ -215,7 +207,7 @@ h1 {
 
   /* Trainerinfos als Spalte 4 und 5 */
   .trainer-info {
-    display: contents; /* OT/ID und Nature/Ability direkt in Spalten */
+    display: contents; /* macht OT/ID und Nature/Ability zu Grid-Kindern */
     font-size: 0.7rem;
     color: var(--text-muted);
     line-height: 1.2;
@@ -233,7 +225,6 @@ h1 {
     font-size: 1.1rem;
   }
 }
-
 </style>
 </head>
 <body>
@@ -263,22 +254,24 @@ async function loadDex() {
       const p = boxData.pokemon[i];
       if(p){
         slot.innerHTML = `
-            <div class="name-ball">
-              <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="12">
-              <span class="name">${p.name}</span>
+          <div class="name-ball">
+            <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="12">
+            <span class="name">${p.name}</span>
+          </div>
+          <img src="pkmnicons/${p.img}.png" alt="${p.name}">
+          <div class="icons">
+            <span class="level">Lv. ${p.level}</span>
+            <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
+            <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
+          </div>
+          <div class="trainer-info">
+            <div class="ot-id">
+              OT: ${p.trainer}<br>ID: ${p.id}
             </div>
-            <div class="bottom">
-              <img class="pokemon" src="pkmnicons/${p.img}.png" alt="${p.name}">
-              <div class="icons">
-                <span class="level">Lv. ${p.level}</span>
-                <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
-                <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
-              </div>
+            <div class="nature-ability">
+              ${p.nature}<br>${p.ability}
             </div>
-            <div class="trainer-info">
-              <div class="ot-id">OT: ${p.trainer}<br>ID: ${p.id}</div>
-              <div class="nature-ability">${p.nature}<br>${p.ability}</div>
-            </div>
+          </div>
         `;
       } else {
         slot.innerHTML = `<div class="name">–</div>`;
