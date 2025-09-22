@@ -146,75 +146,58 @@ h1 {
 }
 
 @media (max-width: 600px) {
-  .grid {
-    display: flex;
-    flex-direction: column;
-  }
-
   .slot {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr auto 1fr; /* 5 gleich breite Spalten */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* alle Spalten gleich breit */
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     padding: 6px;
     text-align: left;
   }
 
-  /* Spalte 1: Ball + Name → linksbündig */
+  /* Spalte 1: Pokéball + Name linksbündig */
   .name-ball {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 4px;
   }
-  .slot .name {
-    font-size: 0.75rem;
-    font-weight: 600;
-  }
 
-  /* Spalte 2: Pokémon-Bild → zentriert */
-  .slot img {
+  /* Spalte 2: Bild zentrieren */
+  .slot img.pokemon {
+    display: block;
+    margin: 0 auto;
     max-width: 40px;
     height: auto;
-    margin: 0 auto;   /* zentriert in der Spalte */
-    display: block;
   }
 
-  /* Spalte 3: Level + Gender + Spiel → nebeneinander */
+  /* Spalte 3: Level + Gender + Game nebeneinander */
   .icons {
     display: flex;
-    flex-direction: row;   /* nebeneinander */
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
-    gap: 6px;
-    font-size: 0.7rem;
-  }
-  .icons .level {
-    font-weight: 700;
-    font-size: 0.75rem;
-    color: #f3f4f6;
+    align-items: center;
+    gap: 4px;
   }
 
-  /* Spalte 4: OT + ID → linksbündig */
+  /* Spalte 4: OT + ID linksbündig */
   .trainer-info .ot-id {
     text-align: left;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    line-height: 1.2;
   }
 
-  /* Spalte 5: Wesen + Fähigkeit → rechtsbündig */
+  /* Spalte 5: Wesen + Fähigkeit rechtsbündig */
   .trainer-info .nature-ability {
     text-align: right;
+  }
+
+  .trainer-info {
+    display: contents; /* jede Info bleibt in der richtigen Grid-Spalte */
     font-size: 0.7rem;
     color: var(--text-muted);
     line-height: 1.2;
   }
-
-  .box h2 {
-    font-size: 1.1rem;
-  }
 }
+
 </style>
 </head>
 <body>
