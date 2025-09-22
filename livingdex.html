@@ -12,195 +12,154 @@
   --glass: rgba(27,27,47,0.8);
   --text-muted: #a1a1aa;
 }
-
 body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(to bottom, var(--bg1), var(--bg2), var(--bg3));
-  color: white;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+  margin:0;
+  font-family:'Open Sans',sans-serif;
+  background:linear-gradient(to bottom,var(--bg1),var(--bg2),var(--bg3));
+  color:white;
+  padding:2rem 1rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
 }
-
 h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  background: linear-gradient(to right, var(--accent1), var(--accent3), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size:2.5rem;
+  font-weight:800;
+  margin-bottom:2rem;
+  background:linear-gradient(to right,var(--accent1),var(--accent3),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
-
-.container {
-  max-width: 1000px;
-  width: 100%;
-  display: grid;
-  gap: 2rem;
+.container{
+  max-width:1000px;
+  width:100%;
+  display:grid;
+  gap:2rem;
 }
-
-.box {
-  background: var(--glass);
-  padding: 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(167,139,250,0.12);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+.box{
+  background:var(--glass);
+  padding:1rem;
+  border-radius:12px;
+  border:1px solid rgba(167,139,250,0.12);
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 30px rgba(0,0,0,0.45);
 }
-
-.box h2 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  text-align: left;
-  color: #e6e1ff;
+.box h2{
+  font-size:1.25rem;
+  margin-bottom:1rem;
+  text-align:left;
+  color:#e6e1ff;
 }
-
-/* Desktop Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:8px;
 }
-
-/* Slot */
-.slot {
+.slot{
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
   padding: 6px;
-  font-size: 0.65rem;
-  display: grid;
-  grid-template-columns: 1fr auto auto 1fr 1fr; /* 5 Spalten */
-  align-items: end; /* Bottom-aligned */
-  justify-items: center;
-  min-height: 120px;
+  font-size:0.65rem;
+  display:flex;
+  flex-direction:row;
+  align-items:flex-end; /* Bottom-aligned */
+  justify-content:space-between;
+  min-height:120px;
   transition: transform .15s;
 }
-
-.slot:hover {
-  transform: scale(1.05);
+.slot:hover{
+  transform:scale(1.05);
   background: rgba(255,255,255,0.1);
 }
-
-/* Name + Ball */
-.name-ball {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  justify-self: start;
+.name-ball{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  flex:1;
+  justify-content:flex-start;
+}
+.name-ball .ball{
+  display:inline-block;
+  vertical-align:middle;
+}
+.slot .name{
+  font-weight:600;
+  font-size:0.7rem;
+  color:#f3f4f6;
+}
+.pokemon-img{
+  max-width:50px;
+  height:auto;
+  flex-shrink:0;
+  display:flex;
+  align-items:flex-end;
+}
+.icons{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  font-size:0.65rem;
+}
+.icons .level{
+  font-weight:700;
+  font-size:0.7rem;
+  color:#f3f4f6;
+}
+.gender{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  font-size:0.65rem;
+  color:#fff;
+}
+.gender.male{background:#3b82f6;}
+.gender.female{background:#ef4444;}
+.gender.genderless{background:#6b7280;}
+.trainer-info{
+  display:flex;
+  justify-content:space-between;
+  flex:2;
+  font-size:0.6rem;
+  gap:4px;
+  color:var(--text-muted);
+}
+.trainer-info .ot-id{
+  text-align:left;
+}
+.trainer-info .nature-ability{
+  text-align:right;
 }
 
-.name-ball .ball {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.slot .name {
-  font-weight: 600;
-  font-size: 0.7rem;
-  color: #f3f4f6;
-}
-
-/* Middle: Pokemon image + icons */
-.middle {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-}
-
-.middle img.pokemon {
-  max-width: 50px;
-  height: auto;
-}
-
-.icons {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.65rem;
-}
-
-.icons .level {
-  font-weight: 700;
-  font-size: 0.7rem;
-  color: #f3f4f6;
-}
-
-.gender {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  font-size: 0.65rem;
-  color: #fff;
-}
-
-.gender.male { background: #3b82f6; }
-.gender.female { background: #ef4444; }
-.gender.genderless { background: #6b7280; }
-
-/* Trainer + Nature/Ability */
-.trainer-info {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  font-size: 0.6rem;
-  gap: 4px;
-  color: var(--text-muted);
-}
-
-.trainer-info .ot-id {
-  text-align: left;
-  flex: 1;
-}
-
-.trainer-info .nature-ability {
-  text-align: right;
-  flex: 1;
-}
-
-/* Mobile Layout */
-@media (max-width: 600px) {
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr; /* alle Slots untereinander */
-    gap: 6px;
+/* Mobile */
+@media(max-width:600px){
+  .grid{
+    grid-template-columns:1fr;
+    gap:6px;
   }
-
-  .slot {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 Spalten: Ball+Name | Bild | Icons | OT/ID | Nature/Ability */
-    align-items: center;
-    justify-items: start;
-    min-height: 60px;
-    padding: 6px;
-    gap: 6px;
+  .slot{
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:60px;
+    padding:6px;
+    gap:6px;
   }
-
-  .name-ball { justify-content: flex-start; }
-
-  .middle { justify-content: center; align-items: center; }
-
-  .middle img.pokemon { max-width: 40px; }
-
-  .icons { justify-content: center; font-size: 0.7rem; }
-
-  .trainer-info {
-    display: contents; /* direkt in Grid-Spalten */
-    font-size: 0.7rem;
-    line-height: 1.2;
+  .name-ball{flex:none; justify-content:flex-start;}
+  .pokemon-img{max-width:40px; align-items:center;}
+  .icons{font-size:0.7rem;}
+  .trainer-info{
+    display:flex;
+    flex:1;
+    justify-content:space-between;
+    font-size:0.7rem;
   }
-
-  .trainer-info .ot-id { text-align: left; }
-  .trainer-info .nature-ability { text-align: right; }
-
-  .box h2 { font-size: 1.1rem; }
+  .box h2{font-size:1.1rem;}
 }
-
 </style>
 </head>
 <body>
@@ -208,46 +167,35 @@ h1 {
 <div class="container"></div>
 
 <script>
-async function loadDex() {
+async function loadDex(){
   const response = await fetch('livingdex.json');
   const boxes = await response.json();
-
-  const container = document.querySelector('.container');
-  container.innerHTML = '';
-
-  boxes.forEach(boxData => {
-    const box = document.createElement('div');
-    box.className = 'box';
-    box.innerHTML = `<h2>${boxData.title}</h2>`;
-
-    const grid = document.createElement('div');
-    grid.className = 'grid';
-
-    for (let i = 0; i < 30; i++) {
-      const slot = document.createElement('div');
-      slot.className = 'slot';
-
-      const p = boxData.pokemon[i];
-      if (p) {
-        // Slot-Inhalt aufbauen
-        slot.innerHTML = `
-          <!-- Name + Ball -->
+  const container=document.querySelector('.container');
+  container.innerHTML='';
+  boxes.forEach(boxData=>{
+    const box=document.createElement('div');
+    box.className='box';
+    box.innerHTML=`<h2>${boxData.title}</h2>`;
+    const grid=document.createElement('div');
+    grid.className='grid';
+    for(let i=0;i<30;i++){
+      const slot=document.createElement('div');
+      slot.className='slot';
+      const p=boxData.pokemon[i];
+      if(p){
+        slot.innerHTML=`
           <div class="name-ball">
             <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="12">
             <span class="name">${p.name}</span>
           </div>
-
-          <!-- Pokemon Bild + Level + Gender + Game -->
-          <div class="middle">
-            <img class="pokemon" src="pkmnicons/${p.img}.png" alt="${p.name}">
-            <div class="icons">
-              <span class="level">Lv. ${p.level}</span>
-              <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
-              <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
-            </div>
+          <div class="pokemon-img">
+            <img src="pkmnicons/${p.img}.png" alt="${p.name}">
           </div>
-
-          <!-- Trainer + Nature/Ability -->
+          <div class="icons">
+            <span class="level">Lv. ${p.level}</span>
+            <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
+            <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
+          </div>
           <div class="trainer-info">
             <div class="ot-id">
               OT: ${p.trainer}<br>ID: ${p.id}
@@ -258,20 +206,15 @@ async function loadDex() {
           </div>
         `;
       } else {
-        // Leeres Feld
-        slot.innerHTML = `<div class="name">–</div>`;
+        slot.innerHTML=`<div class="name">–</div>`;
       }
-
       grid.appendChild(slot);
     }
-
     box.appendChild(grid);
     container.appendChild(box);
   });
 }
-
 loadDex();
 </script>
-
 </body>
 </html>
