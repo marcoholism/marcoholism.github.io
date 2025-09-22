@@ -6,7 +6,7 @@
         "name": "Bisasam",
         "img": "001",
         "gender": "male",
-        "game": "Karmesin/Purpur",
+        "game": "sv",
         "trainer": "Marco",
         "id": "609524"
       },
@@ -73,6 +73,22 @@
         "game": "-",
         "trainer": "-",
         "id": "-"
+      },
+      {
+        "name": "Raupy",
+        "img": "010",
+        "gender": "male",
+        "game": "LGP/LGE",
+        "trainer": "-",
+        "id": "-"
+      },
+      {
+        "name": "Safcon",
+        "img": "011",
+        "gender": "-",
+        "game": "-",
+        "trainer": "-",
+        "id": "-"
       }
     ]
   },
@@ -81,7 +97,7 @@
     "pokemon": [
       {
         "name": "Endivie",
-        "img": "https://www.pokewiki.de/images/4/4f/Sprite_152_G.png",
+        "img": "010",
         "gender": "female",
         "game": "Gold",
         "trainer": "Marco",
