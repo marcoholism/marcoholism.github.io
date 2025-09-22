@@ -7,11 +7,16 @@
 <link rel="icon" href="/favicon.png" type="image/png">
 <style>
 :root {
-  --bg1:#0f0c29; --bg2:#302b63; --bg3:#24243e;
-  --accent1:#a855f7; --accent2:#3b82f6; --accent3:#ec4899;
+  --bg1:#0f0c29; 
+  --bg2:#302b63; 
+  --bg3:#24243e;
+  --accent1:#a855f7; 
+  --accent2:#3b82f6; 
+  --accent3:#ec4899;
   --glass: rgba(27,27,47,0.8);
   --text-muted: #a1a1aa;
 }
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
@@ -23,6 +28,7 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+
 h1 {
   font-size: 2.5rem;
   font-weight: 800;
@@ -31,12 +37,14 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .container {
   max-width: 1000px;
   width: 100%;
   display: grid;
   gap: 2rem;
 }
+
 .box {
   background: var(--glass);
   padding: 1rem;
@@ -45,17 +53,20 @@ h1 {
   backdrop-filter: blur(6px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.45);
 }
+
 .box h2 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
   text-align: left;
   color: #e6e1ff;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 8px;
 }
+
 .slot {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
@@ -70,31 +81,37 @@ h1 {
   min-height: 110px;
   transition: transform .15s;
 }
+
 .slot:hover { 
   transform: scale(1.05); 
   background: rgba(255,255,255,0.1); 
 }
+
 .slot img {
   max-width: 50px;
   height: auto;
   margin-bottom: 2px;
 }
+
 .name-ball {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
 }
+
 .name-ball .ball {
   display: inline-block;
   vertical-align: middle;
 }
+
 .slot .name {
   font-weight: 600;
   font-size: 0.7rem;
   margin-bottom: 2px;
   color: #f3f4f6;
 }
+
 .icons {
   display: flex;
   align-items: center;
@@ -103,11 +120,13 @@ h1 {
   font-size: 0.65rem;
   margin-bottom: 2px;
 }
+
 .icons .level {
   font-weight: 700;
   font-size: 0.7rem;
   color: #f3f4f6;
 }
+
 .gender {
   display: inline-flex;
   align-items: center;
@@ -118,10 +137,12 @@ h1 {
   font-size: 0.65rem;
   color: #fff;
 }
+
 .gender.male { background: #3b82f6; }
 .gender.female { background: #ef4444; }
 .gender.genderless { background: #6b7280; }
 
+/* Trainerinfos (Desktop) */
 .trainer-info {
   display: flex;
   justify-content: space-between;
@@ -129,52 +150,45 @@ h1 {
   width: 100%;
   margin-top: 4px;
   font-size: 0.6rem;
-  gap: 8px;
+  gap: 4px;
   color: var(--text-muted);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 3px;
+  line-height: 1.1;
 }
-.trainer-info .ot-id,
-.trainer-info .nature-ability {
-  flex: 1;
-  line-height: 1.2;
-}
+
 .trainer-info .ot-id {
+  flex: 1;
   text-align: left;
 }
+
 .trainer-info .nature-ability {
+  flex: 1;
   text-align: right;
 }
 
 /* Mobile Ansicht */
 @media (max-width: 600px) {
-  /* Eltern-Grid auf 1 Spalte runterbrechen */
   .grid {
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
 
-  /* Jeder Slot ist jetzt eine Tabellenzeile */
   .slot {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 Spalten gleich breit */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 gleich breite Spalten */
     align-items: center;
     gap: 6px;
     padding: 6px;
     text-align: left;
-    min-height: auto; /* nicht fix klemmen */
+    min-height: auto;
   }
 
-  /* Spalte 1: Pokéball + Name links */
+  /* Spalte 1: Ball + Name */
   .name-ball {
-    display: flex;
-    align-items: center;
     justify-content: flex-start;
-    gap: 4px;
   }
 
-  /* Spalte 2: Pokémon-Bild zentrieren */
+  /* Spalte 2: Bild mittig */
   .slot img.pokemon {
     display: block;
     margin: 0 auto;
@@ -182,31 +196,33 @@ h1 {
     height: auto;
   }
 
-  /* Spalte 3: Level, Gender, Game nebeneinander */
+  /* Spalte 3: Level + Gender + Game nebeneinander */
   .icons {
-    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 4px;
     font-size: 0.7rem;
   }
 
-  /* Spalte 4: OT/ID links */
+  /* Trainerinfos als Spalte 4 und 5 */
+  .trainer-info {
+    display: contents; /* macht OT/ID und Nature/Ability zu Grid-Kindern */
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.2;
+  }
+
   .trainer-info .ot-id {
     text-align: left;
   }
 
-  /* Spalte 5: Wesen/Fähigkeit rechts */
   .trainer-info .nature-ability {
     text-align: right;
   }
 
-  .trainer-info {
-    display: contents; /* sorgt dafür, dass ot-id und nature-ability
-                          direkt in Spalte 4 und 5 landen */
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    line-height: 1.2;
+  .box h2 {
+    font-size: 1.1rem;
   }
 }
 </style>
