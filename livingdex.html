@@ -136,7 +136,7 @@ h1 {
 
   .slot{
     display:grid;
-    grid-template-columns: auto 50px auto auto auto;
+    grid-template-columns: 3rem 1.5rem auto auto auto;
     align-items:center; /* Vertikal zentriert */
     min-height:60px;
     padding:6px;
@@ -167,7 +167,6 @@ h1 {
   }
 
   .trainer-info{
-    grid-column:4;
     display:flex;
     flex-direction:column;
     justify-content:center; /* Vertikal zentriert innerhalb der Spalte */
@@ -176,6 +175,8 @@ h1 {
     gap:2px;
   }
   .trainer-info .ot-id{
+    grid-column:4;
+    display:flex;
     text-align:left;
   }
 
