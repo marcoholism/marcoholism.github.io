@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Bisasam",
+    "img": "https://www.pokewiki.de/images/2/23/Sugimori_001.png",
+    "gender": "male",
+    "game": "Karmesin",
+    "trainer": "Marco",
+    "id": "12345"
+  },
+  {
+    "name": "Glumanda",
+    "img": "https://www.pokewiki.de/images/f/fb/Sugimori_004.png",
+    "gender": "female",
+    "game": "Purpur",
+    "trainer": "Lena",
+    "id": "54321"
+  },
+  {
+    "name": "Schiggy",
+    "img": "https://www.pokewiki.de/images/4/49/Sugimori_007.png",
+    "gender": "genderless",
+    "game": "Pokémon GO",
+    "trainer": "Chris",
+    "id": "77777"
+  }
+]
