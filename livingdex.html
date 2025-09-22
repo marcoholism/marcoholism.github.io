@@ -4,18 +4,107 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Living Dex – MarcoHolism</title>
+<link rel="icon" href="/favicon.png" type="image/png">
 <style>
-body { font-family: sans-serif; background:#0f0c29; color:white; padding:2rem; display:flex; flex-direction:column; align-items:center;}
-.container { max-width:1000px; width:100%; display:grid; gap:2rem;}
-.box { background: rgba(27,27,47,0.8); padding:1rem; border-radius:12px; }
-.box h2 { margin-bottom:1rem; }
-.grid { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
-.slot { background: rgba(255,255,255,0.05); border-radius:8px; padding:4px; font-size:0.65rem; text-align:center; min-height:100px;}
-.slot img { max-width:50px; margin-bottom:2px;}
-.gender { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; font-size:0.65rem; color:#fff;}
-.gender.male { background:#3b82f6; }
-.gender.female { background:#ef4444; }
-.gender.genderless { background:#6b7280; }
+:root {
+  --bg1:#0f0c29; --bg2:#302b63; --bg3:#24243e;
+  --accent1:#a855f7; --accent2:#3b82f6; --accent3:#ec4899;
+  --glass: rgba(27,27,47,0.8);
+}
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to bottom, var(--bg1), var(--bg2), var(--bg3));
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, var(--accent1), var(--accent3), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.container {
+  max-width: 1000px;
+  width: 100%;
+  display: grid;
+  gap: 2rem;
+}
+.box {
+  background: var(--glass);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(167,139,250,0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+.box h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: #e6e1ff;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+.slot {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 4px;
+  font-size: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  min-height: 110px;
+  transition: transform .15s;
+}
+.slot:hover { transform: scale(1.05); background: rgba(255,255,255,0.1); }
+.slot img {
+  max-width: 50px;
+  height: auto;
+  margin-bottom: 2px;
+}
+.slot .name {
+  font-weight: 600;
+  font-size: 0.7rem;
+  margin-bottom: 2px;
+  color: #f3f4f6;
+}
+.slot .icons {
+  display: flex;
+  gap: 4px;
+  font-size: 0.7rem;
+  margin-bottom: 2px;
+}
+.gender {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  color: #fff;
+}
+.gender.male { background: #3b82f6; }
+.gender.female { background: #ef4444; }
+.gender.genderless { background: #6b7280; }
+.slot .trainer {
+  font-size: 0.6rem;
+  color: #9ca3af;
+  line-height: 1.1;
+}
 </style>
 </head>
 <body>
@@ -24,51 +113,48 @@ body { font-family: sans-serif; background:#0f0c29; color:white; padding:2rem; d
 
 <script>
 async function loadDex() {
-  try {
-    const response = await fetch('livingdex.json');
-    if(!response.ok) throw new Error('Fehler beim Laden der JSON');
-    const boxes = await response.json();
+  const response = await fetch('livingdex.json');
+  const boxes = await response.json();
 
-    const container = document.querySelector('.container');
-    container.innerHTML = '';
+  const container = document.querySelector('.container');
+  container.innerHTML = '';
 
-    boxes.forEach(boxData => {
-      const box = document.createElement('div');
-      box.className = 'box';
-      box.innerHTML = `<h2>${boxData.title}</h2>`;
+  boxes.forEach(boxData => {
+    const box = document.createElement('div');
+    box.className = 'box';
+    box.innerHTML = `<h2>${boxData.title}</h2>`;
 
-      const grid = document.createElement('div');
-      grid.className = 'grid';
+    const grid = document.createElement('div');
+    grid.className = 'grid';
 
-      for (let i = 0; i < 30; i++) {
-        const slot = document.createElement('div');
-        slot.className = 'slot';
-        const p = boxData.pokemon[i];
-        if(p){
-          slot.innerHTML = `
-            <img src="${p.img}" alt="${p.name}">
-            <div class="name">${p.name}</div>
-            <div class="icons">
-              <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
-              <span title="Spiel">${p.game}</span>
-            </div>
-            <div class="trainer">OT: ${p.trainer}<br>ID: ${p.id}</div>
-          `;
-        } else {
-          slot.innerHTML = `<div class="name">–</div>`;
-        }
-        grid.appendChild(slot);
+    for (let i = 0; i < 30; i++) {
+      const slot = document.createElement('div');
+      slot.className = 'slot';
+
+      const p = boxData.pokemon[i];
+      if (p) {
+        slot.innerHTML = `
+          <div class="name">${p.name}</div>
+          <img src="${p.img}" alt="${p.name}">
+          <div class="icons">
+            <span class="gender ${p.gender}">${p.gender === 'male' ? '♂' : p.gender === 'female' ? '♀' : '–'}</span>
+            <span title="Spiel">${p.game}</span>
+          </div>
+          <div class="trainer">OT: ${p.trainer}<br>ID: ${p.id}</div>
+        `;
+      } else {
+        slot.innerHTML = `<div class="name">–</div>`;
       }
 
-      box.appendChild(grid);
-      container.appendChild(box);
-    });
-  } catch(e) {
-    console.error(e);
-    alert('Fehler beim Laden der JSON. Prüfe Pfad & Struktur.');
-  }
+      grid.appendChild(slot);
+    }
+
+    box.appendChild(grid);
+    container.appendChild(box);
+  });
 }
 loadDex();
+
 </script>
 </body>
 </html>
