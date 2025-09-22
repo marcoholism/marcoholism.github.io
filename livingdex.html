@@ -68,36 +68,23 @@ h1 {
 }
 
 .slot {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 4px;
+  font-size: 0.65rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Name oben, Bild+Icons unten */
   align-items: center;
-  min-height: 110px;
-  padding: 4px;
   text-align: center;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.05);
+  min-height: 110px;
   transition: transform .15s;
-}
-
-.slot .bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end; /* bottom alignment */
-  gap: 2px;
 }
 
 .slot:hover { 
   transform: scale(1.05); 
   background: rgba(255,255,255,0.1); 
-}
-
-.slot img {
-  max-width: 50px;
-  height: auto;
-  margin-bottom: 2px;
 }
 
 .name-ball {
@@ -119,13 +106,27 @@ h1 {
   color: #f3f4f6;
 }
 
+/* Bottom Container für Bild + Icons */
+.slot .bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.slot .bottom img.pokemon {
+  max-width: 50px;
+  height: auto;
+  margin: 0;
+}
+
 .icons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   font-size: 0.65rem;
-  margin-bottom: 2px;
 }
 
 .icons .level {
@@ -214,7 +215,7 @@ h1 {
 
   /* Trainerinfos als Spalte 4 und 5 */
   .trainer-info {
-    display: contents; /* macht OT/ID und Nature/Ability zu Grid-Kindern */
+    display: contents; /* OT/ID und Nature/Ability direkt in Spalten */
     font-size: 0.7rem;
     color: var(--text-muted);
     line-height: 1.2;
@@ -232,6 +233,7 @@ h1 {
     font-size: 1.1rem;
   }
 }
+
 </style>
 </head>
 <body>
@@ -261,7 +263,6 @@ async function loadDex() {
       const p = boxData.pokemon[i];
       if(p){
         slot.innerHTML = `
-          <div class="slot">
             <div class="name-ball">
               <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="12">
               <span class="name">${p.name}</span>
@@ -278,7 +279,6 @@ async function loadDex() {
               <div class="ot-id">OT: ${p.trainer}<br>ID: ${p.id}</div>
               <div class="nature-ability">${p.nature}<br>${p.ability}</div>
             </div>
-          </div>
         `;
       } else {
         slot.innerHTML = `<div class="name">–</div>`;
