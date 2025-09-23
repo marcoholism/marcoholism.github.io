@@ -6,6 +6,8 @@
 <title>Living Dex – MarcoHolism</title>
 <link rel="icon" href="/favicon.png" type="image/png">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
 :root {
   --bg1:#0f0c29; --bg2:#302b63; --bg3:#24243e;
   --accent1:#a855f7; --accent2:#3b82f6; --accent3:#ec4899;
@@ -36,6 +38,40 @@ h1 {
   width:100%;
   display:grid;
   gap:2rem;
+}
+.rules {
+  max-width: 1000px;
+  width: 100%;
+  background: var(--glass);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(167,139,250,0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  color: #f3f4f6;
+}
+
+.rules h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  background: linear-gradient(to right,var(--accent1),var(--accent3),var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rules ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.rules li {
+  margin-bottom: 0.5rem;
 }
 .box{
   background:var(--glass);
@@ -224,6 +260,13 @@ h1 {
 </head>
 <body>
 <h1>MarcoHolism Pokémon HOME</h1>
+<div class="rules">
+<ul>
+  <li>hier kommen</li>
+  <li>die Regeln</li>
+  <li>für den Livingdex hin</li>
+</ul>
+</div>
 <div class="container"></div>
 
 <script>
