@@ -17,6 +17,7 @@
   <table id="pokemonTable">
     <thead>
       <tr>
+        <th>Box</th>
         <th>Name</th>
         <th>Bild</th>
         <th>Geschlecht</th>
@@ -34,7 +35,7 @@
   <button onclick="exportJSON()">Export JSON</button>
 
   <script>
-    let livingdex = [];
+    let livingdex = {};
 
     const tableBody = document.querySelector("#pokemonTable tbody");
 
@@ -51,17 +52,28 @@
 
     function buildTable() {
       tableBody.innerHTML = "";
-      livingdex.forEach((poke, index) => {
-        const row = document.createElement("tr");
-        Object.keys(poke).forEach(key => {
-          const cell = document.createElement("td");
-          const input = document.createElement("input");
-          input.value = poke[key] !== null ? poke[key] : "";
-          input.onchange = (e) => livingdex[index][key] = e.target.value;
-          cell.appendChild(input);
-          row.appendChild(cell);
+      Object.keys(livingdex).forEach(boxName => {
+        const box = livingdex[boxName];
+        box.forEach((poke, index) => {
+          const row = document.createElement("tr");
+
+          // Box-Name als erstes Feld
+          const boxCell = document.createElement("td");
+          boxCell.textContent = boxName;
+          row.appendChild(boxCell);
+
+          // Alle Felder des Pokémon
+          Object.keys(poke).forEach(key => {
+            const cell = document.createElement("td");
+            const input = document.createElement("input");
+            input.value = poke[key] !== null ? poke[key] : "";
+            input.onchange = (e) => livingdex[boxName][index][key] = e.target.value;
+            cell.appendChild(input);
+            row.appendChild(cell);
+          });
+
+          tableBody.appendChild(row);
         });
-        tableBody.appendChild(row);
       });
     }
 
