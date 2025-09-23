@@ -1,79 +1,77 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Pokémon Tabelle</title>
-<style>
-  table { border-collapse: collapse; width: 100%; }
-  th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
-  th { background-color: #f4f4f4; }
-  input { width: 60px; }
-</style>
+  <meta charset="UTF-8">
+  <title>Livingdex Editor</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    input { width: 100%; box-sizing: border-box; }
+    button { margin-top: 10px; padding: 10px 20px; }
+  </style>
 </head>
 <body>
+  <h1>Livingdex JSON Editor</h1>
+  <table id="pokemonTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Bild</th>
+        <th>Geschlecht</th>
+        <th>Spiel</th>
+        <th>Trainer</th>
+        <th>ID</th>
+        <th>Ball</th>
+        <th>Level</th>
+        <th>Wesen</th>
+        <th>Fähigkeit</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <button onclick="exportJSON()">Export JSON</button>
 
-<h2>Pokémon Editor</h2>
-<table id="pokemonTable">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Typ</th>
-      <th>KP</th>
-      <th>Angriff</th>
-      <th>Verteidigung</th>
-      <th>Aktionen</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Zeilen werden hier per JS eingefügt -->
-  </tbody>
-</table>
+  <script>
+    let livingdex = [];
 
-<button onclick="addPokemon()">Neues Pokémon hinzufügen</button>
+    const tableBody = document.querySelector("#pokemonTable tbody");
 
-<script>
-let pokemonList = [
-  {name: "Pikachu", typ: "Elektro", kp: 35, angriff: 55, verteidigung: 40},
-  {name: "Bisasam", typ: "Pflanze", kp: 45, angriff: 49, verteidigung: 49}
-];
+    async function loadJSON() {
+      try {
+        const response = await fetch('livingdex.json');
+        livingdex = await response.json();
+        buildTable();
+      } catch (error) {
+        console.error("Fehler beim Laden der JSON:", error);
+        alert("Konnte livingdex.json nicht laden. Prüfe den Pfad!");
+      }
+    }
 
-function renderTable() {
-  const tbody = document.querySelector("#pokemonTable tbody");
-  tbody.innerHTML = ""; // Tabelle leeren
+    function buildTable() {
+      tableBody.innerHTML = "";
+      livingdex.forEach((poke, index) => {
+        const row = document.createElement("tr");
+        Object.keys(poke).forEach(key => {
+          const cell = document.createElement("td");
+          const input = document.createElement("input");
+          input.value = poke[key] !== null ? poke[key] : "";
+          input.onchange = (e) => livingdex[index][key] = e.target.value;
+          cell.appendChild(input);
+          row.appendChild(cell);
+        });
+        tableBody.appendChild(row);
+      });
+    }
 
-  pokemonList.forEach((poke, index) => {
-    const row = document.createElement("tr");
+    function exportJSON() {
+      const jsonStr = JSON.stringify(livingdex, null, 2);
+      console.log(jsonStr);
+      alert("JSON wurde in der Konsole ausgegeben!");
+    }
 
-    row.innerHTML = `
-      <td><input value="${poke.name}" onchange="updateValue(${index}, 'name', this.value)"></td>
-      <td><input value="${poke.typ}" onchange="updateValue(${index}, 'typ', this.value)"></td>
-      <td><input type="number" value="${poke.kp}" onchange="updateValue(${index}, 'kp', parseInt(this.value))"></td>
-      <td><input type="number" value="${poke.angriff}" onchange="updateValue(${index}, 'angriff', parseInt(this.value))"></td>
-      <td><input type="number" value="${poke.verteidigung}" onchange="updateValue(${index}, 'verteidigung', parseInt(this.value))"></td>
-      <td><button onclick="deletePokemon(${index})">Löschen</button></td>
-    `;
-
-    tbody.appendChild(row);
-  });
-}
-
-function updateValue(index, field, value) {
-  pokemonList[index][field] = value;
-}
-
-function deletePokemon(index) {
-  pokemonList.splice(index, 1);
-  renderTable();
-}
-
-function addPokemon() {
-  pokemonList.push({name: "Neues Pokémon", typ: "", kp: 0, angriff: 0, verteidigung: 0});
-  renderTable();
-}
-
-// Tabelle initial rendern
-renderTable();
-</script>
-
+    loadJSON();
+  </script>
 </body>
 </html>
