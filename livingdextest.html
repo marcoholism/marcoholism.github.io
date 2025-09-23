@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Living Dex – MarcoHolism</title>
+<link rel="icon" href="/favicon.png" type="image/png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+:root {
+  --bg1:#0f0c29; --bg2:#302b63; --bg3:#24243e;
+  --accent1:#a855f7; --accent2:#3b82f6; --accent3:#ec4899;
+  --glass: rgba(27,27,47,0.8);
+  --text-muted: #a1a1aa;
+}
+
+body {
+  margin:0;
+  font-family:'Open Sans',sans-serif;
+  background:linear-gradient(to bottom,var(--bg1),var(--bg2),var(--bg3));
+  color:white;
+  padding:2rem 1rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+}
+
+h1 {
+  font-size:2.5rem;
+  font-weight:800;
+  margin-bottom:2rem;
+  background:linear-gradient(to right,var(--accent1),var(--accent3),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.container {
+  max-width:1000px;
+  width:100%;
+  display:grid;
+  gap:2rem;
+}
+
+/* Regelbox */
+.rules {
+  background: var(--glass);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(167,139,250,0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  max-width: 1000px;
+  width: 100%;
+  margin: 1.5rem auto;
+}
+
+.rules h2 {
+  font-size: 1.25rem;
+  color: #e6e1ff;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.rules ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.rules li {
+  margin-bottom: 0.5rem;
+}
+
+/* Pokemon Box */
+.box{
+  background:var(--glass);
+  padding:1rem;
+  border-radius:12px;
+  border:1px solid rgba(167,139,250,0.12);
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 30px rgba(0,0,0,0.45);
+}
+
+.box h2{
+  font-size:1.25rem;
+  margin-bottom:1rem;
+  text-align:left;
+  color:#e6e1ff;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:8px;
+}
+
+/* DESKTOP SLOT */
+.slot{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 6px;
+  font-size:0.65rem;
+  display:grid;
+  grid-template-rows: auto 1fr auto auto;
+  row-gap:4px;
+  min-height:130px;
+}
+
+.name-ball{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  justify-content: center;
+}
+
+.name-ball .ball{
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.slot .name{
+  font-weight:600;
+  font-size:0.7rem;
+  color:#f3f4f6;
+}
+
+.pokemon-img{
+  display:flex;
+  align-items:flex-end; /* Bottom aligned */
+  justify-content:center;
+}
+
+.pokemon-img img{
+  max-width:50px;
+  height:auto;
+}
+
+.icons{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+}
+
+.icons .level{
+  font-weight:700;
+  font-size:0.7rem;
+  color:#f3f4f6;
+}
+
+.gender{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  font-size:0.65rem;
+  color:#fff;
+}
+
+.gender.male{background:#3b82f6;}
+.gender.female{background:#ef4444;}
+.gender.genderless{background:#6b7280;}
+
+.trainer-info{
+  display:flex;
+  justify-content:space-between;
+  font-size:0.6rem;
+  gap:4px;
+  color:var(--text-muted);
+}
+
+.trainer-info .ot-id{text-align:left;}
+.trainer-info .nature-ability{text-align:right;}
+
+/* Desktop Hover */
+@media(min-width:601px){
+  .slot {
+    transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  }
+  .slot:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+  }
+}
+
+/* MOBILE */
+@media (max-width:600px){
+  .grid{
+    grid-template-columns:1fr;
+    gap:6px;
+  }
+
+  .slot{
+    display:grid;
+    grid-template-columns: 5rem 1.5rem 1fr auto; 
+    grid-template-rows: auto auto;
+    align-items:center;
+    min-height:70px;
+    padding:6px 10px;
+    gap:6px;
+  }
+
+  .name-ball{
+    grid-column:1;
+    grid-row:1;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:4px;
+  }
+
+  .pokemon-img{
+    grid-column:2 / 3;
+    grid-row:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .pokemon-img img{
+    max-width:40px;
+    height:auto;
+  }
+
+  .icons{
+    grid-column:4;
+    grid-row:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    font-size:0.7rem;
+  }
+
+  .trainer-info{
+    grid-column:1 / 5;
+    grid-row:2;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px;
+    align-items:center;
+    font-size:0.7rem;
+    color: var(--text-muted);
+  }
+
+  .trainer-info .ot-id{text-align:left;}
+  .trainer-info .nature-ability{text-align:right;}
+
+  .box h2{font-size:1.1rem;}
+}
+</style>
+</head>
+<body>
+<h1>Living Dex Tracker</h1>
+
+<div class="rules">
+  <h2>Regeln für den Living Dex</h2>
+  <ul>
+    <li>Alle Pokémon müssen original gefangen sein.</li>
+    <li>Keine Duplikate innerhalb eines Boxes.</li>
+    <li>Level und Fähigkeit müssen korrekt dokumentiert werden.</li>
+  </ul>
+</div>
+
+<div class="container"></div>
+
+<script>
+async function loadDex(){
+  const response = await fetch('livingdex.json');
+  const boxes = await response.json();
+  const container=document.querySelector('.container');
+  container.innerHTML='';
+  boxes.forEach(boxData=>{
+    const box=document.createElement('div');
+    box.className='box';
+    box.innerHTML=`<h2>${boxData.title}</h2>`;
+    const grid=document.createElement('div');
+    grid.className='grid';
+    for(let i=0;i<30;i++){
+      const slot=document.createElement('div');
+      slot.className='slot';
+      const p=boxData.pokemon[i];
+      if(p){
+        slot.innerHTML=`
+          <div class="name-ball">
+            <img class="ball" src="pkmnicons/${p.ball}.png" alt="${p.ball}" width="12">
+            <span class="name">${p.name}</span>
+          </div>
+          <div class="pokemon-img">
+            <img src="pkmnicons/${p.img}.png" alt="${p.name}">
+          </div>
+          <div class="icons">
+            <span class="level">Lv. ${p.level}</span>
+            <span class="gender ${p.gender}">${p.gender==='male'?'♂':p.gender==='female'?'♀':'–'}</span>
+            <span title="Spiel"><img width="15" src="pkmnicons/${p.game}.png" alt="${p.game}"></span>
+          </div>
+          <div class="trainer-info">
+            <div class="ot-id">
+              OT: ${p.trainer}<br>ID: ${p.id}
+            </div>
+            <div class="nature-ability">
+              ${p.nature}<br>${p.ability}
+            </div>
+          </div>
+        `;
+      } else {
+        slot.innerHTML=`<div class="name">–</div>`;
+      }
+      grid.appendChild(slot);
+    }
+    box.appendChild(grid);
+    container.appendChild(box);
+  });
+}
+loadDex();
+</script>
+</body>
+</html>
