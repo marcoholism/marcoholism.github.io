@@ -40,10 +40,11 @@ h1 {
   gap:2rem;
 }
 .rules {
+  max-width: 1000px;   /* gleiche Breite wie .container */
   width: 100%;
   background: var(--glass);
   padding: 1rem 1.25rem;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem auto; /* zentrieren + Abstand nach unten */
   border-radius: 12px;
   border: 1px solid rgba(167,139,250,0.12);
   backdrop-filter: blur(6px);
@@ -257,7 +258,6 @@ h1 {
 </head>
 <body>
 <h1>MarcoHolism Pokémon HOME</h1>
-<div class="container"></div>
 <div class="rules">
 <ul>
   <li>hier kommen</li>
@@ -265,6 +265,7 @@ h1 {
   <li>für den Livingdex hin</li>
 </ul>
 </div>
+<div class="container"></div>
 
 <script>
 async function loadDex(){
