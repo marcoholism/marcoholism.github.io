@@ -1,35 +1,79 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Pokemon Viewer</title>
+<meta charset="UTF-8">
+<title>Pokémon Tabelle</title>
+<style>
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+  th { background-color: #f4f4f4; }
+  input { width: 60px; }
+</style>
 </head>
 <body>
-  <h1>Pokémon Liste</h1>
-  <ul id="pokemon-list"></ul>
 
-  <script>
-    // JSON-Datei laden
-    fetch('livingdex.json')
-      .then(response => response.json())
-      .then(data => {
-        const list = document.getElementById('pokemon-list');
+<h2>Pokémon Editor</h2>
+<table id="pokemonTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Typ</th>
+      <th>KP</th>
+      <th>Angriff</th>
+      <th>Verteidigung</th>
+      <th>Aktionen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Zeilen werden hier per JS eingefügt -->
+  </tbody>
+</table>
 
-        data.forEach(region => {
-          const regionTitle = document.createElement('h2');
-          regionTitle.textContent = region.title;
-          document.body.appendChild(regionTitle);
+<button onclick="addPokemon()">Neues Pokémon hinzufügen</button>
 
-          region.pokemon.forEach(p => {
-            if (p) {
-              const li = document.createElement('li');
-              li.textContent = `${p.name} (Level ${p.level})`;
-              list.appendChild(li);
-            }
-          });
-        });
-      })
-      .catch(err => console.error('Fehler beim Laden der JSON:', err));
-  </script>
+<script>
+let pokemonList = [
+  {name: "Pikachu", typ: "Elektro", kp: 35, angriff: 55, verteidigung: 40},
+  {name: "Bisasam", typ: "Pflanze", kp: 45, angriff: 49, verteidigung: 49}
+];
+
+function renderTable() {
+  const tbody = document.querySelector("#pokemonTable tbody");
+  tbody.innerHTML = ""; // Tabelle leeren
+
+  pokemonList.forEach((poke, index) => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td><input value="${poke.name}" onchange="updateValue(${index}, 'name', this.value)"></td>
+      <td><input value="${poke.typ}" onchange="updateValue(${index}, 'typ', this.value)"></td>
+      <td><input type="number" value="${poke.kp}" onchange="updateValue(${index}, 'kp', parseInt(this.value))"></td>
+      <td><input type="number" value="${poke.angriff}" onchange="updateValue(${index}, 'angriff', parseInt(this.value))"></td>
+      <td><input type="number" value="${poke.verteidigung}" onchange="updateValue(${index}, 'verteidigung', parseInt(this.value))"></td>
+      <td><button onclick="deletePokemon(${index})">Löschen</button></td>
+    `;
+
+    tbody.appendChild(row);
+  });
+}
+
+function updateValue(index, field, value) {
+  pokemonList[index][field] = value;
+}
+
+function deletePokemon(index) {
+  pokemonList.splice(index, 1);
+  renderTable();
+}
+
+function addPokemon() {
+  pokemonList.push({name: "Neues Pokémon", typ: "", kp: 0, angriff: 0, verteidigung: 0});
+  renderTable();
+}
+
+// Tabelle initial rendern
+renderTable();
+</script>
+
 </body>
 </html>
