@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemon Viewer</title>
+</head>
+<body>
+  <h1>Pokémon Liste</h1>
+  <ul id="pokemon-list"></ul>
+
+  <script>
+    // JSON-Datei laden
+    fetch('livingdex.json')
+      .then(response => response.json())
+      .then(data => {
+        const list = document.getElementById('pokemon-list');
+
+        data.forEach(region => {
+          const regionTitle = document.createElement('h2');
+          regionTitle.textContent = region.title;
+          document.body.appendChild(regionTitle);
+
+          region.pokemon.forEach(p => {
+            if (p) {
+              const li = document.createElement('li');
+              li.textContent = `${p.name} (Level ${p.level})`;
+              list.appendChild(li);
+            }
+          });
+        });
+      })
+      .catch(err => console.error('Fehler beim Laden der JSON:', err));
+  </script>
+</body>
+</html>
