@@ -74,9 +74,42 @@
         "nature": "Solo",
         "ability": "Großbrand"
       },
-      null,
-      null,
-      null,
+      {
+        "name": "Schiggy",
+        "img": "007",
+        "gender": "male",
+        "game": "Paldea",
+        "trainer": "Marco",
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 65,
+        "nature": "Sanft",
+        "ability": "Sturzbach"
+      },
+      {
+        "name": "Schillok",
+        "img": "008",
+        "gender": "male",
+        "game": "Paldea",
+        "trainer": "Marco",
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 60,
+        "nature": "Still",
+        "ability": "Sturzbach"
+      },
+      {
+        "name": "Turtok",
+        "img": "009",
+        "gender": "male",
+        "game": "Paldea",
+        "trainer": "Marco",
+        "id": "609524",
+        "ball": "pokeball",
+        "level": 71,
+        "nature": "Naiv",
+        "ability": "Sturzbach"
+      },
       {
         "name": "Raupy",
         "img": "010",
