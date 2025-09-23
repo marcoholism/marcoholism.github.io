@@ -1,94 +1,65 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Livingdex Editor</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #f4f4f4; }
-    input { width: 100%; box-sizing: border-box; }
-    button { margin-top: 10px; padding: 10px 20px; }
-  </style>
+<meta charset="UTF-8">
+<title>Livingdex Editor</title>
+<style>
+  table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+  th, td { border: 1px solid #ccc; padding: 5px; text-align: center; }
+  input { width: 100%; box-sizing: border-box; }
+</style>
 </head>
 <body>
-  <h1>Livingdex JSON Editor</h1>
-  <table id="pokemonTable">
-    <thead>
-      <tr>
-        <th>Box</th>
-        <th>Name</th>
-        <th>Bild</th>
-        <th>Geschlecht</th>
-        <th>Spiel</th>
-        <th>Trainer</th>
-        <th>ID</th>
-        <th>Ball</th>
-        <th>Level</th>
-        <th>Wesen</th>
-        <th>Fähigkeit</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <button onclick="exportJSON()">JSON herunterladen</button>
 
-  <script>
-    let livingdex = [];
+<h1>Livingdex Editor</h1>
+<div id="livingdex-container"></div>
 
-    const tableBody = document.querySelector("#pokemonTable tbody");
+<script>
+// Lade die livingdex.json Datei
+fetch('livingdex.json')
+  .then(response => response.json())
+  .then(livingdex => {
+    buildTable(livingdex);
+  })
+  .catch(error => console.error('Fehler beim Laden der JSON:', error));
 
-    async function loadJSON() {
-      try {
-        const response = await fetch('livingdex.json');
-        livingdex = await response.json();
-        buildTable();
-      } catch (error) {
-        console.error("Fehler beim Laden der JSON:", error);
-        alert("Konnte livingdex.json nicht laden. Prüfe den Pfad!");
-      }
-    }
+function buildTable(livingdex) {
+  const container = document.getElementById('livingdex-container');
+  container.innerHTML = '';
 
-    function buildTable() {
-      tableBody.innerHTML = "";
-      livingdex.forEach((box, boxIndex) => {
-        box.pokemon.forEach((poke, pokeIndex) => {
-          const row = document.createElement("tr");
+  livingdex.forEach(box => {
+    const table = document.createElement('table');
 
-          // Box-Name als erstes Feld
-          const boxCell = document.createElement("td");
-          boxCell.textContent = box.title;
-          row.appendChild(boxCell);
+    const caption = document.createElement('caption');
+    caption.innerText = box.title;
+    table.appendChild(caption);
 
-          // Felder des Pokémon
-          const keys = ["name","img","gender","game","trainer","id","ball","level","nature","ability"];
-          keys.forEach(key => {
-            const cell = document.createElement("td");
-            const input = document.createElement("input");
-            input.value = poke[key] !== undefined ? poke[key] : "";
-            input.onchange = (e) => livingdex[boxIndex].pokemon[pokeIndex][key] = e.target.value;
-            cell.appendChild(input);
-            row.appendChild(cell);
-          });
+    const header = document.createElement('tr');
+    ['Name', 'Img', 'Gender', 'Game', 'Trainer', 'ID', 'Ball', 'Level', 'Nature', 'Ability'].forEach(h => {
+      const th = document.createElement('th');
+      th.innerText = h;
+      header.appendChild(th);
+    });
+    table.appendChild(header);
 
-          tableBody.appendChild(row);
-        });
+    // max 30 Slots pro Box
+    for (let i = 0; i < 30; i++) {
+      const pokemon = box.pokemon[i] || {}; // null → leeres Objekt
+      const row = document.createElement('tr');
+      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key => {
+        const td = document.createElement('td');
+        const input = document.createElement('input');
+        input.value = pokemon[key] || '';
+        td.appendChild(input);
+        row.appendChild(td);
       });
+      table.appendChild(row);
     }
 
-    function exportJSON() {
-      const jsonStr = JSON.stringify(livingdex, null, 2);
-      const blob = new Blob([jsonStr], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "livingdex_edited.json";
-      a.click();
-      URL.revokeObjectURL(url);
-    }
+    container.appendChild(table);
+  });
+}
+</script>
 
-    loadJSON();
-  </script>
 </body>
 </html>
