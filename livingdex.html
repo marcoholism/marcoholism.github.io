@@ -40,15 +40,18 @@ h1 {
   gap:2rem;
 }
 .rules {
-  max-width: 1000px;   /* gleiche Breite wie .container */
+  max-width: 1000px;   /* gleiche Breite wie container */
   width: 100%;
   background: var(--glass);
-  padding: 1rem 1.25rem;
-  margin: 0 auto 2rem auto; /* zentrieren + Abstand nach unten */
+  padding: 1rem;
+  margin: 0 auto 2rem auto; /* zentrieren und Abstand nach unten */
   border-radius: 12px;
   border: 1px solid rgba(167,139,250,0.12);
   backdrop-filter: blur(6px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+
+  /* sorgt dafür, dass .rules wie eine Box im Grid wirkt */
+  box-sizing: border-box;
 }
 
 .rules h2 {
