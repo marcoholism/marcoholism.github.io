@@ -25,6 +25,15 @@ body {
   align-items:center;
   min-height:100vh;
 }
+
+/* Partikel Canvas */
+#particle-canvas {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
 h1 {
   font-size:2.5rem;
   font-weight:800;
@@ -260,6 +269,9 @@ h1 {
 }</style>
 </head>
 <body>
+
+<canvas id="particle-canvas"></canvas>
+
 <h1>MarcoHolism Pokémon HOME</h1>
 <div class="rules">
 <ul>
@@ -320,5 +332,74 @@ async function loadDex(){
 }
 loadDex();
 </script>
+<script>
+// Highlight current day
+(function(){
+  const today = new Date().getDay();
+  document.querySelectorAll('.day-card').forEach(card => {
+    if(parseInt(card.dataset.day,10) === today){
+      card.classList.add('active','ribbon');
+    }
+  });
+})();
+
+// Partikel-Hintergrund
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+const particleCount = window.innerWidth < 768 ? 10 : 30;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 3 + 1;
+    this.speedX = (Math.random() - 0.5) * 0.5;
+    this.speedY = Math.random() * 1 + 0.5;
+
+    // Subtile Farbvariation: Lila/Pink/Türkis Töne
+    const baseColors = [
+      [168,85,247],   // lila
+      [59,130,246],   // blau
+      [236,72,153]    // pink
+    ];
+    const c = baseColors[Math.floor(Math.random() * baseColors.length)];
+    const alpha = Math.random() * 0.6 + 0.4; // 0.4 bis 1.0
+    this.color = `rgba(${c[0]},${c[1]},${c[2]},${alpha})`;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y -= this.speedY;
+    if(this.y < 0 || this.x < 0 || this.x > canvas.width) {
+      this.reset();
+      this.y = canvas.height;
+    }
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+}
+
+for(let i=0;i<particleCount;i++) particles.push(new Particle());
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{ p.update(); p.draw(); });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
 </body>
 </html>
