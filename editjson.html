@@ -32,10 +32,10 @@
     </thead>
     <tbody></tbody>
   </table>
-  <button onclick="exportJSON()">Export JSON</button>
+  <button onclick="exportJSON()">JSON herunterladen</button>
 
   <script>
-    let livingdex = {};
+    let livingdex = [];
 
     const tableBody = document.querySelector("#pokemonTable tbody");
 
@@ -52,22 +52,22 @@
 
     function buildTable() {
       tableBody.innerHTML = "";
-      Object.keys(livingdex).forEach(boxName => {
-        const box = livingdex[boxName];
-        box.forEach((poke, index) => {
+      livingdex.forEach((box, boxIndex) => {
+        box.pokemon.forEach((poke, pokeIndex) => {
           const row = document.createElement("tr");
 
           // Box-Name als erstes Feld
           const boxCell = document.createElement("td");
-          boxCell.textContent = boxName;
+          boxCell.textContent = box.title;
           row.appendChild(boxCell);
 
-          // Alle Felder des Pokémon
-          Object.keys(poke).forEach(key => {
+          // Felder des Pokémon
+          const keys = ["name","img","gender","game","trainer","id","ball","level","nature","ability"];
+          keys.forEach(key => {
             const cell = document.createElement("td");
             const input = document.createElement("input");
-            input.value = poke[key] !== null ? poke[key] : "";
-            input.onchange = (e) => livingdex[boxName][index][key] = e.target.value;
+            input.value = poke[key] !== undefined ? poke[key] : "";
+            input.onchange = (e) => livingdex[boxIndex].pokemon[pokeIndex][key] = e.target.value;
             cell.appendChild(input);
             row.appendChild(cell);
           });
@@ -79,8 +79,13 @@
 
     function exportJSON() {
       const jsonStr = JSON.stringify(livingdex, null, 2);
-      console.log(jsonStr);
-      alert("JSON wurde in der Konsole ausgegeben!");
+      const blob = new Blob([jsonStr], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "livingdex_edited.json";
+      a.click();
+      URL.revokeObjectURL(url);
     }
 
     loadJSON();
