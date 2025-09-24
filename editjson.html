@@ -4,10 +4,93 @@
 <meta charset="UTF-8">
 <title>Livingdex Editor</title>
 <style>
-  table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-  th, td { border: 1px solid #ccc; padding: 5px; text-align: center; }
-  input, select { width: 100%; box-sizing: border-box; }
-  button { margin-bottom: 20px; }
+  <style>
+  /* Grundfarben und Schrift */
+  :root {
+    --bg-color: #121212;
+    --table-bg: #1e1e1e;
+    --header-bg: #2c2c2c;
+    --text-color: #e0e0e0;
+    --border-color: #333;
+    --accent-color: #ffcc00;
+    --input-bg: #2c2c2c;
+    --input-text: #e0e0e0;
+    --input-border: #555;
+    --caption-color: #ffcc00;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--accent-color);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 40px;
+    background-color: var(--table-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  }
+
+  caption {
+    font-size: 1.5em;
+    padding: 10px;
+    background-color: var(--header-bg);
+    color: var(--caption-color);
+    font-weight: bold;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+  }
+
+  th {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+  }
+
+  input, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    font-size: 0.9em;
+  }
+
+  input:focus, select:focus {
+    outline: 2px solid var(--accent-color);
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.2s;
+  }
+
+  button:hover {
+    background-color: #e6b800;
+  }
 </style>
 </head>
 <body>
