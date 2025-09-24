@@ -90,17 +90,20 @@ document.getElementById('download-json').addEventListener('click', () => {
   const tables = document.querySelectorAll('#livingdex-container table');
   tables.forEach((table, boxIndex) => {
     const rows = table.querySelectorAll('tr');
-    // Überspringe Header (erste Zeile)
     const boxData = [];
-    for (let i = 1; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) { // Header überspringen
       const cells = rows[i].querySelectorAll('td');
       const poke = {};
       ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key, idx) => {
         const el = cells[idx].querySelector('input, select');
         poke[key] = el.value || null;
       });
-      // Nur hinzufügen, wenn Name oder ID existiert
-      if (poke.name || poke.id) boxData.push(poke);
+      // Wenn Name leer → ganze Zeile als null speichern
+      if (!poke.name) {
+        boxData.push(null);
+      } else {
+        boxData.push(poke);
+      }
     }
     livingdexData[boxIndex].pokemon = boxData;
   });
