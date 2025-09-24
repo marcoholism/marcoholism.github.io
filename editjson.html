@@ -4,61 +4,103 @@
 <meta charset="UTF-8">
 <title>Livingdex Editor</title>
 <style>
-  table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-  th, td { border: 1px solid #ccc; padding: 5px; text-align: center; }
-  input { width: 100%; box-sizing: border-box; }
+  table { border-collapse: collapse; margin-bottom: 20px; width: 100%; }
+  th, td { border: 1px solid #999; padding: 5px; text-align: center; }
+  input { width: 90%; }
 </style>
 </head>
 <body>
 
 <h1>Livingdex Editor</h1>
-<div id="livingdex-container"></div>
+<div id="tables"></div>
+<button id="download">Als JSON herunterladen</button>
 
 <script>
-// Lade die livingdex.json Datei
-fetch('livingdex.json')
-  .then(response => response.json())
-  .then(livingdex => {
-    buildTable(livingdex);
-  })
-  .catch(error => console.error('Fehler beim Laden der JSON:', error));
+// Beispiel-JSON, später durch deine livingdex.json ersetzen
+const livingdex = [
+  {
+    "title": "Kanto 6",
+    "pokemon": [
+      { "name": "Mew", "img": "151", "gender": "genderless", "game": "LetsGo", "trainer": "Marco", "id": "510611", "ball": "pokeball", "level": 1, "nature": "Hastig", "ability": "-" }
+    ]
+  },
+  {
+    "title": "Pikachu",
+    "pokemon": [
+      { "name": "Pikachu", "img": "025g", "gender": "male", "game": "Galar", "trainer": "Ash", "id": "201023", "ball": "pokeball", "level": 25, "nature": "Robust", "ability": "Statik" },
+      null, null, null, null, null, null, null
+    ]
+  }
+];
 
-function buildTable(livingdex) {
-  const container = document.getElementById('livingdex-container');
-  container.innerHTML = '';
+function createTable(box) {
+  const table = document.createElement('table');
+  const caption = document.createElement('caption');
+  caption.innerText = box.title;
+  table.appendChild(caption);
 
-  livingdex.forEach(box => {
-    const table = document.createElement('table');
+  const header = table.insertRow();
+  const headers = ["Name","Img","Gender","Game","Trainer","ID","Ball","Level","Nature","Ability"];
+  headers.forEach(h => { const th = document.createElement('th'); th.innerText = h; header.appendChild(th); });
 
-    const caption = document.createElement('caption');
-    caption.innerText = box.title;
-    table.appendChild(caption);
-
-    const header = document.createElement('tr');
-    ['Name', 'Img', 'Gender', 'Game', 'Trainer', 'ID', 'Ball', 'Level', 'Nature', 'Ability'].forEach(h => {
-      const th = document.createElement('th');
-      th.innerText = h;
-      header.appendChild(th);
+  for (let i = 0; i < 30; i++) {  // max 30 Pokémon pro Box
+    const tr = table.insertRow();
+    const poke = box.pokemon[i] || { name:"", img:"", gender:"", game:"", trainer:"", id:"", ball:"", level:"", nature:"", ability:"" };
+    Object.values(poke).forEach(val => {
+      const td = tr.insertCell();
+      const input = document.createElement('input');
+      input.value = val ?? "";
+      td.appendChild(input);
     });
-    table.appendChild(header);
+  }
 
-    // max 30 Slots pro Box
-    for (let i = 0; i < 30; i++) {
-      const pokemon = box.pokemon[i] || {}; // null → leeres Objekt
-      const row = document.createElement('tr');
-      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key => {
-        const td = document.createElement('td');
-        const input = document.createElement('input');
-        input.value = pokemon[key] || '';
-        td.appendChild(input);
-        row.appendChild(td);
-      });
-      table.appendChild(row);
-    }
-
-    container.appendChild(table);
-  });
+  document.getElementById('tables').appendChild(table);
 }
+
+// Tabellen erstellen
+livingdex.forEach(createTable);
+
+// JSON zum Download vorbereiten
+document.getElementById('download').addEventListener('click', () => {
+  const newLivingdex = [];
+
+  document.querySelectorAll('table').forEach(table => {
+    const title = table.querySelector('caption').innerText;
+    const pokemon = [];
+
+    table.querySelectorAll('tr').forEach((tr, index) => {
+      if (index === 0) return; // Header überspringen
+      const inputs = tr.querySelectorAll('input');
+      const pokeData = {
+        name: inputs[0].value || null,
+        img: inputs[1].value || null,
+        gender: inputs[2].value || null,
+        game: inputs[3].value || null,
+        trainer: inputs[4].value || null,
+        id: inputs[5].value || null,
+        ball: inputs[6].value || null,
+        level: inputs[7].value ? Number(inputs[7].value) : null,
+        nature: inputs[8].value || null,
+        ability: inputs[9].value || null
+      };
+      if (Object.values(pokeData).every(v => v === null || v === "")) {
+        pokemon.push(null);
+      } else {
+        pokemon.push(pokeData);
+      }
+    });
+
+    newLivingdex.push({ title, pokemon });
+  });
+
+  const blob = new Blob([JSON.stringify(newLivingdex, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'livingdex-edited.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
 </script>
 
 </body>
