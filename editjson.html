@@ -7,22 +7,30 @@
   table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
   th, td { border: 1px solid #ccc; padding: 5px; text-align: center; }
   input, select { width: 100%; box-sizing: border-box; }
+  button { margin-bottom: 20px; }
 </style>
 </head>
 <body>
 
 <h1>Livingdex Editor</h1>
+<button id="download-btn">Download JSON</button>
 <div id="livingdex-container"></div>
-<button id="download-json">JSON herunterladen</button>
 
 <script>
+// Dropdown Definitionen
+const dropdowns = {
+  gender: ['-', 'male', 'female'],
+  ball: ['pokeball', 'greatball', 'ultraball', 'masterball'],
+  nature: ['Hastig', 'Robust', 'Mäßig', 'Froh', 'Hart'],
+  ability: ['-', 'Statik', 'Blitzfänger']
+};
+
 // Lade die livingdex.json Datei
-let livingdexData = [];
 fetch('livingdex.json')
   .then(response => response.json())
   .then(livingdex => {
-    livingdexData = livingdex;
-    buildTable(livingdexData);
+    buildTable(livingdex);
+    document.getElementById('download-btn').addEventListener('click', () => downloadJSON(livingdex));
   })
   .catch(error => console.error('Fehler beim Laden der JSON:', error));
 
@@ -30,7 +38,7 @@ function buildTable(livingdex) {
   const container = document.getElementById('livingdex-container');
   container.innerHTML = '';
 
-  livingdex.forEach((box, boxIndex) => {
+  livingdex.forEach(box => {
     const table = document.createElement('table');
 
     const caption = document.createElement('caption');
@@ -47,77 +55,64 @@ function buildTable(livingdex) {
 
     // max 30 Slots pro Box
     for (let i = 0; i < 30; i++) {
-      const pokemon = box.pokemon[i] || {}; // null → leeres Objekt
+      const poke = box.pokemon[i] || {};
       const row = document.createElement('tr');
-
       ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key => {
         const td = document.createElement('td');
-        let input;
-
-        if (key === 'gender') {
-          // Dropdown für Gender
-          input = document.createElement('select');
-          const options = [
-            {text:'-', value:'genderless'},
-            {text:'male', value:'male'},
-            {text:'female', value:'female'}
-          ];
-          options.forEach(opt => {
+        let el;
+        if (dropdowns[key]) {
+          // Dropdown erstellen
+          el = document.createElement('select');
+          dropdowns[key].forEach(opt => {
             const option = document.createElement('option');
-            option.value = opt.value;
-            option.innerText = opt.text;
-            if (pokemon[key] === opt.value) option.selected = true;
-            input.appendChild(option);
+            option.value = opt;
+            option.innerText = opt;
+            if (poke[key] === opt) option.selected = true;
+            el.appendChild(option);
           });
         } else {
-          input = document.createElement('input');
-          input.value = pokemon[key] || '';
+          // Standard Input
+          el = document.createElement('input');
+          el.value = poke[key] || '';
         }
-
-        td.appendChild(input);
+        td.appendChild(el);
         row.appendChild(td);
       });
       table.appendChild(row);
     }
-
     container.appendChild(table);
   });
 }
 
-// Download-Funktion
-document.getElementById('download-json').addEventListener('click', () => {
-  // Aktuelle Tabellenwerte in livingdexData zurückschreiben
-  const tables = document.querySelectorAll('#livingdex-container table');
+function downloadJSON(livingdex) {
+  const tables = document.querySelectorAll('table');
+  const updated = [];
+
   tables.forEach((table, boxIndex) => {
+    const box = { title: table.caption.innerText, pokemon: [] };
     const rows = table.querySelectorAll('tr');
-    const boxData = [];
-    for (let i = 1; i < rows.length; i++) { // Header überspringen
-      const cells = rows[i].querySelectorAll('td');
+    rows.forEach((row, rowIndex) => {
+      if (rowIndex === 0) return; // Header überspringen
+      const cells = row.querySelectorAll('td');
       const poke = {};
-      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key, idx) => {
-        const el = cells[idx].querySelector('input, select');
-        poke[key] = el.value || null;
+      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key, i) => {
+        const el = cells[i].querySelector('input, select');
+        poke[key] = el.value || '';
       });
-      // Wenn Name leer → ganze Zeile als null speichern
-      if (!poke.name) {
-        boxData.push(null);
-      } else {
-        boxData.push(poke);
-      }
-    }
-    livingdexData[boxIndex].pokemon = boxData;
+      box.pokemon.push(poke.name ? poke : null);
+    });
+    updated.push(box);
   });
 
-  const blob = new Blob([JSON.stringify(livingdexData, null, 2)], {type: 'application/json'});
+  const blob = new Blob([JSON.stringify(updated, null, 2)], {type: "application/json"});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = 'livingdex.json';
   a.click();
   URL.revokeObjectURL(url);
-});
+}
 </script>
 
 </body>
 </html>
-
