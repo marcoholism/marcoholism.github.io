@@ -4,91 +4,87 @@
 <meta charset="UTF-8">
 <title>Livingdex Editor</title>
 <style>
-  /* Grundfarben und Schrift */
-  :root {
-    --bg-color: #121212;
-    --table-bg: #1e1e1e;
-    --header-bg: #2c2c2c;
-    --text-color: #e0e0e0;
-    --border-color: #333;
-    --accent-color: #ffcc00;
-    --input-bg: #2c2c2c;
-    --input-text: #e0e0e0;
-    --input-border: #555;
-    --caption-color: #ffcc00;
-  }
-
   body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: #121212;
+    color: #e0e0e0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 20px;
   }
 
   h1 {
     text-align: center;
+    color: #fff;
     margin-bottom: 30px;
-    color: var(--accent-color);
+    font-weight: 300;
   }
 
   table {
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 40px;
-    background-color: var(--table-bg);
-    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
 
   caption {
-    font-size: 1.5em;
+    caption-side: top;
+    font-weight: 500;
+    font-size: 1.1em;
     padding: 10px;
-    background-color: var(--header-bg);
-    color: var(--caption-color);
-    font-weight: bold;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
   }
 
   th, td {
+    border: 1px solid rgba(255,255,255,0.1);
     padding: 10px;
     text-align: center;
-    border: 1px solid var(--border-color);
   }
 
-  th {
-    background-color: var(--header-bg);
-    color: var(--text-color);
+  tr:nth-child(even) td {
+    background-color: rgba(255,255,255,0.03);
+  }
+
+  tr:nth-child(odd) td {
+    background-color: rgba(255,255,255,0.01);
   }
 
   input, select {
     width: 100%;
     box-sizing: border-box;
-    padding: 5px 8px;
-    border-radius: 5px;
-    border: 1px solid var(--input-border);
-    background-color: var(--input-bg);
-    color: var(--input-text);
-    font-size: 0.9em;
+    padding: 6px 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
   }
 
   input:focus, select:focus {
-    outline: 2px solid var(--accent-color);
+    outline: none;
+    border-color: #00bfff;
+    box-shadow: 0 0 8px #00bfff;
+    background-color: rgba(255,255,255,0.08);
   }
 
   button {
-    padding: 10px 20px;
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 5px;
+    background-color: rgba(0, 191, 255, 0.8);
     color: #121212;
-    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 500;
     margin-bottom: 20px;
-    transition: background-color 0.2s;
+    backdrop-filter: blur(5px);
   }
 
   button:hover {
-    background-color: #e6b800;
+    background-color: rgba(0, 191, 255, 1);
   }
 </style>
 </head>
