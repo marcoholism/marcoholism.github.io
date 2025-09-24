@@ -45,6 +45,22 @@ caption {
   padding: 8px;
   background: rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Move Buttons */
+.caption-controls button {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #e0e0e0;
+  margin-left: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.caption-controls button:hover {
+  background: rgba(255,255,255,0.2);
 }
 
 /* Tabellenkopf */
@@ -78,7 +94,7 @@ input, select {
   -moz-appearance: none;
 }
 
-/* Optional: Fokus-Effekt */
+/* Fokus-Effekt */
 input:focus, select:focus {
   border-color: #4a90e2;
   background: rgba(255,255,255,0.1);
@@ -146,12 +162,34 @@ function buildTable(livingdex) {
   const container = document.getElementById('livingdex-container');
   container.innerHTML = '';
 
-  livingdex.forEach(box => {
+  livingdex.forEach((box, boxIndex) => {
     const table = document.createElement('table');
 
     const caption = document.createElement('caption');
-    caption.contentEditable = true; // Titel editierbar
-    caption.innerText = box.title;
+
+    // Titel editierbar
+    const title = document.createElement('span');
+    title.contentEditable = true;
+    title.innerText = box.title;
+
+    // Steuerung für Verschieben
+    const controls = document.createElement('span');
+    controls.className = 'caption-controls';
+
+    const upBtn = document.createElement('button');
+    upBtn.innerText = '↑';
+    upBtn.addEventListener('click', () => moveBox(boxIndex, -1));
+
+    const downBtn = document.createElement('button');
+    downBtn.innerText = '↓';
+    downBtn.addEventListener('click', () => moveBox(boxIndex, 1));
+
+    controls.appendChild(upBtn);
+    controls.appendChild(downBtn);
+
+    caption.appendChild(title);
+    caption.appendChild(controls);
+
     table.appendChild(caption);
 
     const header = document.createElement('tr');
@@ -170,7 +208,6 @@ function buildTable(livingdex) {
         const td = document.createElement('td');
         let el;
         if (dropdowns[key]) {
-          // Dropdown erstellen
           el = document.createElement('select');
           dropdowns[key].forEach(opt => {
             const option = document.createElement('option');
@@ -180,14 +217,12 @@ function buildTable(livingdex) {
             el.appendChild(option);
           });
         } else if (key === 'level') {
-          // Zahlenfeld für Level
           el = document.createElement('input');
           el.type = 'number';
           el.min = 1;
           el.max = 100;
           el.value = poke[key] || '';
         } else {
-          // Standard Input
           el = document.createElement('input');
           el.value = poke[key] || '';
         }
@@ -209,12 +244,20 @@ function addBox() {
   buildTable(livingdexData);
 }
 
+function moveBox(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= livingdexData.length) return; // außerhalb -> abbrechen
+  const [moved] = livingdexData.splice(index, 1);
+  livingdexData.splice(newIndex, 0, moved);
+  buildTable(livingdexData);
+}
+
 function downloadJSON() {
   const tables = document.querySelectorAll('table');
   const updated = [];
 
   tables.forEach(table => {
-    const box = { title: table.caption.innerText, pokemon: [] };
+    const box = { title: table.caption.querySelector('span').innerText, pokemon: [] };
     const rows = table.querySelectorAll('tr');
     rows.forEach((row, rowIndex) => {
       if (rowIndex === 0) return; // Header überspringen
