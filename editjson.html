@@ -191,24 +191,27 @@ function buildTable(livingdex) {
 
   livingdex.forEach((box, boxIndex) => {
     const table = document.createElement('table');
+
+    // Status berücksichtigen
+    if (box.collapsed) table.classList.add('collapsed');
+
     const caption = document.createElement('caption');
 
-    // Collapsible Icon
     const toggleIcon = document.createElement('span');
     toggleIcon.className = 'toggle-icon';
-    toggleIcon.innerText = '▼';
-    
-    // Titel editierbar
+    toggleIcon.innerText = box.collapsed ? '►' : '▼';
+
     const title = document.createElement('span');
     title.contentEditable = true;
     title.innerText = box.title;
 
     toggleIcon.addEventListener('click', () => {
       table.classList.toggle('collapsed');
-      toggleIcon.innerText = table.classList.contains('collapsed') ? '►' : '▼';
+      const isCollapsed = table.classList.contains('collapsed');
+      toggleIcon.innerText = isCollapsed ? '►' : '▼';
+      box.collapsed = isCollapsed; // Status speichern
     });
 
-    // Steuerung für Verschieben
     const controls = document.createElement('span');
     controls.className = 'caption-controls';
     const upBtn = document.createElement('button');
@@ -225,14 +228,16 @@ function buildTable(livingdex) {
     caption.appendChild(controls);
     table.appendChild(caption);
 
+    // Tabellenkopf
     const header = document.createElement('tr');
-    ['Name', 'Img', 'Gender', 'Game', 'Trainer', 'ID', 'Ball', 'Level', 'Nature', 'Ability'].forEach(h => {
+    ['Name','Img','Gender','Game','Trainer','ID','Ball','Level','Nature','Ability'].forEach(h => {
       const th = document.createElement('th');
       th.innerText = h;
       header.appendChild(th);
     });
     table.appendChild(header);
 
+    // Tabelleninhalt
     for (let i = 0; i < 30; i++) {
       const poke = box.pokemon[i] || {};
       const row = document.createElement('tr');
@@ -271,12 +276,14 @@ function buildTable(livingdex) {
   });
 }
 
+// Box hinzufügen
 function addBox() {
-  const newBox = { title: "Neue Box", pokemon: Array(30).fill(null) };
+  const newBox = { title: "Neue Box", pokemon: Array(30).fill(null), collapsed: false };
   livingdexData.push(newBox);
   buildTable(livingdexData);
 }
 
+// Box verschieben
 function moveBox(index, direction) {
   const newIndex = index + direction;
   if (newIndex < 0 || newIndex >= livingdexData.length) return;
