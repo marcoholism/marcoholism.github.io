@@ -178,7 +178,6 @@ function buildTable(livingdex) {
           if (poke.name && poke.img) {
             const img = document.createElement('img');
             img.src = `/pkmnicons/${poke.img}.png`;
-            img.width = 48;
             el.appendChild(img);
             // Mehrere Formen
             const pokeObj = pokemonData.find(p => p.name === poke.name);
