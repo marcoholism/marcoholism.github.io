@@ -106,7 +106,7 @@ function buildTable(livingdex) {
     table.appendChild(header);
 
     for(let i=0;i<30;i++){
-      const poke = box.pokemon[i]||{};
+      const poke = box.pokemon[i] || {name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''};
       const row = document.createElement('tr');
 
       ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key=>{
@@ -189,8 +189,13 @@ function createImageCell(cell, pokeObj, selectedNumber){
   }
 }
 
+// Beim Hinzufügen einer neuen Box:
 function addBox(){
-  const newBox={title:"Neue Box",pokemon:Array(30).fill(null),collapsed:false};
+  const newBox = {
+    title: "Neue Box",
+    pokemon: Array.from({length:30}, ()=>({name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''})),
+    collapsed:false
+  };
   livingdexData.push(newBox);
   buildTable(livingdexData);
 }
