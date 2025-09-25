@@ -35,22 +35,7 @@ tr:hover td { background: rgba(255,255,255,0.05); }
 <div id="livingdex-container"></div>
 
 <script>
-// Pokémon-Liste mit Nummern (dreistellig bis 999, ab 1000 normal)
-const pokemonData = [
-  { name: 'Bisasam', numbers: ['001'] },
-  { name: 'Bisaknosp', numbers: ['002'] },
-  { name: 'Bisaflor', numbers: ['003'] },
-  { name: 'Glumanda', numbers: ['004'] },
-  { name: 'Glutexo', numbers: ['005'] },
-  { name: 'Glurak', numbers: ['006'] },
-  { name: 'Pikachu', numbers: ['025', '025g', '025h', '025h', '025i', '025j', '025k', '025l', '025l', '025m', '025o'] },
-  { name: 'Endivie', numbers: ['152'] },
-  { name: 'Lorblatt', numbers: ['153'] },
-  { name: 'Meganie', numbers: ['154'] },
-  { name: 'Celebi', numbers: ['251'] }
-  // ... hier alle weiteren Pokémon einfügen
-];
-
+// Dropdown Definitionen
 const dropdowns = {
   gender: ['genderless', 'male', 'female'],
   ball: ['pokeball', 'super', 'hyperball', 'meisterball', 'wiederball', 'flottball', 'raetselball'],
@@ -58,16 +43,26 @@ const dropdowns = {
   game: ['GameBoy', 'Kalos', 'Alola', 'LetsGo', 'Galar', 'Sinnoh', 'Hisui', 'Paldea', 'GO']
 };
 
+let pokemonData = [];
 let livingdexData = [];
 
+// Pokémon-Liste extern laden
+fetch('pokemon.json')
+  .then(r => r.json())
+  .then(data => {
+    pokemonData = data;
+    buildPokemonDatalist();
+  })
+  .catch(e => console.error('Fehler beim Laden von pokemon.json:', e));
+
+// Livingdex laden
 fetch('livingdex.json')
   .then(r => r.json())
-  .then(livingdex => {
-    livingdexData = livingdex;
-    buildPokemonDatalist();
+  .then(data => {
+    livingdexData = data;
     buildTable(livingdexData);
   })
-  .catch(e => console.error('Fehler beim Laden der JSON:', e));
+  .catch(e => console.error('Fehler beim Laden von livingdex.json:', e));
 
 document.getElementById('download-btn').addEventListener('click', downloadJSON);
 document.getElementById('add-box-btn').addEventListener('click', addBox);
@@ -151,17 +146,17 @@ function buildTable(livingdex) {
             imgCell.innerHTML = '';
             const pokeObj = pokemonData.find(p => p.name === name);
             if (!pokeObj) return;
+
+            const img = document.createElement('img');
+            img.width = 48;
+            imgCell.appendChild(img);
+
             if (pokeObj.numbers.length === 1) {
-              const img = document.createElement('img');
               img.src = getPokemonImage(name);
-              img.width = 48;
-              imgCell.appendChild(img);
+              imgCell.dataset.number = pokeObj.numbers[0];
             } else {
-              const img = document.createElement('img');
-              img.src = getPokemonImage(name);
-              img.width = 48;
               const select = document.createElement('select');
-              pokeObj.numbers.forEach((_, idx) => {
+              pokeObj.numbers.forEach((num, idx) => {
                 const opt = document.createElement('option');
                 opt.value = idx;
                 opt.text = `Form ${idx+1}`;
@@ -170,38 +165,38 @@ function buildTable(livingdex) {
               select.addEventListener('change', () => {
                 const idx = parseInt(select.value);
                 img.src = getPokemonImage(name, idx);
+                imgCell.dataset.number = pokeObj.numbers[idx];
               });
-              imgCell.appendChild(img);
+              img.src = getPokemonImage(name);
+              imgCell.dataset.number = pokeObj.numbers[0];
               imgCell.appendChild(select);
             }
           });
         } else if (key === 'img') {
           el = document.createElement('div');
-          if (poke.name) {
+          el.dataset.number = poke.img || '';
+          if (poke.name && poke.img) {
+            const img = document.createElement('img');
+            img.src = `/pkmnicons/${poke.img}.png`;
+            img.width = 48;
+            el.appendChild(img);
+            // Mehrere Formen
             const pokeObj = pokemonData.find(p => p.name === poke.name);
-            if (pokeObj) {
-              if (pokeObj.numbers.length === 1) {
-                const img = document.createElement('img');
-                img.src = getPokemonImage(poke.name);
-                el.appendChild(img);
-              } else {
-                const img = document.createElement('img');
-                img.src = getPokemonImage(poke.name);
-                img.width = 48;
-                const select = document.createElement('select');
-                pokeObj.numbers.forEach((_, idx) => {
-                  const opt = document.createElement('option');
-                  opt.value = idx;
-                  opt.text = `Form ${idx+1}`;
-                  select.appendChild(opt);
-                });
-                select.addEventListener('change', () => {
-                  const idx = parseInt(select.value);
-                  img.src = getPokemonImage(poke.name, idx);
-                });
-                el.appendChild(img);
-                el.appendChild(select);
-              }
+            if (pokeObj && pokeObj.numbers.length > 1) {
+              const select = document.createElement('select');
+              pokeObj.numbers.forEach((num, idx) => {
+                const opt = document.createElement('option');
+                opt.value = idx;
+                opt.text = `Form ${idx+1}`;
+                if (num === poke.img) opt.selected = true;
+                select.appendChild(opt);
+              });
+              select.addEventListener('change', () => {
+                const idx = parseInt(select.value);
+                img.src = getPokemonImage(poke.name, idx);
+                el.dataset.number = pokeObj.numbers[idx];
+              });
+              el.appendChild(select);
             }
           }
         } else if (dropdowns[key]) {
@@ -259,8 +254,12 @@ function downloadJSON() {
       const cells = row.querySelectorAll('td');
       const poke = {};
       ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key, i) => {
-        const el = cells[i].querySelector('input, select');
-        poke[key] = el ? el.value : '';
+        if (key === 'img') {
+          poke[key] = cells[i].dataset.number || '';
+        } else {
+          const el = cells[i].querySelector('input, select');
+          poke[key] = el ? el.value : '';
+        }
       });
       box.pokemon.push(poke.name ? poke : null);
     });
