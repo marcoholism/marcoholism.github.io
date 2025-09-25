@@ -89,7 +89,7 @@ input, select {
   font-size: 0.9em;
   font-family: inherit;
   outline: none;
-  appearance: none; /* removes native styling */
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -115,7 +115,7 @@ tr:hover td {
   background: rgba(255,255,255,0.05);
 }
 
-/* Scrollbar (optional modern dark style) */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -137,12 +137,13 @@ tr:hover td {
 <div id="livingdex-container"></div>
 
 <script>
-// Dropdown Definitionen
+// Dropdown Definitionen inkl. Pokemon-Liste für Autocomplete
 const dropdowns = {
   gender: ['genderless', 'male', 'female'],
   ball: ['pokeball', 'super', 'hyperball', 'meisterball', 'wiederball', 'flottball', 'raetselball'],
   nature: ['Robust', 'Solo', 'Mutig', 'Hart', 'Frech', 'Kühn', 'Sanft', 'Locker', 'Pfiffig', 'Lasch', 'Scheu', 'Hastig', 'Ernst', 'Froh', 'Naiv', 'Mäßig', 'Mild', 'Ruhig', 'Zaghaft', 'Hitzig', 'Still', 'Zart', 'Forsch', 'Sacht', 'Kauzig'],
-  game: ['GameBoy', 'Kalos', 'Alola', 'LetsGo', 'Galar', 'Sinnoh', 'Hisui', 'Paldea', 'GO']
+  game: ['GameBoy', 'Kalos', 'Alola', 'LetsGo', 'Galar', 'Sinnoh', 'Hisui', 'Paldea', 'GO'],
+  pokemon: ['Pikachu','Mew','Charizard','Bulbasaur','Squirtle','Eevee'] // Beispiel – kann erweitert werden
 };
 
 let livingdexData = [];
@@ -152,12 +153,27 @@ fetch('livingdex.json')
   .then(response => response.json())
   .then(livingdex => {
     livingdexData = livingdex;
+    buildPokemonDatalist(); // datalist erzeugen
     buildTable(livingdexData);
   })
   .catch(error => console.error('Fehler beim Laden der JSON:', error));
 
 document.getElementById('download-btn').addEventListener('click', () => downloadJSON());
 document.getElementById('add-box-btn').addEventListener('click', () => addBox());
+
+// Datalist für Pokemon-Namen erzeugen
+function buildPokemonDatalist() {
+  const existing = document.getElementById('pokemon-list');
+  if (existing) existing.remove();
+  const datalist = document.createElement('datalist');
+  datalist.id = 'pokemon-list';
+  dropdowns.pokemon.forEach(name => {
+    const opt = document.createElement('option');
+    opt.value = name;
+    datalist.appendChild(opt);
+  });
+  document.body.appendChild(datalist);
+}
 
 function buildTable(livingdex) {
   const container = document.getElementById('livingdex-container');
@@ -217,6 +233,10 @@ function buildTable(livingdex) {
             if (poke[key] === opt) option.selected = true;
             el.appendChild(option);
           });
+        } else if (key === 'name') {
+          el = document.createElement('input');
+          el.value = poke[key] || '';
+          el.setAttribute('list', 'pokemon-list'); // autocomplete aktivieren
         } else if (key === 'level') {
           el = document.createElement('input');
           el.type = 'number';
@@ -247,7 +267,7 @@ function addBox() {
 
 function moveBox(index, direction) {
   const newIndex = index + direction;
-  if (newIndex < 0 || newIndex >= livingdexData.length) return; // außerhalb -> abbrechen
+  if (newIndex < 0 || newIndex >= livingdexData.length) return;
   const [moved] = livingdexData.splice(index, 1);
   livingdexData.splice(newIndex, 0, moved);
   buildTable(livingdexData);
@@ -261,7 +281,7 @@ function downloadJSON() {
     const box = { title: table.caption.querySelector('span').innerText, pokemon: [] };
     const rows = table.querySelectorAll('tr');
     rows.forEach((row, rowIndex) => {
-      if (rowIndex === 0) return; // Header überspringen
+      if (rowIndex === 0) return;
       const cells = row.querySelectorAll('td');
       const poke = {};
       ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key, i) => {
