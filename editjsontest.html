@@ -40,7 +40,10 @@ const pokemonData = [
   { name: 'Bisasam', numbers: ['001'] },
   { name: 'Bisaknosp', numbers: ['002'] },
   { name: 'Bisaflor', numbers: ['003'] },
-  { name: 'Pikachu', numbers: ['025', '172'] },
+  { name: 'Glumanda', numbers: ['004'] },
+  { name: 'Glutexo', numbers: ['005'] },
+  { name: 'Glurak', numbers: ['006'] },
+  { name: 'Pikachu', numbers: ['025', '025g', '025h', '025h', '025i', '025j', '025k', '025l', '025l', '025m', '025o'] },
   { name: 'Endivie', numbers: ['152'] },
   { name: 'Lorblatt', numbers: ['153'] },
   { name: 'Meganie', numbers: ['154'] },
@@ -86,7 +89,7 @@ function getPokemonImage(name, idx = 0) {
   const poke = pokemonData.find(p => p.name === name);
   if (!poke) return '';
   const number = poke.numbers[idx];
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`;
+  return `/pkmnicons/${number}.png`;
 }
 
 function buildTable(livingdex) {
