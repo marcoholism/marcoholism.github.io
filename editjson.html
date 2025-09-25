@@ -4,139 +4,27 @@
 <meta charset="UTF-8">
 <title>Livingdex Editor</title>
 <style>
-/* Grundlayout */
-body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background: #1a1a1a;
-  color: #e0e0e0;
-  margin: 20px;
-}
-
-/* Überschrift */
-h1 {
-  text-align: center;
-  font-weight: 400;
-  margin-bottom: 30px;
-  color: #f5f5f5;
-}
-
-/* Container */
-#livingdex-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-/* Tabellen */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  backdrop-filter: blur(10px);
-  background: rgba(30, 30, 30, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Collapsed */
-table.collapsed tr:not(:first-child) {
-  display: none;
-}
-
-/* Tabellenüberschrift */
-caption {
-  caption-side: top;
-  text-align: left;
-  font-size: 1.2em;
-  font-weight: 500;
-  padding: 8px;
-  background: rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Toggle Icon */
-caption span.toggle-icon {
-  margin-right: 8px;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* Move Buttons */
-.caption-controls button {
-  background: rgba(255,255,255,0.1);
-  border: none;
-  color: #e0e0e0;
-  margin-left: 4px;
-  padding: 2px 6px;
-  cursor: pointer;
-}
-.caption-controls button:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-/* Tabellenkopf */
-th {
-  background: rgba(255,255,255,0.05);
-  color: #f0f0f0;
-  padding: 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-}
-
-/* Tabellenzellen */
-td {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 4px;
-}
-
-/* Inputs & Selects */
-input, select {
-  width: 100%;
-  box-sizing: border-box;
-  background: rgba(255,255,255,0.05);
-  color: #f0f0f0;
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 6px 8px;
-  font-size: 0.9em;
-  font-family: inherit;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-/* Fokus-Effekt */
-input:focus, select:focus {
-  border-color: #4a90e2;
-  background: rgba(255,255,255,0.1);
-}
-
-/* Custom Pfeil für select */
-select {
-  background-image: linear-gradient(45deg, transparent 50%, #f0f0f0 50%), 
-                    linear-gradient(135deg, #f0f0f0 50%, transparent 50%);
-  background-position: calc(100% - 15px) calc(50% - 2px), calc(100% - 10px) calc(50% - 2px);
-  background-size: 5px 5px, 5px 5px;
-  background-repeat: no-repeat;
-  padding-right: 25px;
-}
-
-/* Zeilen hover Effekt */
-tr:hover td {
-  background: rgba(255,255,255,0.05);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
-}
-::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.05);
-}
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #1a1a1a; color: #e0e0e0; margin: 20px; }
+h1 { text-align: center; font-weight: 400; margin-bottom: 30px; color: #f5f5f5; }
+#livingdex-container { display: flex; flex-direction: column; gap: 40px; }
+table { border-collapse: collapse; width: 100%; backdrop-filter: blur(10px); background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); }
+table.collapsed tr:not(:first-child) { display: none; }
+caption { caption-side: top; text-align: left; font-size: 1.2em; font-weight: 500; padding: 8px; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
+caption span.toggle-icon { margin-right: 8px; cursor: pointer; user-select: none; }
+.caption-controls button { background: rgba(255,255,255,0.1); border: none; color: #e0e0e0; margin-left: 4px; padding: 2px 6px; cursor: pointer; }
+.caption-controls button:hover { background: rgba(255,255,255,0.2); }
+th { background: rgba(255,255,255,0.05); color: #f0f0f0; padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; }
+td { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 4px; text-align: center; vertical-align: middle; }
+input, select { width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.05); color: #f0f0f0; border: 1px solid rgba(255,255,255,0.1); padding: 6px 8px; font-size: 0.9em; font-family: inherit; outline: none; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+input:focus, select:focus { border-color: #4a90e2; background: rgba(255,255,255,0.1); }
+select { background-image: linear-gradient(45deg, transparent 50%, #f0f0f0 50%), linear-gradient(135deg, #f0f0f0 50%, transparent 50%); background-position: calc(100% - 15px) calc(50% - 2px), calc(100% - 10px) calc(50% - 2px); background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 25px; }
+tr:hover td { background: rgba(255,255,255,0.05); }
+.grid-popup { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-top: 4px; }
+.grid-popup img { width: 48px; cursor: pointer; border: 2px solid transparent; }
+.grid-popup img.selected { border-color: #4a90e2; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
 </style>
 </head>
 <body>
@@ -149,174 +37,216 @@ tr:hover td {
 <div id="livingdex-container"></div>
 
 <script>
-// Dropdown Definitionen inkl. Pokemon-Liste für Autocomplete
 const dropdowns = {
-  gender: ['genderless', 'male', 'female'],
-  ball: ['pokeball', 'super', 'hyperball', 'meisterball', 'wiederball', 'flottball', 'raetselball'],
-  nature: ['Robust', 'Solo', 'Mutig', 'Hart', 'Frech', 'Kühn', 'Sanft', 'Locker', 'Pfiffig', 'Lasch', 'Scheu', 'Hastig', 'Ernst', 'Froh', 'Naiv', 'Mäßig', 'Mild', 'Ruhig', 'Zaghaft', 'Hitzig', 'Still', 'Zart', 'Forsch', 'Sacht', 'Kauzig'],
-  game: ['GameBoy', 'Kalos', 'Alola', 'LetsGo', 'Galar', 'Sinnoh', 'Hisui', 'Paldea', 'GO'],
-  pokemon: ['Bisasam','Bisaknosp','Bisaflor','Glumanda','Glutexo','Glurak','Schiggy','Schillok','Turtok','Raupy','Safcon','Smettbo','Hornliu','Kokuna','Bibor','Taubsi','Tauboga','Tauboss','Rattfratz','Rattikarl','Habitak','Ibitak','Rettan','Arbok','Pikachu','Raichu','Sandan','Sandamer','Nidoran♀','Nidorina','Nidoqueen','Nidoran♂','Nidorino','Nidoking','Piepi','Pixi','Vulpix','Vulnona','Pummeluff','Knuddeluff','Zubat','Golbat','Myrapla','Duflor','Giflor','Paras','Parasek','Bluzuk','Omot','Digda','Digdri','Mauzi','Snobilikat','Enton','Entoron','Menki','Rasaff','Fukano','Arkani','Quapsel','Quaputzi','Quappo','Abra','Kadabra','Simsala','Machollo','Maschok','Machomei','Knofensa','Ultrigaria','Sarzenia','Tentacha','Tentoxa','Kleinstein','Georok','Geowaz','Ponita','Gallopa','Flegmon','Lahmus','Magnetilo','Magneton','Porenta','Dodu','Dodri','Jurob','Jugong','Sleima','Sleimok','Muschas','Austos','Nebulak','Alpollo','Gengar','Onix','Traumato','Hypno','Krabby','Kingler','Voltobal','Lektrobal','Owei','Kokowei','Tragosso','Knogga','Kicklee','Nockchan','Schlurp','Smogon','Smogmog','Rihorn','Rizeros','Chaneira','Tangela','Kangama','Seeper','Seemon','Goldini','Golking','Sterndu','Starmie','Pantimos','Sichlor','Rossana','Elektek','Magmar','Pinsir','Tauros','Karpador','Garados','Lapras','Ditto','Evoli','Aquana','Blitza','Flamara','Porygon','Amonitas','Amoroso','Kabuto','Kabutops','Aerodactyl','Relaxo','Arktos','Zapdos','Lavados','Dratini','Dragonir','Dragoran','Mewtu','Mew','Endivie','Lorblatt','Meganie','Feurigel','Igelavar','Tornupto','Karnimani','Tyracroc','Impergator','Wiesor','Wiesenior','Hoothoot','Noctuh','Ledyba','Ledian','Webarak','Ariados','Iksbat','Lampi','Lanturn','Pichu','Pii','Fluffeluff','Togepi','Togetic','Natu','Xatu','Voltilamm','Waaty','Ampharos','Blubella','Marill','Azumarill','Mogelbaum','Quaxo','Hoppspross','Hubelupf','Papungha','Griffel','Sonnkern','Sonnflora','Yanma','Felino','Morlord','Psiana','Nachtara','Kramurx','Laschoking','Traunfugil','Icognito','Woingenau','Girafarig','Tannza','Forstellka','Dummisel','Skorgla','Stahlos','Snubbull','Granbull','Baldorfish','Scherox','Pottrott','Skaraborn','Sniebel','Teddiursa','Ursaring','Schneckmag','Magcargo','Quiekel','Keifel','Corasonn','Remoraid','Octillery','Botogel','Mantax','Panzaeron','Hunduster','Hundemon','Seedraking','Phanpy','Donphan','Porygon2','Damhirplex','Farbeagle','Rabauz','Kapoera','Kussilla','Elekid','Magby','Miltank','Heiteira','Raikou','Entei','Suicune','Larvitar','Pupitar','Despotar','Lugia','Ho-Oh','Celebi']
+  gender: ['genderless','male','female'],
+  ball: ['pokeball','super','hyperball','meisterball','wiederball','flottball','raetselball'],
+  nature: ['Robust','Solo','Mutig','Hart','Frech','Kühn','Sanft','Locker','Pfiffig','Lasch','Scheu','Hastig','Ernst','Froh','Naiv','Mäßig','Mild','Ruhig','Zaghaft','Hitzig','Still','Zart','Forsch','Sacht','Kauzig'],
+  game: ['GameBoy','Kalos','Alola','LetsGo','Galar','Sinnoh','Hisui','Paldea','GO']
 };
 
+let pokemonData = [];
 let livingdexData = [];
 
+// Pokémon-Liste laden
+fetch('pokemon.json')
+  .then(r => r.json())
+  .then(data => { pokemonData = data; buildPokemonDatalist(); })
+  .catch(e => console.error('Fehler beim Laden von pokemon.json:', e));
+
+// Livingdex laden
 fetch('livingdex.json')
-  .then(response => response.json())
-  .then(livingdex => {
-    livingdexData = livingdex;
-    buildPokemonDatalist();
+  .then(r => r.json())
+  .then(data => {
+    livingdexData = data.map(box => ({
+      title: box.title || 'Neue Box',
+      collapsed: box.collapsed || false,
+      pokemon: Array.from({length:30}, (_,i) => (box.pokemon && box.pokemon[i]) ? box.pokemon[i] : {name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''})
+    }));
     buildTable(livingdexData);
   })
-  .catch(error => console.error('Fehler beim Laden der JSON:', error));
+  .catch(e => console.error('Fehler beim Laden von livingdex.json:', e));
 
-document.getElementById('download-btn').addEventListener('click', () => downloadJSON());
-document.getElementById('add-box-btn').addEventListener('click', () => addBox());
+document.getElementById('download-btn').addEventListener('click', downloadJSON);
+document.getElementById('add-box-btn').addEventListener('click', addBox);
 
-function buildPokemonDatalist() {
+function buildPokemonDatalist(){
   const existing = document.getElementById('pokemon-list');
-  if (existing) existing.remove();
+  if(existing) existing.remove();
   const datalist = document.createElement('datalist');
-  datalist.id = 'pokemon-list';
-  dropdowns.pokemon.forEach(name => {
-    const opt = document.createElement('option');
-    opt.value = name;
-    datalist.appendChild(opt);
-  });
+  datalist.id='pokemon-list';
+  pokemonData.forEach(p=>{const opt=document.createElement('option'); opt.value=p.name; datalist.appendChild(opt);});
   document.body.appendChild(datalist);
 }
 
-function buildTable(livingdex) {
+function getPokemonImage(name, idx=0){
+  const poke = pokemonData.find(p=>p.name===name);
+  if(!poke) return '';
+  return `/pkmnicons/${poke.numbers[idx]}.png`;
+}
+
+function buildTable(livingdex){
   const container = document.getElementById('livingdex-container');
-  container.innerHTML = '';
+  container.innerHTML='';
 
-  livingdex.forEach((box, boxIndex) => {
-    const table = document.createElement('table');
+  livingdex.forEach((box, boxIndex)=>{
+    const table=document.createElement('table');
+    if(box.collapsed) table.classList.add('collapsed');
 
-    // Status berücksichtigen
-    if (box.collapsed) table.classList.add('collapsed');
-
-    const caption = document.createElement('caption');
-
-    const toggleIcon = document.createElement('span');
-    toggleIcon.className = 'toggle-icon';
-    toggleIcon.innerText = box.collapsed ? '►' : '▼';
-
-    const title = document.createElement('span');
-    title.contentEditable = true;
-    title.innerText = box.title;
-
-    toggleIcon.addEventListener('click', () => {
+    const caption=document.createElement('caption');
+    const toggleIcon=document.createElement('span');
+    toggleIcon.className='toggle-icon';
+    toggleIcon.innerText=box.collapsed?'►':'▼';
+    const title=document.createElement('span');
+    title.contentEditable=true;
+    title.innerText=box.title;
+    toggleIcon.addEventListener('click',()=>{
       table.classList.toggle('collapsed');
-      const isCollapsed = table.classList.contains('collapsed');
-      toggleIcon.innerText = isCollapsed ? '►' : '▼';
-      box.collapsed = isCollapsed; // Status speichern
+      box.collapsed=table.classList.contains('collapsed');
+      toggleIcon.innerText=box.collapsed?'►':'▼';
     });
-
-    const controls = document.createElement('span');
-    controls.className = 'caption-controls';
-    const upBtn = document.createElement('button');
-    upBtn.innerText = '↑';
-    upBtn.addEventListener('click', () => moveBox(boxIndex, -1));
-    const downBtn = document.createElement('button');
-    downBtn.innerText = '↓';
-    downBtn.addEventListener('click', () => moveBox(boxIndex, 1));
-    controls.appendChild(upBtn);
-    controls.appendChild(downBtn);
-
+    const controls=document.createElement('span');
+    controls.className='caption-controls';
+    ['↑','↓'].forEach((txt,i)=>{const btn=document.createElement('button'); btn.innerText=txt; btn.addEventListener('click',()=>moveBox(boxIndex,i===0?-1:1)); controls.appendChild(btn);});
     caption.appendChild(toggleIcon);
     caption.appendChild(title);
     caption.appendChild(controls);
     table.appendChild(caption);
 
-    // Tabellenkopf
-    const header = document.createElement('tr');
-    ['Name','Img','Gender','Game','Trainer','ID','Ball','Level','Nature','Ability'].forEach(h => {
-      const th = document.createElement('th');
-      th.innerText = h;
-      header.appendChild(th);
-    });
+    const header=document.createElement('tr');
+    ['Name','Img','Gender','Game','Trainer','ID','Ball','Level','Nature','Ability'].forEach(h=>{const th=document.createElement('th'); th.innerText=h; header.appendChild(th);});
     table.appendChild(header);
 
-    // Tabelleninhalt
-    for (let i = 0; i < 30; i++) {
-      const poke = box.pokemon[i] || {};
-      const row = document.createElement('tr');
-      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key => {
-        const td = document.createElement('td');
+    for(let i=0;i<30;i++){
+      const poke = (box.pokemon && box.pokemon[i]) || {name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''};
+      const row=document.createElement('tr');
+
+      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key=>{
+        const td=document.createElement('td');
         let el;
-        if (dropdowns[key]) {
-          el = document.createElement('select');
-          dropdowns[key].forEach(opt => {
-            const option = document.createElement('option');
-            option.value = opt;
-            option.innerText = opt;
-            if (poke[key] === opt) option.selected = true;
-            el.appendChild(option);
+
+        if(key==='name'){
+          el=document.createElement('input');
+          el.setAttribute('list','pokemon-list');
+          el.value=poke[key]||'';
+          el.addEventListener('input', e=>{
+            const name = e.target.value;
+            const imgCell = td.nextSibling;
+            imgCell.innerHTML='';
+            imgCell.dataset.number='';
+            if(!name) return;
+            const pokeObj = pokemonData.find(p=>p.name===name);
+            if(!pokeObj) return;
+            createImageCell(imgCell, pokeObj);
           });
-        } else if (key === 'name') {
-          el = document.createElement('input');
-          el.value = poke[key] || '';
-          el.setAttribute('list', 'pokemon-list');
-        } else if (key === 'level') {
-          el = document.createElement('input');
-          el.type = 'number';
-          el.min = 1;
-          el.max = 100;
-          el.value = poke[key] || '';
-        } else {
-          el = document.createElement('input');
-          el.value = poke[key] || '';
+        }else if(key==='img'){
+          el=document.createElement('div');
+          el.style.display='flex';
+          el.style.flexDirection='column';
+          el.style.alignItems='center';
+          let number = poke.img;
+          if(!number && poke.name){
+            const pokeObj = pokemonData.find(p=>p.name===poke.name);
+            if(pokeObj) number=pokeObj.numbers[0];
+          }
+          td.dataset.number = number || '';
+          if(poke.name){
+            const pokeObj = pokemonData.find(p=>p.name===poke.name);
+            if(pokeObj) createImageCell(td, pokeObj, number);
+          }
+        }else if(dropdowns[key]){
+          el=document.createElement('select');
+          dropdowns[key].forEach(opt=>{const option=document.createElement('option'); option.value=opt; option.innerText=opt; if(poke[key]===opt) option.selected=true; el.appendChild(option);});
+        }else if(key==='level'){
+          el=document.createElement('input'); el.type='number'; el.min=1; el.max=100; el.value=poke[key]||'';
+        }else{
+          el=document.createElement('input'); el.value=poke[key]||'';
         }
+
         td.appendChild(el);
         row.appendChild(td);
       });
+
       table.appendChild(row);
     }
+
     container.appendChild(table);
   });
 }
 
-// Box hinzufügen
-function addBox() {
-  const newBox = { title: "Neue Box", pokemon: Array(30).fill(null), collapsed: false };
+function createImageCell(cell, pokeObj, selectedNumber){
+  cell.innerHTML='';
+  const idx = (selectedNumber? pokeObj.numbers.indexOf(selectedNumber):0);
+  const img = document.createElement('img');
+  img.src = getPokemonImage(pokeObj.name, idx>=0?idx:0);
+  img.style.cursor='pointer';
+  img.classList.add('selected');
+  cell.appendChild(img);
+  cell.dataset.number = pokeObj.numbers[idx>=0?idx:0];
+
+  if(pokeObj.numbers.length>1){
+    img.addEventListener('click', ()=>{
+      const existing = cell.querySelector('.grid-popup');
+      if(existing){ existing.remove(); return; }
+      const popup = document.createElement('div'); popup.className='grid-popup';
+      pokeObj.numbers.forEach(num=>{
+        const formImg = document.createElement('img');
+        formImg.src=`/pkmnicons/${num}.png`;
+        if(num===cell.dataset.number) formImg.classList.add('selected');
+        formImg.addEventListener('click', ()=>{
+          cell.dataset.number=num;
+          img.src=formImg.src;
+          popup.remove();
+        });
+        popup.appendChild(formImg);
+      });
+      cell.appendChild(popup);
+    });
+  }
+}
+
+// Neue Box hinzufügen
+function addBox(){
+  const newBox = {title:'Neue Box', collapsed:false, pokemon:Array.from({length:30},()=>({name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''}))};
   livingdexData.push(newBox);
   buildTable(livingdexData);
 }
 
 // Box verschieben
-function moveBox(index, direction) {
+function moveBox(index,direction){
   const newIndex = index + direction;
-  if (newIndex < 0 || newIndex >= livingdexData.length) return;
-  const [moved] = livingdexData.splice(index, 1);
-  livingdexData.splice(newIndex, 0, moved);
+  if(newIndex<0||newIndex>=livingdexData.length) return;
+  const [moved] = livingdexData.splice(index,1);
+  livingdexData.splice(newIndex,0,moved);
   buildTable(livingdexData);
 }
 
-function downloadJSON() {
+// JSON herunterladen
+function downloadJSON(){
   const tables = document.querySelectorAll('table');
-  const updated = [];
-  tables.forEach(table => {
-    const box = { title: table.caption.querySelector('span:nth-child(2)').innerText, pokemon: [] };
-    const rows = table.querySelectorAll('tr');
-    rows.forEach((row, rowIndex) => {
-      if (rowIndex === 0) return;
+  const updated=[];
+  tables.forEach(table=>{
+    const box={title:table.caption.querySelector('span:nth-child(2)').innerText, pokemon:[]};
+    const rows=table.querySelectorAll('tr');
+    rows.forEach((row,rowIndex)=>{
+      if(rowIndex===0) return;
       const cells = row.querySelectorAll('td');
       const poke = {};
-      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key, i) => {
-        const el = cells[i].querySelector('input, select');
-        poke[key] = el.value || '';
+      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key,i)=>{
+        if(key==='img'){
+          poke[key] = cells[i].dataset.number || '';
+        }else{
+          const el = cells[i].querySelector('input,select');
+          poke[key] = el? el.value:'';
+        }
       });
-      box.pokemon.push(poke.name ? poke : null);
+      box.pokemon.push(poke.name?poke:null);
     });
     updated.push(box);
   });
 
-  const blob = new Blob([JSON.stringify(updated, null, 2)], {type: "application/json"});
+  const blob = new Blob([JSON.stringify(updated,null,2)],{type:'application/json'});
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'livingdex.json';
-  a.click();
+  const a = document.createElement('a'); a.href=url; a.download='livingdex.json'; a.click();
   URL.revokeObjectURL(url);
 }
 </script>
