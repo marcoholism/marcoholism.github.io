@@ -36,6 +36,11 @@ table {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Collapsed */
+table.collapsed tr:not(:first-child) {
+  display: none;
+}
+
 /* Tabellenüberschrift */
 caption {
   caption-side: top;
@@ -48,6 +53,13 @@ caption {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* Toggle Icon */
+caption span.toggle-icon {
+  margin-right: 8px;
+  cursor: pointer;
+  user-select: none;
 }
 
 /* Move Buttons */
@@ -143,269 +155,16 @@ const dropdowns = {
   ball: ['pokeball', 'super', 'hyperball', 'meisterball', 'wiederball', 'flottball', 'raetselball'],
   nature: ['Robust', 'Solo', 'Mutig', 'Hart', 'Frech', 'Kühn', 'Sanft', 'Locker', 'Pfiffig', 'Lasch', 'Scheu', 'Hastig', 'Ernst', 'Froh', 'Naiv', 'Mäßig', 'Mild', 'Ruhig', 'Zaghaft', 'Hitzig', 'Still', 'Zart', 'Forsch', 'Sacht', 'Kauzig'],
   game: ['GameBoy', 'Kalos', 'Alola', 'LetsGo', 'Galar', 'Sinnoh', 'Hisui', 'Paldea', 'GO'],
-  pokemon: [
-  'Bisasam',
-  'Bisaknosp',
-  'Bisaflor',
-  'Glumanda',
-  'Glutexo',
-  'Glurak',
-  'Schiggy',
-  'Schillok',
-  'Turtok',
-  'Raupy',
-  'Safcon',
-  'Smettbo',
-  'Hornliu',
-  'Kokuna',
-  'Bibor',
-  'Taubsi',
-  'Tauboga',
-  'Tauboss',
-  'Rattfratz',
-  'Rattikarl',
-  'Habitak',
-  'Ibitak',
-  'Rettan',
-  'Arbok',
-  'Pikachu',
-  'Raichu',
-  'Sandan',
-  'Sandamer',
-  'Nidoran♀',
-  'Nidorina',
-  'Nidoqueen',
-  'Nidoran♂',
-  'Nidorino',
-  'Nidoking',
-  'Piepi',
-  'Pixi',
-  'Vulpix',
-  'Vulnona',
-  'Pummeluff',
-  'Knuddeluff',
-  'Zubat',
-  'Golbat',
-  'Myrapla',
-  'Duflor',
-  'Giflor',
-  'Paras',
-  'Parasek',
-  'Bluzuk',
-  'Omot',
-  'Digda',
-  'Digdri',
-  'Mauzi',
-  'Snobilikat',
-  'Enton',
-  'Entoron',
-  'Menki',
-  'Rasaff',
-  'Fukano',
-  'Arkani',
-  'Quapsel',
-  'Quaputzi',
-  'Quappo',
-  'Abra',
-  'Kadabra',
-  'Simsala',
-  'Machollo',
-  'Maschok',
-  'Machomei',
-  'Knofensa',
-  'Ultrigaria',
-  'Sarzenia',
-  'Tentacha',
-  'Tentoxa',
-  'Kleinstein',
-  'Georok',
-  'Geowaz',
-  'Ponita',
-  'Gallopa',
-  'Flegmon',
-  'Lahmus',
-  'Magnetilo',
-  'Magneton',
-  'Porenta',
-  'Dodu',
-  'Dodri',
-  'Jurob',
-  'Jugong',
-  'Sleima',
-  'Sleimok',
-  'Muschas',
-  'Austos',
-  'Nebulak',
-  'Alpollo',
-  'Gengar',
-  'Onix',
-  'Traumato',
-  'Hypno',
-  'Krabby',
-  'Kingler',
-  'Voltobal',
-  'Lektrobal',
-  'Owei',
-  'Kokowei',
-  'Tragosso',
-  'Knogga',
-  'Kicklee',
-  'Nockchan',
-  'Schlurp',
-  'Smogon',
-  'Smogmog',
-  'Rihorn',
-  'Rizeros',
-  'Chaneira',
-  'Tangela',
-  'Kangama',
-  'Seeper',
-  'Seemon',
-  'Goldini',
-  'Golking',
-  'Sterndu',
-  'Starmie',
-  'Pantimos',
-  'Sichlor',
-  'Rossana',
-  'Elektek',
-  'Magmar',
-  'Pinsir',
-  'Tauros',
-  'Karpador',
-  'Garados',
-  'Lapras',
-  'Ditto',
-  'Evoli',
-  'Aquana',
-  'Blitza',
-  'Flamara',
-  'Porygon',
-  'Amonitas',
-  'Amoroso',
-  'Kabuto',
-  'Kabutops',
-  'Aerodactyl',
-  'Relaxo',
-  'Arktos',
-  'Zapdos',
-  'Lavados',
-  'Dratini',
-  'Dragonir',
-  'Dragoran',
-  'Mewtu',
-  'Mew',
-  'Endivie',
-  'Lorblatt',
-  'Meganie',
-  'Feurigel',
-  'Igelavar',
-  'Tornupto',
-  'Karnimani',
-  'Tyracroc',
-  'Impergator',
-  'Wiesor',
-  'Wiesenior',
-  'Hoothoot',
-  'Noctuh',
-  'Ledyba',
-  'Ledian',
-  'Webarak',
-  'Ariados',
-  'Iksbat',
-  'Lampi',
-  'Lanturn',
-  'Pichu',
-  'Pii',
-  'Fluffeluff',
-  'Togepi',
-  'Togetic',
-  'Natu',
-  'Xatu',
-  'Voltilamm',
-  'Waaty',
-  'Ampharos',
-  'Blubella',
-  'Marill',
-  'Azumarill',
-  'Mogelbaum',
-  'Quaxo',
-  'Hoppspross',
-  'Hubelupf',
-  'Papungha',
-  'Griffel',
-  'Sonnkern',
-  'Sonnflora',
-  'Yanma',
-  'Felino',
-  'Morlord',
-  'Psiana',
-  'Nachtara',
-  'Kramurx',
-  'Laschoking',
-  'Traunfugil',
-  'Icognito',
-  'Woingenau',
-  'Girafarig',
-  'Tannza',
-  'Forstellka',
-  'Dummisel',
-  'Skorgla',
-  'Stahlos',
-  'Snubbull',
-  'Granbull',
-  'Baldorfish',
-  'Scherox',
-  'Pottrott',
-  'Skaraborn',
-  'Sniebel',
-  'Teddiursa',
-  'Ursaring',
-  'Schneckmag',
-  'Magcargo',
-  'Quiekel',
-  'Keifel',
-  'Corasonn',
-  'Remoraid',
-  'Octillery',
-  'Botogel',
-  'Mantax',
-  'Panzaeron',
-  'Hunduster',
-  'Hundemon',
-  'Seedraking',
-  'Phanpy',
-  'Donphan',
-  'Porygon2',
-  'Damhirplex',
-  'Farbeagle',
-  'Rabauz',
-  'Kapoera',
-  'Kussilla',
-  'Elekid',
-  'Magby',
-  'Miltank',
-  'Heiteira',
-  'Raikou',
-  'Entei',
-  'Suicune',
-  'Larvitar',
-  'Pupitar',
-  'Despotar',
-  'Lugia',
-  'Ho-Oh',
-  'Celebi'
-]
+  pokemon: ['Bisasam','Bisaknosp','Bisaflor','Glumanda','Glutexo','Glurak','Schiggy','Schillok','Turtok','Raupy','Safcon','Smettbo','Hornliu','Kokuna','Bibor','Taubsi','Tauboga','Tauboss','Rattfratz','Rattikarl','Habitak','Ibitak','Rettan','Arbok','Pikachu','Raichu','Sandan','Sandamer','Nidoran♀','Nidorina','Nidoqueen','Nidoran♂','Nidorino','Nidoking','Piepi','Pixi','Vulpix','Vulnona','Pummeluff','Knuddeluff','Zubat','Golbat','Myrapla','Duflor','Giflor','Paras','Parasek','Bluzuk','Omot','Digda','Digdri','Mauzi','Snobilikat','Enton','Entoron','Menki','Rasaff','Fukano','Arkani','Quapsel','Quaputzi','Quappo','Abra','Kadabra','Simsala','Machollo','Maschok','Machomei','Knofensa','Ultrigaria','Sarzenia','Tentacha','Tentoxa','Kleinstein','Georok','Geowaz','Ponita','Gallopa','Flegmon','Lahmus','Magnetilo','Magneton','Porenta','Dodu','Dodri','Jurob','Jugong','Sleima','Sleimok','Muschas','Austos','Nebulak','Alpollo','Gengar','Onix','Traumato','Hypno','Krabby','Kingler','Voltobal','Lektrobal','Owei','Kokowei','Tragosso','Knogga','Kicklee','Nockchan','Schlurp','Smogon','Smogmog','Rihorn','Rizeros','Chaneira','Tangela','Kangama','Seeper','Seemon','Goldini','Golking','Sterndu','Starmie','Pantimos','Sichlor','Rossana','Elektek','Magmar','Pinsir','Tauros','Karpador','Garados','Lapras','Ditto','Evoli','Aquana','Blitza','Flamara','Porygon','Amonitas','Amoroso','Kabuto','Kabutops','Aerodactyl','Relaxo','Arktos','Zapdos','Lavados','Dratini','Dragonir','Dragoran','Mewtu','Mew','Endivie','Lorblatt','Meganie','Feurigel','Igelavar','Tornupto','Karnimani','Tyracroc','Impergator','Wiesor','Wiesenior','Hoothoot','Noctuh','Ledyba','Ledian','Webarak','Ariados','Iksbat','Lampi','Lanturn','Pichu','Pii','Fluffeluff','Togepi','Togetic','Natu','Xatu','Voltilamm','Waaty','Ampharos','Blubella','Marill','Azumarill','Mogelbaum','Quaxo','Hoppspross','Hubelupf','Papungha','Griffel','Sonnkern','Sonnflora','Yanma','Felino','Morlord','Psiana','Nachtara','Kramurx','Laschoking','Traunfugil','Icognito','Woingenau','Girafarig','Tannza','Forstellka','Dummisel','Skorgla','Stahlos','Snubbull','Granbull','Baldorfish','Scherox','Pottrott','Skaraborn','Sniebel','Teddiursa','Ursaring','Schneckmag','Magcargo','Quiekel','Keifel','Corasonn','Remoraid','Octillery','Botogel','Mantax','Panzaeron','Hunduster','Hundemon','Seedraking','Phanpy','Donphan','Porygon2','Damhirplex','Farbeagle','Rabauz','Kapoera','Kussilla','Elekid','Magby','Miltank','Heiteira','Raikou','Entei','Suicune','Larvitar','Pupitar','Despotar','Lugia','Ho-Oh','Celebi']
 };
 
 let livingdexData = [];
 
-// Lade die livingdex.json Datei
 fetch('livingdex.json')
   .then(response => response.json())
   .then(livingdex => {
     livingdexData = livingdex;
-    buildPokemonDatalist(); // datalist erzeugen
+    buildPokemonDatalist();
     buildTable(livingdexData);
   })
   .catch(error => console.error('Fehler beim Laden der JSON:', error));
@@ -413,7 +172,6 @@ fetch('livingdex.json')
 document.getElementById('download-btn').addEventListener('click', () => downloadJSON());
 document.getElementById('add-box-btn').addEventListener('click', () => addBox());
 
-// Datalist für Pokemon-Namen erzeugen
 function buildPokemonDatalist() {
   const existing = document.getElementById('pokemon-list');
   if (existing) existing.remove();
@@ -433,32 +191,38 @@ function buildTable(livingdex) {
 
   livingdex.forEach((box, boxIndex) => {
     const table = document.createElement('table');
-
     const caption = document.createElement('caption');
 
+    // Collapsible Icon
+    const toggleIcon = document.createElement('span');
+    toggleIcon.className = 'toggle-icon';
+    toggleIcon.innerText = '▼';
+    
     // Titel editierbar
     const title = document.createElement('span');
     title.contentEditable = true;
     title.innerText = box.title;
 
+    toggleIcon.addEventListener('click', () => {
+      table.classList.toggle('collapsed');
+      toggleIcon.innerText = table.classList.contains('collapsed') ? '►' : '▼';
+    });
+
     // Steuerung für Verschieben
     const controls = document.createElement('span');
     controls.className = 'caption-controls';
-
     const upBtn = document.createElement('button');
     upBtn.innerText = '↑';
     upBtn.addEventListener('click', () => moveBox(boxIndex, -1));
-
     const downBtn = document.createElement('button');
     downBtn.innerText = '↓';
     downBtn.addEventListener('click', () => moveBox(boxIndex, 1));
-
     controls.appendChild(upBtn);
     controls.appendChild(downBtn);
 
+    caption.appendChild(toggleIcon);
     caption.appendChild(title);
     caption.appendChild(controls);
-
     table.appendChild(caption);
 
     const header = document.createElement('tr');
@@ -469,7 +233,6 @@ function buildTable(livingdex) {
     });
     table.appendChild(header);
 
-    // max 30 Slots pro Box
     for (let i = 0; i < 30; i++) {
       const poke = box.pokemon[i] || {};
       const row = document.createElement('tr');
@@ -488,7 +251,7 @@ function buildTable(livingdex) {
         } else if (key === 'name') {
           el = document.createElement('input');
           el.value = poke[key] || '';
-          el.setAttribute('list', 'pokemon-list'); // autocomplete aktivieren
+          el.setAttribute('list', 'pokemon-list');
         } else if (key === 'level') {
           el = document.createElement('input');
           el.type = 'number';
@@ -509,10 +272,7 @@ function buildTable(livingdex) {
 }
 
 function addBox() {
-  const newBox = {
-    title: "Neue Box",
-    pokemon: Array(30).fill(null)
-  };
+  const newBox = { title: "Neue Box", pokemon: Array(30).fill(null) };
   livingdexData.push(newBox);
   buildTable(livingdexData);
 }
@@ -528,9 +288,8 @@ function moveBox(index, direction) {
 function downloadJSON() {
   const tables = document.querySelectorAll('table');
   const updated = [];
-
   tables.forEach(table => {
-    const box = { title: table.caption.querySelector('span').innerText, pokemon: [] };
+    const box = { title: table.caption.querySelector('span:nth-child(2)').innerText, pokemon: [] };
     const rows = table.querySelectorAll('tr');
     rows.forEach((row, rowIndex) => {
       if (rowIndex === 0) return;
