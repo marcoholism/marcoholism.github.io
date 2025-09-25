@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Livingdex Editor</title>
+<style>
+/* Dein bisheriges CSS bleibt unverändert */
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #1a1a1a; color: #e0e0e0; margin: 20px; }
+h1 { text-align: center; font-weight: 400; margin-bottom: 30px; color: #f5f5f5; }
+#livingdex-container { display: flex; flex-direction: column; gap: 40px; }
+table { border-collapse: collapse; width: 100%; backdrop-filter: blur(10px); background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); }
+table.collapsed tr:not(:first-child) { display: none; }
+caption { caption-side: top; text-align: left; font-size: 1.2em; font-weight: 500; padding: 8px; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
+caption span.toggle-icon { margin-right: 8px; cursor: pointer; user-select: none; }
+.caption-controls button { background: rgba(255,255,255,0.1); border: none; color: #e0e0e0; margin-left: 4px; padding: 2px 6px; cursor: pointer; }
+.caption-controls button:hover { background: rgba(255,255,255,0.2); }
+th { background: rgba(255,255,255,0.05); color: #f0f0f0; padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; }
+td { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 4px; }
+input, select { width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.05); color: #f0f0f0; border: 1px solid rgba(255,255,255,0.1); padding: 6px 8px; font-size: 0.9em; font-family: inherit; outline: none; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+input:focus, select:focus { border-color: #4a90e2; background: rgba(255,255,255,0.1); }
+select { background-image: linear-gradient(45deg, transparent 50%, #f0f0f0 50%), linear-gradient(135deg, #f0f0f0 50%, transparent 50%); background-position: calc(100% - 15px) calc(50% - 2px), calc(100% - 10px) calc(50% - 2px); background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 25px; }
+tr:hover td { background: rgba(255,255,255,0.05); }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+</style>
+</head>
+<body>
+
+<h1>Livingdex Editor</h1>
+<div style="margin-bottom:20px; text-align:center;">
+  <button id="add-box-btn">+ Neue Box</button>
+  <button id="download-btn">Download JSON</button>
+</div>
+<div id="livingdex-container"></div>
+
+<script>
+// Pokémon-Liste mit Nummern (dreistellig bis 999, ab 1000 normal)
+const pokemonData = [
+  { name: 'Bisasam', numbers: ['001'] },
+  { name: 'Bisaknosp', numbers: ['002'] },
+  { name: 'Bisaflor', numbers: ['003'] },
+  { name: 'Pikachu', numbers: ['025', '172'] },
+  { name: 'Endivie', numbers: ['152'] },
+  { name: 'Lorblatt', numbers: ['153'] },
+  { name: 'Meganie', numbers: ['154'] },
+  { name: 'Celebi', numbers: ['251'] }
+  // ... hier alle weiteren Pokémon einfügen
+];
+
+const dropdowns = {
+  gender: ['genderless', 'male', 'female'],
+  ball: ['pokeball', 'super', 'hyperball', 'meisterball', 'wiederball', 'flottball', 'raetselball'],
+  nature: ['Robust', 'Solo', 'Mutig', 'Hart', 'Frech', 'Kühn', 'Sanft', 'Locker', 'Pfiffig', 'Lasch', 'Scheu', 'Hastig', 'Ernst', 'Froh', 'Naiv', 'Mäßig', 'Mild', 'Ruhig', 'Zaghaft', 'Hitzig', 'Still', 'Zart', 'Forsch', 'Sacht', 'Kauzig'],
+  game: ['GameBoy', 'Kalos', 'Alola', 'LetsGo', 'Galar', 'Sinnoh', 'Hisui', 'Paldea', 'GO']
+};
+
+let livingdexData = [];
+
+fetch('livingdex.json')
+  .then(r => r.json())
+  .then(livingdex => {
+    livingdexData = livingdex;
+    buildPokemonDatalist();
+    buildTable(livingdexData);
+  })
+  .catch(e => console.error('Fehler beim Laden der JSON:', e));
+
+document.getElementById('download-btn').addEventListener('click', downloadJSON);
+document.getElementById('add-box-btn').addEventListener('click', addBox);
+
+function buildPokemonDatalist() {
+  const existing = document.getElementById('pokemon-list');
+  if (existing) existing.remove();
+  const datalist = document.createElement('datalist');
+  datalist.id = 'pokemon-list';
+  pokemonData.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.name;
+    datalist.appendChild(opt);
+  });
+  document.body.appendChild(datalist);
+}
+
+function getPokemonImage(name, idx = 0) {
+  const poke = pokemonData.find(p => p.name === name);
+  if (!poke) return '';
+  const number = poke.numbers[idx];
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`;
+}
+
+function buildTable(livingdex) {
+  const container = document.getElementById('livingdex-container');
+  container.innerHTML = '';
+
+  livingdex.forEach((box, boxIndex) => {
+    const table = document.createElement('table');
+    if (box.collapsed) table.classList.add('collapsed');
+
+    const caption = document.createElement('caption');
+    const toggleIcon = document.createElement('span');
+    toggleIcon.className = 'toggle-icon';
+    toggleIcon.innerText = box.collapsed ? '►' : '▼';
+    const title = document.createElement('span');
+    title.contentEditable = true;
+    title.innerText = box.title;
+    toggleIcon.addEventListener('click', () => {
+      table.classList.toggle('collapsed');
+      box.collapsed = table.classList.contains('collapsed');
+      toggleIcon.innerText = box.collapsed ? '►' : '▼';
+    });
+    const controls = document.createElement('span');
+    controls.className = 'caption-controls';
+    ['↑','↓'].forEach((txt, i) => {
+      const btn = document.createElement('button');
+      btn.innerText = txt;
+      btn.addEventListener('click', () => moveBox(boxIndex, i === 0 ? -1 : 1));
+      controls.appendChild(btn);
+    });
+    caption.appendChild(toggleIcon);
+    caption.appendChild(title);
+    caption.appendChild(controls);
+    table.appendChild(caption);
+
+    const header = document.createElement('tr');
+    ['Name','Img','Gender','Game','Trainer','ID','Ball','Level','Nature','Ability'].forEach(h => {
+      const th = document.createElement('th');
+      th.innerText = h;
+      header.appendChild(th);
+    });
+    table.appendChild(header);
+
+    for (let i = 0; i < 30; i++) {
+      const poke = box.pokemon[i] || {};
+      const row = document.createElement('tr');
+
+      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key => {
+        const td = document.createElement('td');
+        let el;
+
+        if (key === 'name') {
+          el = document.createElement('input');
+          el.setAttribute('list','pokemon-list');
+          el.value = poke[key] || '';
+          el.addEventListener('input', e => {
+            const name = e.target.value;
+            const imgCell = td.nextSibling;
+            imgCell.innerHTML = '';
+            const pokeObj = pokemonData.find(p => p.name === name);
+            if (!pokeObj) return;
+            if (pokeObj.numbers.length === 1) {
+              const img = document.createElement('img');
+              img.src = getPokemonImage(name);
+              img.width = 48;
+              imgCell.appendChild(img);
+            } else {
+              const img = document.createElement('img');
+              img.src = getPokemonImage(name);
+              img.width = 48;
+              const select = document.createElement('select');
+              pokeObj.numbers.forEach((_, idx) => {
+                const opt = document.createElement('option');
+                opt.value = idx;
+                opt.text = `Form ${idx+1}`;
+                select.appendChild(opt);
+              });
+              select.addEventListener('change', () => {
+                const idx = parseInt(select.value);
+                img.src = getPokemonImage(name, idx);
+              });
+              imgCell.appendChild(img);
+              imgCell.appendChild(select);
+            }
+          });
+        } else if (key === 'img') {
+          el = document.createElement('div');
+          if (poke.name) {
+            const pokeObj = pokemonData.find(p => p.name === poke.name);
+            if (pokeObj) {
+              if (pokeObj.numbers.length === 1) {
+                const img = document.createElement('img');
+                img.src = getPokemonImage(poke.name);
+                img.width = 48;
+                el.appendChild(img);
+              } else {
+                const img = document.createElement('img');
+                img.src = getPokemonImage(poke.name);
+                img.width = 48;
+                const select = document.createElement('select');
+                pokeObj.numbers.forEach((_, idx) => {
+                  const opt = document.createElement('option');
+                  opt.value = idx;
+                  opt.text = `Form ${idx+1}`;
+                  select.appendChild(opt);
+                });
+                select.addEventListener('change', () => {
+                  const idx = parseInt(select.value);
+                  img.src = getPokemonImage(poke.name, idx);
+                });
+                el.appendChild(img);
+                el.appendChild(select);
+              }
+            }
+          }
+        } else if (dropdowns[key]) {
+          el = document.createElement('select');
+          dropdowns[key].forEach(opt => {
+            const option = document.createElement('option');
+            option.value = opt;
+            option.innerText = opt;
+            if (poke[key] === opt) option.selected = true;
+            el.appendChild(option);
+          });
+        } else if (key === 'level') {
+          el = document.createElement('input');
+          el.type = 'number';
+          el.min = 1;
+          el.max = 100;
+          el.value = poke[key] || '';
+        } else {
+          el = document.createElement('input');
+          el.value = poke[key] || '';
+        }
+
+        td.appendChild(el);
+        row.appendChild(td);
+      });
+
+      table.appendChild(row);
+    }
+    container.appendChild(table);
+  });
+}
+
+function addBox() {
+  const newBox = { title: "Neue Box", pokemon: Array(30).fill(null), collapsed: false };
+  livingdexData.push(newBox);
+  buildTable(livingdexData);
+}
+
+function moveBox(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= livingdexData.length) return;
+  const [moved] = livingdexData.splice(index, 1);
+  livingdexData.splice(newIndex, 0, moved);
+  buildTable(livingdexData);
+}
+
+function downloadJSON() {
+  const tables = document.querySelectorAll('table');
+  const updated = [];
+  tables.forEach(table => {
+    const box = { title: table.caption.querySelector('span:nth-child(2)').innerText, pokemon: [] };
+    const rows = table.querySelectorAll('tr');
+    rows.forEach((row, rowIndex) => {
+      if (rowIndex === 0) return;
+      const cells = row.querySelectorAll('td');
+      const poke = {};
+      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key, i) => {
+        const el = cells[i].querySelector('input, select');
+        poke[key] = el ? el.value : '';
+      });
+      box.pokemon.push(poke.name ? poke : null);
+    });
+    updated.push(box);
+  });
+
+  const blob = new Blob([JSON.stringify(updated, null, 2)], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'livingdex.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
