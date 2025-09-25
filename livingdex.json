@@ -1776,13 +1776,13 @@
         "name": "Mew",
         "img": "151",
         "gender": "genderless",
-        "game": "LetsGo",
+        "game": "Paldea",
         "trainer": "Marco",
-        "id": "510611",
+        "id": "609524",
         "ball": "pokeball",
-        "level": "1",
-        "nature": "Hastig",
-        "ability": "-"
+        "level": "5",
+        "nature": "Forsch",
+        "ability": "Synchro"
       },
       null,
       null,
