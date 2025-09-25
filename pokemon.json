@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Bisasam",
+    "numbers": ["001"]
+  },
+  {
+    "name": "Bisaknosp",
+    "numbers": ["002"]
+  },
+  {
+    "name": "Bisaflor",
+    "numbers": ["003"]
+  },
+  {
+    "name": "Glumanda",
+    "numbers": ["004"]
+  },
+  {
+    "name": "Glutexo",
+    "numbers": ["005"]
+  },
+  {
+    "name": "Glurak",
+    "numbers": ["006"]
+  },
+  {
+    "name": "Pikachu",
+    "numbers": ["025", "025g", "025h", "025i", "025j", "025k", "025l", "025m", "025o"] 
+  },
+  {
+    "name": "Endivie",
+    "numbers": ["152"]
+  },
+  {
+    "name": "Lorblatt",
+    "numbers": ["153"]
+  },
+  {
+    "name": "Meganie",
+    "numbers": ["154"]
+  },
+  {
+    "name": "Celebi",
+    "numbers": ["251"]
+  }
+]
