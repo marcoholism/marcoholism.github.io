@@ -535,7 +535,7 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "pokeball",
+        "ball": "superball",
         "level": "33",
         "nature": "Mutig",
         "ability": "Aufwertung"
@@ -888,7 +888,7 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "pokeball",
+        "ball": "superball",
         "level": "40",
         "nature": "Hitzig",
         "ability": "-"
@@ -1570,7 +1570,7 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "pokeball",
+        "ball": "superball",
         "level": "33",
         "nature": "Locker",
         "ability": "H2O-Absorber"
@@ -1582,7 +1582,7 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "pokeball",
+        "ball": "superball",
         "level": "34",
         "nature": "Mäßig",
         "ability": "Voltabsorber"
@@ -1594,7 +1594,7 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "pokeball",
+        "ball": "superball",
         "level": "33",
         "nature": "Forsch",
         "ability": "Feuerfänger"
@@ -2505,7 +2505,7 @@
         "game": "GO",
         "trainer": "Marco",
         "id": "879794",
-        "ball": "super",
+        "ball": "superball",
         "level": "4",
         "nature": "Froh",
         "ability": "Glückspilz"
@@ -2639,7 +2639,7 @@
         "game": "Galar",
         "trainer": "ルイエ",
         "id": "819391",
-        "ball": "pokeball",
+        "ball": "tauchball",
         "level": "1",
         "nature": "Pfiffig",
         "ability": "Bedroher"
