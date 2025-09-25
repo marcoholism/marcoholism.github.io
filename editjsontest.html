@@ -143,21 +143,25 @@ function buildTable(livingdex) {
             if(!pokeObj) return;
             createImageCell(imgCell,pokeObj);
           });
-        }else if(key==='img'){
-          el=document.createElement('div');
-          el.style.display='flex';
-          el.style.flexDirection='column';
-          el.style.alignItems='center';
-          if(poke.name){
-            const pokeObj=pokemonData.find(p=>p.name===poke.name);
-            if(pokeObj){
-              createImageCell(el,pokeObj,poke.img || pokeObj.numbers[0]);
-            }else{
-              el.dataset.number = poke.img || '';
-            }
-          }else{
-            el.dataset.number = '';
-          }
+        }eelse if(key==='img'){
+  el=document.createElement('div');
+  el.style.display='flex';
+  el.style.flexDirection='column';
+  el.style.alignItems='center';
+  
+  if(poke.name){
+    const pokeObj=pokemonData.find(p=>p.name===poke.name);
+    if(pokeObj){
+      // Wenn bereits ein img-Wert existiert, nehmen wir diesen, sonst erstes Bild
+      const selectedNumber = poke.img && pokeObj.numbers.includes(poke.img) ? poke.img : pokeObj.numbers[0];
+      createImageCell(el, pokeObj, selectedNumber);
+      // dataset.number wird nun korrekt gesetzt
+    } else {
+      el.dataset.number = poke.img || '';
+    }
+  } else {
+    el.dataset.number = '';
+  }
         }else if(dropdowns[key]){
           el=document.createElement('select');
           dropdowns[key].forEach(opt=>{
