@@ -10,7 +10,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": "60",
         "nature": "Hitzig",
         "ability": "Notdünger"
       },
@@ -22,7 +22,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 61,
+        "level": "61",
         "nature": "Hitzig",
         "ability": "Notdünger"
       },
@@ -34,7 +34,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 61,
+        "level": "61",
         "nature": "Kühn",
         "ability": "Notdünger"
       },
@@ -46,7 +46,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": "60",
         "nature": "Froh",
         "ability": "Großbrand"
       },
@@ -58,7 +58,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 61,
+        "level": "61",
         "nature": "Sacht",
         "ability": "Großbrand"
       },
@@ -70,7 +70,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 62,
+        "level": "62",
         "nature": "Solo",
         "ability": "Großbrand"
       },
@@ -82,7 +82,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 65,
+        "level": "65",
         "nature": "Sanft",
         "ability": "Sturzbach"
       },
@@ -94,7 +94,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": "60",
         "nature": "Still",
         "ability": "Sturzbach"
       },
@@ -106,7 +106,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 71,
+        "level": "71",
         "nature": "Naiv",
         "ability": "Sturzbach"
       },
@@ -118,7 +118,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 3,
+        "level": "3",
         "nature": "Solo",
         "ability": "-"
       },
@@ -130,7 +130,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 4,
+        "level": "4",
         "nature": "Robust",
         "ability": "-"
       },
@@ -142,7 +142,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 5,
+        "level": "5",
         "nature": "Hitzig",
         "ability": "-"
       },
@@ -154,7 +154,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 5,
+        "level": "5",
         "nature": "Robust",
         "ability": "-"
       },
@@ -166,7 +166,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 6,
+        "level": "6",
         "nature": "Kühn",
         "ability": "-"
       },
@@ -178,7 +178,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 14,
+        "level": "14",
         "nature": "Scheu",
         "ability": "-"
       },
@@ -190,7 +190,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 3,
+        "level": "3",
         "nature": "Zaghaft",
         "ability": "-"
       },
@@ -203,7 +203,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 64,
+        "level": "64",
         "nature": "Mild",
         "ability": "-"
       },
@@ -215,7 +215,7 @@
         "trainer": "Marco",
         "id": "33217",
         "ball": "pokeball",
-        "level": 3,
+        "level": "3",
         "nature": "Mutig",
         "ability": "Übereifer"
       },
@@ -228,7 +228,7 @@
         "trainer": "Marco",
         "id": "33217",
         "ball": "pokeball",
-        "level": 3,
+        "level": "3",
         "nature": "Mutig",
         "ability": "Superschütze"
       },
@@ -241,7 +241,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 56,
+        "level": "56",
         "nature": "Ernst",
         "ability": "Expidermis"
       },
@@ -253,7 +253,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 57,
+        "level": "57",
         "nature": "Robust",
         "ability": "Bedroher"
       },
@@ -265,7 +265,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 5,
+        "level": "5",
         "nature": "Mäßig",
         "ability": "-"
       },
@@ -277,7 +277,7 @@
         "trainer": "Marco",
         "id": "08002",
         "ball": "pokeball",
-        "level": 30,
+        "level": "30",
         "nature": "Sanft",
         "ability": "Statik"
       },
@@ -289,7 +289,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 62,
+        "level": "62",
         "nature": "Hitzig",
         "ability": "Sandschleier"
       },
@@ -301,7 +301,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 65,
+        "level": "65",
         "nature": "Sanft",
         "ability": "Sandschleier"
       },
@@ -313,7 +313,7 @@
         "trainer": "Marco",
         "id": "33217",
         "ball": "pokeball",
-        "level": 3,
+        "level": "3",
         "nature": "Locker",
         "ability": "Übereifer"
       },
@@ -332,7 +332,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 3,
+        "level": "3",
         "nature": "Ernst",
         "ability": "-"
       },
@@ -344,7 +344,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 20,
+        "level": "20",
         "nature": "Naiv",
         "ability": "-"
       },
@@ -356,7 +356,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 20,
+        "level": "20",
         "nature": "Forsch",
         "ability": "-"
       },
@@ -368,7 +368,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 62,
+        "level": "62",
         "nature": "Naiv",
         "ability": "Charmebolzen"
       },
@@ -380,7 +380,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 70,
+        "level": "70",
         "nature": "Naiv",
         "ability": "Magieschild"
       },
@@ -392,7 +392,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": "60",
         "nature": "Forsch",
         "ability": "Feuerfänger"
       },
@@ -404,7 +404,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": "60",
         "nature": "Pfiffig",
         "ability": "Feuerfänger"
       },
@@ -416,7 +416,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 22,
+        "level": "22",
         "nature": "Zaghaft",
         "ability": "Unbeugsamkeit"
       },
@@ -428,7 +428,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 13,
+        "level": "13",
         "nature": "Ruhig",
         "ability": "Unbeugsamkeit"
       },
@@ -440,7 +440,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 22,
+        "level": "22",
         "nature": "Ernst",
         "ability": "-"
       },
@@ -452,7 +452,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 22,
+        "level": "22",
         "nature": "Hastig",
         "ability": "-"
       },
@@ -464,7 +464,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 66,
+        "level": "66",
         "nature": "Frech",
         "ability": "Chlorophyll"
       },
@@ -476,7 +476,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 65,
+        "level": "65",
         "nature": "Sanft",
         "ability": "Chlorophyll"
       },
@@ -488,7 +488,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": "60",
         "nature": "Lasch",
         "ability": "Chlorophyll"
       },
@@ -500,7 +500,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 10,
+        "level": "10",
         "nature": "Solo",
         "ability": "-"
       },
@@ -512,7 +512,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 24,
+        "level": "24",
         "nature": "Frech",
         "ability": "-"
       },
@@ -524,7 +524,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 12,
+        "level": "12",
         "nature": "Naiv",
         "ability": "Facettenauge"
       },
@@ -535,8 +535,8 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "superball",
-        "level": 33,
+        "ball": "pokeball",
+        "level": "33",
         "nature": "Mutig",
         "ability": "Aufwertung"
       },
@@ -548,7 +548,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 14,
+        "level": "14",
         "nature": "Zart",
         "ability": "-"
       },
@@ -560,7 +560,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 14,
+        "level": "14",
         "nature": "Frech",
         "ability": "Sandschleier"
       },
@@ -572,7 +572,7 @@
         "trainer": "Marco",
         "id": "194361",
         "ball": "pokeball",
-        "level": 14,
+        "level": "14",
         "nature": "Naiv",
         "ability": "-"
       },
@@ -584,7 +584,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "raetselball",
-        "level": 16,
+        "level": "16",
         "nature": "Hastig",
         "ability": "Flexibilität"
       },
@@ -596,7 +596,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 12,
+        "level": "12",
         "nature": "Locker",
         "ability": "Feuchtigkeit"
       },
@@ -608,7 +608,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 51,
+        "level": "51",
         "nature": "Hastig",
         "ability": "-"
       },
@@ -620,7 +620,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 9,
+        "level": "9",
         "nature": "Robust",
         "ability": "-"
       },
@@ -632,7 +632,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 28,
+        "level": "28",
         "nature": "Sacht",
         "ability": "-"
       },
@@ -644,7 +644,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 16,
+        "level": "16",
         "nature": "Frech",
         "ability": "-"
       },
@@ -656,7 +656,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 16,
+        "level": "16",
         "nature": "Mild",
         "ability": "-"
       },
@@ -668,7 +668,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 57,
+        "level": "57",
         "nature": "Froh",
         "ability": "Feuchtigkeit"
       }
@@ -685,7 +685,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": "60",
         "nature": "Robust",
         "ability": "Feuchtigkeit"
       },
@@ -697,7 +697,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 55,
+        "level": "55",
         "nature": "Still",
         "ability": "Feuchtigkeit"
       },
@@ -709,7 +709,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 13,
+        "level": "13",
         "nature": "Pfiffig",
         "ability": "-"
       },
@@ -721,7 +721,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 17,
+        "level": "17",
         "nature": "Sacht",
         "ability": "-"
       },
@@ -733,7 +733,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "hyperball",
-        "level": 59,
+        "level": "59",
         "nature": "Hart",
         "ability": "Magieschild"
       },
@@ -745,7 +745,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 18,
+        "level": "18",
         "nature": "Locker",
         "ability": "-"
       },
@@ -757,7 +757,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 41,
+        "level": "41",
         "nature": "Naiv",
         "ability": "-"
       },
@@ -769,7 +769,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 28,
+        "level": "28",
         "nature": "Still",
         "ability": "-"
       },
@@ -781,7 +781,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 64,
+        "level": "64",
         "nature": "Hart",
         "ability": "Chlorophyll"
       },
@@ -793,7 +793,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 58,
+        "level": "58",
         "nature": "Solo",
         "ability": "Chlorophyll"
       },
@@ -805,7 +805,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 56,
+        "level": "56",
         "nature": "Robust",
         "ability": "Chlorophyll"
       },
@@ -817,7 +817,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 60,
+        "level": "60",
         "nature": "Lasch",
         "ability": "Kloakensoße"
       },
@@ -829,7 +829,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 67,
+        "level": "67",
         "nature": "Solo",
         "ability": "Neutraltorso"
       },
@@ -841,7 +841,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 65,
+        "level": "65",
         "nature": "Sanft",
         "ability": "Steinhaupt"
       },
@@ -853,7 +853,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 68,
+        "level": "68",
         "nature": "Ernst",
         "ability": "Steinhaupt"
       },
@@ -865,7 +865,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 21,
+        "level": "21",
         "nature": "Zaghaft",
         "ability": "Steinhaupt"
       },
@@ -877,7 +877,7 @@
         "trainer": "Marco",
         "id": "08002",
         "ball": "hyperball",
-        "level": 16,
+        "level": "16",
         "nature": "Mäßig",
         "ability": "Angsthase"
       },
@@ -888,8 +888,8 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "superball",
-        "level": 40,
+        "ball": "pokeball",
+        "level": "40",
         "nature": "Hitzig",
         "ability": "-"
       },
@@ -901,7 +901,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 10,
+        "level": "10",
         "nature": "Lasch",
         "ability": "Belebekraft"
       },
@@ -913,7 +913,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 44,
+        "level": "44",
         "nature": "Naiv",
         "ability": "Dösigkeit"
       },
@@ -925,7 +925,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 37,
+        "level": "37",
         "nature": "Zaghaft",
         "ability": "Magnetfalle"
       },
@@ -937,7 +937,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 42,
+        "level": "42",
         "nature": "Mild",
         "ability": "Robustheit"
       },
@@ -949,7 +949,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 36,
+        "level": "36",
         "nature": "Sanft",
         "ability": "-"
       },
@@ -961,7 +961,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 67,
+        "level": "67",
         "nature": "Naiv",
         "ability": "Angsthase"
       },
@@ -973,7 +973,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 67,
+        "level": "67",
         "nature": "Still",
         "ability": "Angsthase"
       },
@@ -985,7 +985,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 69,
+        "level": "69",
         "nature": "Hart",
         "ability": "Hydration"
       },
@@ -997,7 +997,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 67,
+        "level": "67",
         "nature": "Zaghaft",
         "ability": "Hydration"
       },
@@ -1009,7 +1009,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 39,
+        "level": "39",
         "nature": "Mild",
         "ability": "Duftnote"
       },
@@ -1021,7 +1021,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 41,
+        "level": "41",
         "nature": "Frech",
         "ability": "Klebekörper"
       },
@@ -1033,7 +1033,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 42,
+        "level": "42",
         "nature": "Hastig",
         "ability": "Wertelink"
       }
@@ -1050,7 +1050,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 44,
+        "level": "44",
         "nature": "Kühn",
         "ability": "Wertelink"
       },
@@ -1062,7 +1062,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 27,
+        "level": "27",
         "nature": "Ruhig",
         "ability": "Schwebe"
       },
@@ -1074,7 +1074,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 29,
+        "level": "29",
         "nature": "Ruhig",
         "ability": "-"
       },
@@ -1086,7 +1086,7 @@
         "trainer": "Marco",
         "id": "674859",
         "ball": "pokeball",
-        "level": 71,
+        "level": "71",
         "nature": "Hitzig",
         "ability": "Tastfluch"
       },
@@ -1098,7 +1098,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 45,
+        "level": "45",
         "nature": "Sacht",
         "ability": "-"
       },
@@ -1110,7 +1110,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 13,
+        "level": "13",
         "nature": "Lasch",
         "ability": "Insomnia"
       },
@@ -1122,7 +1122,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 26,
+        "level": "26",
         "nature": "Mutig",
         "ability": "-"
       },
@@ -1134,7 +1134,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "flottball",
-        "level": 60,
+        "level": "60",
         "nature": "Kauzig",
         "ability": "Scherenmacht"
       },
@@ -1146,7 +1146,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "wiederball",
-        "level": 40,
+        "level": "40",
         "nature": "Ruhig",
         "ability": "Panzerhaut"
       },
@@ -1158,7 +1158,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 37,
+        "level": "37",
         "nature": "Pfiffig",
         "ability": "Statik"
       },
@@ -1170,7 +1170,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 42,
+        "level": "42",
         "nature": "Robust",
         "ability": "Lärmschutz"
       },
@@ -1182,7 +1182,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 62,
+        "level": "62",
         "nature": "Mild",
         "ability": "Chlorophyll"
       },
@@ -1194,7 +1194,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 58,
+        "level": "58",
         "nature": "Hart",
         "ability": "Chlorophyll"
       },
@@ -1206,7 +1206,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 27,
+        "level": "27",
         "nature": "Zaghaft",
         "ability": "-"
       },
@@ -1218,7 +1218,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 28,
+        "level": "28",
         "nature": "Robust",
         "ability": "-"
       },
@@ -1230,7 +1230,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 66,
+        "level": "66",
         "nature": "Solo",
         "ability": "Achtlos"
       },
@@ -1242,7 +1242,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 64,
+        "level": "64",
         "nature": "Kauzig",
         "ability": "Eisenfaust"
       },
@@ -1254,7 +1254,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 55,
+        "level": "55",
         "nature": "Zart",
         "ability": "-"
       },
@@ -1266,7 +1266,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 66,
+        "level": "66",
         "nature": "Locker",
         "ability": "Schwebe"
       },
@@ -1278,7 +1278,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 67,
+        "level": "67",
         "nature": "Ruhig",
         "ability": "Reaktionsgas"
       },
@@ -1290,7 +1290,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 64,
+        "level": "64",
         "nature": "Kühn",
         "ability": "Blitzfänger"
       },
@@ -1302,7 +1302,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 59,
+        "level": "59",
         "nature": "Ruhig",
         "ability": "Blitzfänger"
       },
@@ -1314,7 +1314,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 1,
+        "level": "1",
         "nature": "Kühn",
         "ability": "Innere Kraft"
       },
@@ -1326,7 +1326,7 @@
         "trainer": "Marco",
         "id": "08002",
         "ball": "hyperball",
-        "level": 38,
+        "level": "38",
         "nature": "Forsch",
         "ability": "Chlorophyll"
       },
@@ -1338,7 +1338,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 19,
+        "level": "19",
         "nature": "Froh",
         "ability": "-"
       },
@@ -1350,7 +1350,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 63,
+        "level": "63",
         "nature": "Zart",
         "ability": "Wassertempo"
       },
@@ -1362,7 +1362,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 58,
+        "level": "58",
         "nature": "Zaghaft",
         "ability": "Superschütze"
       },
@@ -1374,7 +1374,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 15,
+        "level": "15",
         "nature": "Zart",
         "ability": "-"
       },
@@ -1386,7 +1386,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 11,
+        "level": "11",
         "nature": "Mild",
         "ability": "-"
       },
@@ -1398,7 +1398,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "flottball",
-        "level": 60,
+        "level": "60",
         "nature": "Scheu",
         "ability": "Erleuchtung"
       }
@@ -1415,7 +1415,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 38,
+        "level": "38",
         "nature": "Ruhig",
         "ability": "-"
       },
@@ -1427,7 +1427,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 13,
+        "level": "13",
         "nature": "Robust",
         "ability": "-"
       },
@@ -1439,7 +1439,7 @@
         "trainer": "MARCO",
         "id": "37233",
         "ball": "pokeball",
-        "level": 14,
+        "level": "14",
         "nature": "Robust",
         "ability": "Felsenfest"
       },
@@ -1451,7 +1451,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 43,
+        "level": "43",
         "nature": "Lasch",
         "ability": "-"
       },
@@ -1463,7 +1463,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 68,
+        "level": "68",
         "nature": "Kauzig",
         "ability": "Statik"
       },
@@ -1475,7 +1475,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 65,
+        "level": "65",
         "nature": "Zaghaft",
         "ability": "Flamkörper"
       },
@@ -1487,7 +1487,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "raetselball",
-        "level": 11,
+        "level": "11",
         "nature": "Naiv",
         "ability": "-"
       },
@@ -1499,7 +1499,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 58,
+        "level": "58",
         "nature": "Frech",
         "ability": "Bedroher"
       },
@@ -1511,7 +1511,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 50,
+        "level": "50",
         "nature": "Pfiffig",
         "ability": "Hasenfuß"
       },
@@ -1523,7 +1523,7 @@
         "trainer": "Marco",
         "id": "08002",
         "ball": "pokeball",
-        "level": 21,
+        "level": "21",
         "nature": "Mild",
         "ability": "Bedroher"
       },
@@ -1535,7 +1535,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 71,
+        "level": "71",
         "nature": "Kauzig",
         "ability": "H2O-Absorber"
       },
@@ -1547,8 +1547,9 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 60,
-        "nature": "Flexibilität"
+        "level": "60",
+        "nature": "Zart",
+        "ability": "Flexibilität"
       },
       {
         "name": "Evoli",
@@ -1558,7 +1559,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 10,
+        "level": "10",
         "nature": "Lasch",
         "ability": "Angsthase"
       },
@@ -1569,8 +1570,8 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "superball",
-        "level": 33,
+        "ball": "pokeball",
+        "level": "33",
         "nature": "Locker",
         "ability": "H2O-Absorber"
       },
@@ -1581,8 +1582,8 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "superball",
-        "level": 34,
+        "ball": "pokeball",
+        "level": "34",
         "nature": "Mäßig",
         "ability": "Voltabsorber"
       },
@@ -1593,8 +1594,8 @@
         "game": "LetsGo",
         "trainer": "Marco",
         "id": "510611",
-        "ball": "superball",
-        "level": 33,
+        "ball": "pokeball",
+        "level": "33",
         "nature": "Forsch",
         "ability": "Feuerfänger"
       },
@@ -1606,7 +1607,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 64,
+        "level": "64",
         "nature": "Kühn",
         "ability": "Erfassen"
       },
@@ -1618,7 +1619,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 44,
+        "level": "44",
         "nature": "Mutig",
         "ability": "Panzerhaut"
       },
@@ -1630,7 +1631,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 40,
+        "level": "40",
         "nature": "Kauzig",
         "ability": "Panzerhaut"
       },
@@ -1642,7 +1643,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 1,
+        "level": "1",
         "nature": "Frech",
         "ability": "Wassertempo"
       },
@@ -1654,7 +1655,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 45,
+        "level": "45",
         "nature": "Lasch",
         "ability": "-"
       },
@@ -1666,7 +1667,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 44,
+        "level": "44",
         "nature": "Pfiffig",
         "ability": "-"
       },
@@ -1678,7 +1679,7 @@
         "trainer": "Marco",
         "id": "609524",
         "ball": "pokeball",
-        "level": 63,
+        "level": "63",
         "nature": "Mäßig",
         "ability": "Speckschicht"
       },
@@ -1690,7 +1691,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 50,
+        "level": "50",
         "nature": "Ernst",
         "ability": "-"
       },
@@ -1702,7 +1703,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 50,
+        "level": "50",
         "nature": "Pfiffig",
         "ability": "-"
       },
@@ -1714,7 +1715,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 50,
+        "level": "50",
         "nature": "Zart",
         "ability": "-"
       },
@@ -1726,7 +1727,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 1,
+        "level": "1",
         "nature": "Hart",
         "ability": "Expidermis"
       },
@@ -1738,7 +1739,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 30,
+        "level": "30",
         "nature": "Hitzig",
         "ability": "-"
       },
@@ -1750,7 +1751,7 @@
         "trainer": "Marco",
         "id": "081177",
         "ball": "pokeball",
-        "level": 55,
+        "level": "55",
         "nature": "Hart",
         "ability": "Multischuppe"
       },
@@ -1762,7 +1763,7 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "hyperball",
-        "level": 70,
+        "level": "70",
         "nature": "Mutig",
         "ability": "-"
       }
@@ -1779,10 +1780,39 @@
         "trainer": "Marco",
         "id": "510611",
         "ball": "pokeball",
-        "level": 1,
+        "level": "1",
         "nature": "Hastig",
         "ability": "-"
-      }
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
     ]
   },
   {
@@ -1796,7 +1826,7 @@
         "trainer": "Ash",
         "id": "201023",
         "ball": "pokeball",
-        "level": 25,
+        "level": "25",
         "nature": "Robust",
         "ability": "Statik"
       },
@@ -1808,7 +1838,7 @@
         "trainer": "Ash",
         "id": "201023",
         "ball": "pokeball",
-        "level": 25,
+        "level": "25",
         "nature": "Robust",
         "ability": "Statik"
       },
@@ -1820,7 +1850,7 @@
         "trainer": "Ash",
         "id": "201023",
         "ball": "pokeball",
-        "level": 25,
+        "level": "25",
         "nature": "Robust",
         "ability": "Statik"
       },
@@ -1832,7 +1862,7 @@
         "trainer": "Ash",
         "id": "201023",
         "ball": "pokeball",
-        "level": 25,
+        "level": "25",
         "nature": "Robust",
         "ability": "Statik"
       },
@@ -1844,7 +1874,7 @@
         "trainer": "Ash",
         "id": "201023",
         "ball": "pokeball",
-        "level": 25,
+        "level": "25",
         "nature": "Robust",
         "ability": "Statik"
       },
@@ -1856,7 +1886,7 @@
         "trainer": "Ash",
         "id": "201023",
         "ball": "pokeball",
-        "level": 25,
+        "level": "25",
         "nature": "Robust",
         "ability": "Statik"
       },
@@ -1868,7 +1898,7 @@
         "trainer": "Ash",
         "id": "201023",
         "ball": "pokeball",
-        "level": 25,
+        "level": "25",
         "nature": "Robust",
         "ability": "Statik"
       },
@@ -1880,10 +1910,375 @@
         "trainer": "Ash",
         "id": "201023",
         "ball": "pokeball",
-        "level": 25,
+        "level": "25",
         "nature": "Robust",
         "ability": "Statik"
-      }
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "title": "Icognito",
+    "pokemon": [
+      {
+        "name": "Icognito",
+        "img": "201",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "16",
+        "nature": "Hastig",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201b",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "17",
+        "nature": "Froh",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201c",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "18",
+        "nature": "Sacht",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201d",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "22",
+        "nature": "Kühn",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201e",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "24",
+        "nature": "Sanft",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201f",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "18",
+        "nature": "Kühn",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201g",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "19",
+        "nature": "Frech",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201h",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "19",
+        "nature": "Naiv",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201i",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "20",
+        "nature": "Kühn",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201j",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "23",
+        "nature": "Scheu",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201k",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "20",
+        "nature": "Sacht",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201l",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "16",
+        "nature": "Still",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201m",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "20",
+        "nature": "Robust",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201n",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "19",
+        "nature": "Ernst",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201o",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "23",
+        "nature": "Mutig",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201p",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "22",
+        "nature": "Lasch",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201q",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "22",
+        "nature": "Sacht",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201r",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "18",
+        "nature": "Scheu",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201s",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "17",
+        "nature": "Hart",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201t",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "15",
+        "nature": "Sacht",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201u",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "19",
+        "nature": "Robust",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201v",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "20",
+        "nature": "Mild",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201w",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "25",
+        "nature": "Scheu",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201x",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "20",
+        "nature": "Froh",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201y",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "18",
+        "nature": "Naiv",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201z",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "18",
+        "nature": "Mäßig",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201aa",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "15",
+        "nature": "Mild",
+        "ability": "Schwebe"
+      },
+      {
+        "name": "Icognito",
+        "img": "201ab",
+        "gender": "genderless",
+        "game": "Sinnoh",
+        "trainer": "Marco",
+        "id": "054247",
+        "ball": "pokeball",
+        "level": "19",
+        "nature": "Naiv",
+        "ability": "Schwebe"
+      },
+      null,
+      null
     ]
   }
 ]
