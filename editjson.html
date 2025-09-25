@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Livingdex Editor</title>
 <style>
-body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #1a1a1a; color: #e0e0e0; margin: 20px; }
-h1 { text-align: center; font-weight: 400; margin-bottom: 30px; color: #f5f5f5; }
-#livingdex-container { display: flex; flex-direction: column; gap: 40px; }
-table { border-collapse: collapse; width: 100%; backdrop-filter: blur(10px); background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); }
-table.collapsed tr:not(:first-child) { display: none; }
-caption { caption-side: top; text-align: left; font-size: 1.2em; font-weight: 500; padding: 8px; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
-caption span.toggle-icon { margin-right: 8px; cursor: pointer; user-select: none; }
-.caption-controls button { background: rgba(255,255,255,0.1); border: none; color: #e0e0e0; margin-left: 4px; padding: 2px 6px; cursor: pointer; }
-.caption-controls button:hover { background: rgba(255,255,255,0.2); }
-th { background: rgba(255,255,255,0.05); color: #f0f0f0; padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; }
-td { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 4px; text-align: center; vertical-align: middle; }
-input, select { width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.05); color: #f0f0f0; border: 1px solid rgba(255,255,255,0.1); padding: 6px 8px; font-size: 0.9em; font-family: inherit; outline: none; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
-input:focus, select:focus { border-color: #4a90e2; background: rgba(255,255,255,0.1); }
-select { background-image: linear-gradient(45deg, transparent 50%, #f0f0f0 50%), linear-gradient(135deg, #f0f0f0 50%, transparent 50%); background-position: calc(100% - 15px) calc(50% - 2px), calc(100% - 10px) calc(50% - 2px); background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 25px; }
-tr:hover td { background: rgba(255,255,255,0.05); }
-.grid-popup { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-top: 4px; }
-.grid-popup img { width: 48px; cursor: pointer; border: 2px solid transparent; }
-.grid-popup img.selected { border-color: #4a90e2; }
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
-::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #1a1a1a; color: #e0e0e0; margin: 20px; }
+  h1 { text-align: center; font-weight: 400; margin-bottom: 30px; color: #f5f5f5; }
+  #livingdex-container { display: flex; flex-direction: column; gap: 40px; }
+  table { border-collapse: collapse; width: 100%; backdrop-filter: blur(10px); background: rgba(30,30,30,0.6); border: 1px solid rgba(255,255,255,0.1); }
+  table.collapsed tr:not(:first-child) { display: none; }
+  caption { caption-side: top; text-align: left; font-size: 1.2em; font-weight: 500; padding: 8px; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
+  caption span.toggle-icon { margin-right: 8px; cursor: pointer; user-select: none; }
+  .caption-controls button { background: rgba(255,255,255,0.1); border: none; color: #e0e0e0; margin-left: 4px; padding: 2px 6px; cursor: pointer; }
+  .caption-controls button:hover { background: rgba(255,255,255,0.2); }
+  th { background: rgba(255,255,255,0.05); color: #f0f0f0; padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; }
+  td { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 4px; text-align: center; vertical-align: middle; }
+  input, select { width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.05); color: #f0f0f0; border: 1px solid rgba(255,255,255,0.1); padding: 6px 8px; font-size: 0.9em; font-family: inherit; outline: none; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+  input:focus, select:focus { border-color: #4a90e2; background: rgba(255,255,255,0.1); }
+  select { background-image: linear-gradient(45deg, transparent 50%, #f0f0f0 50%), linear-gradient(135deg, #f0f0f0 50%, transparent 50%); background-position: calc(100% - 15px) calc(50% - 2px), calc(100% - 10px) calc(50% - 2px); background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 25px; }
+  tr:hover td { background: rgba(255,255,255,0.05); }
+  .grid-popup { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-top: 4px; background: rgba(0,0,0,0.25); padding: 6px; border-radius: 6px; }
+  .grid-popup img { width: 48px; cursor: pointer; border: 2px solid transparent; border-radius: 4px; }
+  .grid-popup img.selected { border-color: #4a90e2; }
+  img.main-img { cursor: pointer; }
+  img.main-img.selected { outline: none; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
+  ::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
 </style>
 </head>
 <body>
@@ -36,130 +38,220 @@ tr:hover td { background: rgba(255,255,255,0.05); }
 </div>
 <div id="livingdex-container"></div>
 
+<!-- Datalists -->
+<datalist id="pokemon-list"></datalist>
+<datalist id="trainer-list"></datalist>
+<datalist id="id-list"></datalist>
+<datalist id="ability-list"></datalist>
+
 <script>
+/* --- Konfiguration --- */
 const dropdowns = {
-  gender: ['genderless','male','female'],
-  ball: ['pokeball','superball','hyperball','meisterball','wiederball','tauchball','flottball','raetselball','jubelball'],
+  gender: ['genderless', 'male', 'female'],
+  ball: ['pokeball','super','hyperball','meisterball','wiederball','flottball','raetselball'],
   nature: ['Robust','Solo','Mutig','Hart','Frech','Kühn','Sanft','Locker','Pfiffig','Lasch','Scheu','Hastig','Ernst','Froh','Naiv','Mäßig','Mild','Ruhig','Zaghaft','Hitzig','Still','Zart','Forsch','Sacht','Kauzig'],
   game: ['GameBoy','Kalos','Alola','LetsGo','Galar','Sinnoh','Hisui','Paldea','GO']
 };
 
-let pokemonData = [];
-let livingdexData = [];
+let pokemonData = [];   // aus pokemon.json
+let livingdexData = []; // aus livingdex.json
 
-// Pokémon-Liste laden
+/* --- Laden der Datendateien --- */
 fetch('pokemon.json')
   .then(r => r.json())
   .then(data => { pokemonData = data; buildPokemonDatalist(); })
   .catch(e => console.error('Fehler beim Laden von pokemon.json:', e));
 
-// Livingdex laden
 fetch('livingdex.json')
   .then(r => r.json())
   .then(data => {
+    // Normalisieren: jede Box hat 30 Einträge (falls nicht vorhanden)
     livingdexData = data.map(box => ({
       title: box.title || 'Neue Box',
       collapsed: box.collapsed || false,
       pokemon: Array.from({length:30}, (_,i) => (box.pokemon && box.pokemon[i]) ? box.pokemon[i] : {name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''})
     }));
     buildTable(livingdexData);
+    buildDatalists();
   })
   .catch(e => console.error('Fehler beim Laden von livingdex.json:', e));
 
+/* --- Events --- */
 document.getElementById('download-btn').addEventListener('click', downloadJSON);
 document.getElementById('add-box-btn').addEventListener('click', addBox);
 
+/* --- Hilfsfunktionen für Datalists --- */
 function buildPokemonDatalist(){
-  const existing = document.getElementById('pokemon-list');
-  if(existing) existing.remove();
-  const datalist = document.createElement('datalist');
-  datalist.id='pokemon-list';
-  pokemonData.forEach(p=>{const opt=document.createElement('option'); opt.value=p.name; datalist.appendChild(opt);});
-  document.body.appendChild(datalist);
+  const datalist = document.getElementById('pokemon-list');
+  datalist.innerHTML = '';
+  pokemonData.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.name;
+    datalist.appendChild(opt);
+  });
 }
 
-function getPokemonImage(name, idx=0){
-  const poke = pokemonData.find(p=>p.name===name);
+function buildDatalists(){
+  const trainers = new Set();
+  const ids = new Set();
+  const abilities = new Set();
+
+  livingdexData.forEach(box=>{
+    (box.pokemon||[]).forEach(p=>{
+      if(p && p.trainer) trainers.add(p.trainer);
+      if(p && p.id) ids.add(p.id);
+      if(p && p.ability) abilities.add(p.ability);
+    });
+  });
+
+  fillDatalist('trainer-list', trainers);
+  fillDatalist('id-list', ids);
+  fillDatalist('ability-list', abilities);
+}
+
+function fillDatalist(id, values){
+  const datalist = document.getElementById(id);
+  datalist.innerHTML = '';
+  [...values].forEach(v=>{
+    const opt = document.createElement('option');
+    opt.value = v;
+    datalist.appendChild(opt);
+  });
+}
+
+/* --- Bild-URL Helfer --- */
+function getPokemonImage(name, idx = 0){
+  const poke = pokemonData.find(p => p.name === name);
   if(!poke) return '';
-  return `/pkmnicons/${poke.numbers[idx]}.png`;
+  const num = poke.numbers[idx] || poke.numbers[0];
+  return `/pkmnicons/${num}.png`;
 }
 
+/* --- Tabelle bauen --- */
 function buildTable(livingdex){
   const container = document.getElementById('livingdex-container');
-  container.innerHTML='';
+  container.innerHTML = '';
 
-  livingdex.forEach((box, boxIndex)=>{
-    const table=document.createElement('table');
+  livingdex.forEach((box, boxIndex) => {
+    const table = document.createElement('table');
     if(box.collapsed) table.classList.add('collapsed');
 
-    const caption=document.createElement('caption');
-    const toggleIcon=document.createElement('span');
+    // Caption (Titel + Buttons)
+    const caption = document.createElement('caption');
+    const toggleIcon = document.createElement('span');
     toggleIcon.className='toggle-icon';
-    toggleIcon.innerText=box.collapsed?'►':'▼';
-    const title=document.createElement('span');
-    title.contentEditable=true;
-    title.innerText=box.title;
-    toggleIcon.addEventListener('click',()=>{
+    toggleIcon.innerText = box.collapsed ? '►' : '▼';
+    const title = document.createElement('span');
+    title.contentEditable = true;
+    title.innerText = box.title;
+    toggleIcon.addEventListener('click', ()=>{
       table.classList.toggle('collapsed');
-      box.collapsed=table.classList.contains('collapsed');
-      toggleIcon.innerText=box.collapsed?'►':'▼';
+      box.collapsed = table.classList.contains('collapsed');
+      toggleIcon.innerText = box.collapsed ? '►' : '▼';
     });
-    const controls=document.createElement('span');
-    controls.className='caption-controls';
-    ['↑','↓'].forEach((txt,i)=>{const btn=document.createElement('button'); btn.innerText=txt; btn.addEventListener('click',()=>moveBox(boxIndex,i===0?-1:1)); controls.appendChild(btn);});
+    const controls = document.createElement('span');
+    controls.className = 'caption-controls';
+    ['↑','↓'].forEach((txt,i)=>{
+      const btn=document.createElement('button'); btn.innerText = txt;
+      btn.addEventListener('click', ()=> moveBox(boxIndex, i===0?-1:1));
+      controls.appendChild(btn);
+    });
     caption.appendChild(toggleIcon);
     caption.appendChild(title);
     caption.appendChild(controls);
     table.appendChild(caption);
 
-    const header=document.createElement('tr');
-    ['Name','Img','Gender','Game','Trainer','ID','Ball','Level','Nature','Ability'].forEach(h=>{const th=document.createElement('th'); th.innerText=h; header.appendChild(th);});
+    // Header
+    const header = document.createElement('tr');
+    ['Name','Img','Gender','Game','Trainer','ID','Ball','Level','Nature','Ability'].forEach(h=>{
+      const th = document.createElement('th'); th.innerText = h; header.appendChild(th);
+    });
     table.appendChild(header);
 
+    // 30 Zeilen
     for(let i=0;i<30;i++){
       const poke = (box.pokemon && box.pokemon[i]) || {name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''};
-      const row=document.createElement('tr');
+      const row = document.createElement('tr');
 
       ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key=>{
-        const td=document.createElement('td');
+        const td = document.createElement('td');
         let el;
 
-        if(key==='name'){
-          el=document.createElement('input');
+        if(key === 'name'){
+          el = document.createElement('input');
           el.setAttribute('list','pokemon-list');
-          el.value=poke[key]||'';
+          el.value = poke.name || '';
+          // beim Eingeben Name -> Bildzelle aktualisieren
           el.addEventListener('input', e=>{
             const name = e.target.value;
-            const imgCell = td.nextSibling;
-            imgCell.innerHTML='';
-            imgCell.dataset.number='';
+            const imgTd = td.nextElementSibling; // das nächste <td> ist die Bild-Spalte
+            imgTd.innerHTML = '';
+            imgTd.dataset.number = '';
             if(!name) return;
-            const pokeObj = pokemonData.find(p=>p.name===name);
+            const pokeObj = pokemonData.find(p => p.name === name);
             if(!pokeObj) return;
-            createImageCell(imgCell, pokeObj);
+            // setze standard-number (erste) und zeige bild
+            const defaultNum = pokeObj.numbers[0];
+            imgTd.dataset.number = defaultNum;
+            createImageCell(imgTd, pokeObj, defaultNum);
           });
-        }else if(key==='img'){
-          el=document.createElement('div');
-          el.style.display='flex';
-          el.style.flexDirection='column';
-          el.style.alignItems='center';
-          let number = poke.img;
+        } else if(key === 'img'){
+          // Bildzelle: wir setzen dataset.number auf die td (wichtig für Export)
+          el = document.createElement('div'); // innerer container (wird nicht benötigt, wir arbeiten auf td)
+          el.style.display = 'flex';
+          el.style.flexDirection = 'column';
+          el.style.alignItems = 'center';
+
+          // bestimme number (poke.img falls vorhanden, sonst erstes Bild falls Name bekannt)
+          let number = poke.img || '';
           if(!number && poke.name){
-            const pokeObj = pokemonData.find(p=>p.name===poke.name);
-            if(pokeObj) number=pokeObj.numbers[0];
+            const pokeObj = pokemonData.find(p => p.name === poke.name);
+            if(pokeObj) number = pokeObj.numbers[0];
           }
           td.dataset.number = number || '';
+
           if(poke.name){
-            const pokeObj = pokemonData.find(p=>p.name===poke.name);
-            if(pokeObj) createImageCell(td, pokeObj, number);
+            const pokeObj = pokemonData.find(p => p.name === poke.name);
+            if(pokeObj){
+              // Erstelle Bild-UI im td (createImageCell arbeitet auf der td selbst)
+              createImageCell(td, pokeObj, number);
+            }
           }
-        }else if(dropdowns[key]){
-          el=document.createElement('select');
-          dropdowns[key].forEach(opt=>{const option=document.createElement('option'); option.value=opt; option.innerText=opt; if(poke[key]===opt) option.selected=true; el.appendChild(option);});
-        }else if(key==='level'){
-          el=document.createElement('input'); el.type='number'; el.min=1; el.max=100; el.value=poke[key]||'';
-        }else{
-          el=document.createElement('input'); el.value=poke[key]||'';
+
+          // wir hängen trotzdem den inneren div an (optisch leer, aber konsistent)
+          td.appendChild(el);
+
+        } else if (key === 'trainer'){
+          el = document.createElement('input');
+          el.setAttribute('list','trainer-list');
+          el.value = poke.trainer || '';
+          // (optional) live Datalist aktualisieren, wenn neu eingegeben — hier nicht automatisch, aber wir könnten:
+          el.addEventListener('change', ()=> buildDatalists());
+        } else if (key === 'id'){
+          el = document.createElement('input');
+          el.setAttribute('list','id-list');
+          el.value = poke.id || '';
+          el.addEventListener('change', ()=> buildDatalists());
+        } else if (key === 'ability'){
+          el = document.createElement('input');
+          el.setAttribute('list','ability-list');
+          el.value = poke.ability || '';
+          el.addEventListener('change', ()=> buildDatalists());
+        } else if (dropdowns[key]){
+          el = document.createElement('select');
+          dropdowns[key].forEach(opt=>{
+            const option = document.createElement('option');
+            option.value = opt; option.innerText = opt;
+            if(poke[key] === opt) option.selected = true;
+            el.appendChild(option);
+          });
+        } else if (key === 'level'){
+          el = document.createElement('input');
+          el.type = 'number'; el.min = 1; el.max = 100;
+          el.value = poke.level || '';
+        } else {
+          el = document.createElement('input');
+          el.value = poke[key] || '';
         }
 
         td.appendChild(el);
@@ -173,80 +265,121 @@ function buildTable(livingdex){
   });
 }
 
+/* --- Bildzelle erzeugen --- 
+   cell ist die <td>-Zelle (wichtig: dataset.number wird auf der <td> gesetzt)
+   pokeObj: Eintrag aus pokemonData
+   selectedNumber: optional, exakte Nummer (z.B. "025" oder "025g")
+*/
 function createImageCell(cell, pokeObj, selectedNumber){
-  cell.innerHTML='';
-  const idx = (selectedNumber? pokeObj.numbers.indexOf(selectedNumber):0);
-  const img = document.createElement('img');
-  img.src = getPokemonImage(pokeObj.name, idx>=0?idx:0);
-  img.style.cursor='pointer';
-  img.classList.add('selected');
-  cell.appendChild(img);
-  cell.dataset.number = pokeObj.numbers[idx>=0?idx:0];
+  // cell ist die <td>
+  cell.innerHTML = ''; // clear
+  const idx = selectedNumber ? pokeObj.numbers.indexOf(selectedNumber) : 0;
+  const usedIdx = (idx >= 0) ? idx : 0;
+  const num = pokeObj.numbers[usedIdx];
 
-  if(pokeObj.numbers.length>1){
+  const img = document.createElement('img');
+  img.src = getPokemonImage(pokeObj.name, usedIdx);
+  img.className = 'main-img selected';
+  img.alt = pokeObj.name;
+  img.style.cursor = 'pointer';
+
+  // main image + dataset on td
+  cell.appendChild(img);
+  cell.dataset.number = num;
+
+  // Wenn mehrere Formen: Klick öffnet Grid unter dem Bild
+  if(pokeObj.numbers.length > 1){
     img.addEventListener('click', ()=>{
+      // Toggle Popup
       const existing = cell.querySelector('.grid-popup');
       if(existing){ existing.remove(); return; }
-      const popup = document.createElement('div'); popup.className='grid-popup';
-      pokeObj.numbers.forEach(num=>{
+
+      const popup = document.createElement('div');
+      popup.className = 'grid-popup';
+
+      pokeObj.numbers.forEach(n=>{
         const formImg = document.createElement('img');
-        formImg.src=`/pkmnicons/${num}.png`;
-        if(num===cell.dataset.number) formImg.classList.add('selected');
+        formImg.src = `/pkmnicons/${n}.png`;
+        formImg.alt = pokeObj.name + ' ' + n;
+        if(n === cell.dataset.number) formImg.classList.add('selected');
+
         formImg.addEventListener('click', ()=>{
-          cell.dataset.number=num;
-          img.src=formImg.src;
+          // setze nummer auf td und aktualisiere main img
+          cell.dataset.number = n;
+          img.src = formImg.src;
+
+          // update selected classes in popup and main img
+          popup.querySelectorAll('img').forEach(im => im.classList.remove('selected'));
+          formImg.classList.add('selected');
+          img.classList.add('selected');
+
+          // close popup
           popup.remove();
         });
+
         popup.appendChild(formImg);
       });
+
       cell.appendChild(popup);
     });
+  } else {
+    // falls nur eins, kein Popup; ensure main image markiert
+    img.classList.add('selected');
   }
 }
 
-// Neue Box hinzufügen
+/* --- UI-Funktionen: Box hinzufügen, verschieben --- */
 function addBox(){
-  const newBox = {title:'Neue Box', collapsed:false, pokemon:Array.from({length:30},()=>({name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''}))};
+  const newBox = {
+    title: "Neue Box",
+    collapsed: false,
+    pokemon: Array.from({length:30}, ()=>({name:'', img:'', gender:'', game:'', trainer:'', id:'', ball:'', level:'', nature:'', ability:''}))
+  };
   livingdexData.push(newBox);
   buildTable(livingdexData);
+  buildDatalists();
 }
 
-// Box verschieben
-function moveBox(index,direction){
+function moveBox(index, direction){
   const newIndex = index + direction;
-  if(newIndex<0||newIndex>=livingdexData.length) return;
+  if(newIndex < 0 || newIndex >= livingdexData.length) return;
   const [moved] = livingdexData.splice(index,1);
   livingdexData.splice(newIndex,0,moved);
   buildTable(livingdexData);
+  buildDatalists();
 }
 
-// JSON herunterladen
+/* --- JSON-Export --- */
 function downloadJSON(){
   const tables = document.querySelectorAll('table');
-  const updated=[];
+  const updated = [];
   tables.forEach(table=>{
-    const box={title:table.caption.querySelector('span:nth-child(2)').innerText, pokemon:[]};
-    const rows=table.querySelectorAll('tr');
+    const box = { title: table.querySelector('caption span:nth-child(2)').innerText || table.caption.querySelector('span:nth-child(2)').innerText, pokemon: [] };
+    const rows = table.querySelectorAll('tr');
     rows.forEach((row,rowIndex)=>{
-      if(rowIndex===0) return;
+      if(rowIndex === 0) return; // header
       const cells = row.querySelectorAll('td');
       const poke = {};
       ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key,i)=>{
-        if(key==='img'){
+        if(key === 'img'){
+          // WICHTIG: wir lesen dataset.number auf der <td>
           poke[key] = cells[i].dataset.number || '';
-        }else{
-          const el = cells[i].querySelector('input,select');
-          poke[key] = el? el.value:'';
+        } else {
+          const el = cells[i].querySelector('input, select');
+          poke[key] = el ? el.value : '';
         }
       });
-      box.pokemon.push(poke.name?poke:null);
+      box.pokemon.push(poke.name ? poke : null);
     });
     updated.push(box);
   });
 
-  const blob = new Blob([JSON.stringify(updated,null,2)],{type:'application/json'});
+  const blob = new Blob([JSON.stringify(updated, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download='livingdex.json'; a.click();
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'livingdex.json';
+  a.click();
   URL.revokeObjectURL(url);
 }
 </script>
