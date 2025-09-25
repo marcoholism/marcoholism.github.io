@@ -14,32 +14,17 @@ caption span.toggle-icon { margin-right: 8px; cursor: pointer; user-select: none
 .caption-controls button { background: rgba(255,255,255,0.1); border: none; color: #e0e0e0; margin-left: 4px; padding: 2px 6px; cursor: pointer; }
 .caption-controls button:hover { background: rgba(255,255,255,0.2); }
 th { background: rgba(255,255,255,0.05); color: #f0f0f0; padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; }
-td { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 4px; }
+td { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 4px; text-align: center; vertical-align: middle; }
 input, select { width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.05); color: #f0f0f0; border: 1px solid rgba(255,255,255,0.1); padding: 6px 8px; font-size: 0.9em; font-family: inherit; outline: none; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
 input:focus, select:focus { border-color: #4a90e2; background: rgba(255,255,255,0.1); }
 select { background-image: linear-gradient(45deg, transparent 50%, #f0f0f0 50%), linear-gradient(135deg, #f0f0f0 50%, transparent 50%); background-position: calc(100% - 15px) calc(50% - 2px), calc(100% - 10px) calc(50% - 2px); background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 25px; }
 tr:hover td { background: rgba(255,255,255,0.05); }
+.grid-popup { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-top: 4px; }
+.grid-popup img { width: 48px; cursor: pointer; border: 2px solid transparent; }
+.grid-popup img.selected { border-color: #4a90e2; }
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
 ::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
-
-/* Img-Zelle zentrieren und Grid bei mehreren Formen */
-td.img-cell {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-td.img-cell img {
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 4px;
-}
-td.img-cell img.selected {
-  border-color: #4a90e2;
-}
 </style>
 </head>
 <body>
@@ -52,7 +37,6 @@ td.img-cell img.selected {
 <div id="livingdex-container"></div>
 
 <script>
-// Dropdown Definitionen
 const dropdowns = {
   gender: ['genderless', 'male', 'female'],
   ball: ['pokeball', 'super', 'hyperball', 'meisterball', 'wiederball', 'flottball', 'raetselball'],
@@ -63,22 +47,14 @@ const dropdowns = {
 let pokemonData = [];
 let livingdexData = [];
 
-// Pokémon-Liste extern laden
 fetch('pokemon.json')
   .then(r => r.json())
-  .then(data => {
-    pokemonData = data;
-    buildPokemonDatalist();
-  })
+  .then(data => { pokemonData = data; buildPokemonDatalist(); })
   .catch(e => console.error('Fehler beim Laden von pokemon.json:', e));
 
-// Livingdex laden
 fetch('livingdex.json')
   .then(r => r.json())
-  .then(data => {
-    livingdexData = data;
-    buildTable(livingdexData);
-  })
+  .then(data => { livingdexData = data; buildTable(livingdexData); })
   .catch(e => console.error('Fehler beim Laden von livingdex.json:', e));
 
 document.getElementById('download-btn').addEventListener('click', downloadJSON);
@@ -89,19 +65,14 @@ function buildPokemonDatalist() {
   if (existing) existing.remove();
   const datalist = document.createElement('datalist');
   datalist.id = 'pokemon-list';
-  pokemonData.forEach(p => {
-    const opt = document.createElement('option');
-    opt.value = p.name;
-    datalist.appendChild(opt);
-  });
+  pokemonData.forEach(p => { const opt = document.createElement('option'); opt.value = p.name; datalist.appendChild(opt); });
   document.body.appendChild(datalist);
 }
 
 function getPokemonImage(name, idx = 0) {
   const poke = pokemonData.find(p => p.name === name);
   if (!poke) return '';
-  const number = poke.numbers[idx];
-  return `/pkmnicons/${number}.png`;
+  return `/pkmnicons/${poke.numbers[idx]}.png`;
 }
 
 function buildTable(livingdex) {
@@ -126,100 +97,53 @@ function buildTable(livingdex) {
     });
     const controls = document.createElement('span');
     controls.className = 'caption-controls';
-    ['↑','↓'].forEach((txt, i) => {
-      const btn = document.createElement('button');
-      btn.innerText = txt;
-      btn.addEventListener('click', () => moveBox(boxIndex, i === 0 ? -1 : 1));
-      controls.appendChild(btn);
-    });
-    caption.appendChild(toggleIcon);
-    caption.appendChild(title);
-    caption.appendChild(controls);
+    ['↑','↓'].forEach((txt,i)=>{ const btn=document.createElement('button'); btn.innerText=txt; btn.addEventListener('click',()=>moveBox(boxIndex,i===0?-1:1)); controls.appendChild(btn); });
+    caption.appendChild(toggleIcon); caption.appendChild(title); caption.appendChild(controls);
     table.appendChild(caption);
 
     const header = document.createElement('tr');
-    ['Name','Img','Gender','Game','Trainer','ID','Ball','Level','Nature','Ability'].forEach(h => {
-      const th = document.createElement('th');
-      th.innerText = h;
-      header.appendChild(th);
-    });
+    ['Name','Img','Gender','Game','Trainer','ID','Ball','Level','Nature','Ability'].forEach(h=>{ const th=document.createElement('th'); th.innerText=h; header.appendChild(th); });
     table.appendChild(header);
 
-    for (let i = 0; i < 30; i++) {
-      const poke = box.pokemon[i] || {};
+    for(let i=0;i<30;i++){
+      const poke = box.pokemon[i]||{};
       const row = document.createElement('tr');
 
-      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key => {
-        const td = document.createElement('td');
+      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach(key=>{
+        const td=document.createElement('td');
         let el;
 
-        if (key === 'name') {
-          el = document.createElement('input');
+        if(key==='name'){
+          el=document.createElement('input');
           el.setAttribute('list','pokemon-list');
-          el.value = poke[key] || '';
-          el.addEventListener('input', e => {
-            const name = e.target.value;
-            const imgCell = td.nextSibling;
-            imgCell.innerHTML = '';
-            const pokeObj = pokemonData.find(p => p.name === name);
-            if (!pokeObj) return;
-
-            const container = document.createElement('div');
-            container.className = 'img-cell';
-
-            pokeObj.numbers.forEach((num, idx) => {
-              const img = document.createElement('img');
-              img.src = `/pkmnicons/${num}.png`;
-              if (idx === 0) img.classList.add('selected');
-              img.addEventListener('click', () => {
-                container.querySelectorAll('img').forEach(i => i.classList.remove('selected'));
-                img.classList.add('selected');
-                container.dataset.number = num;
-              });
-              container.appendChild(img);
-            });
-
-            container.dataset.number = pokeObj.numbers[0];
-            imgCell.appendChild(container);
+          el.value=poke[key]||'';
+          el.addEventListener('input', e=>{
+            const name=e.target.value;
+            const imgCell=td.nextSibling;
+            imgCell.innerHTML='';
+            imgCell.dataset.number='';
+            if(!name) return;
+            const pokeObj=pokemonData.find(p=>p.name===name);
+            if(!pokeObj) return;
+            createImageCell(imgCell, pokeObj);
           });
-        } else if (key === 'img') {
-          el = document.createElement('div');
-          el.className = 'img-cell';
-          el.dataset.number = poke.img || '';
-          if (poke.name) {
-            const pokeObj = pokemonData.find(p => p.name === poke.name);
-            if (pokeObj) {
-              pokeObj.numbers.forEach((num, idx) => {
-                const img = document.createElement('img');
-                img.src = `/pkmnicons/${num}.png`;
-                if (poke.img === num || (!poke.img && idx === 0)) img.classList.add('selected');
-                img.addEventListener('click', () => {
-                  el.querySelectorAll('img').forEach(i => i.classList.remove('selected'));
-                  img.classList.add('selected');
-                  el.dataset.number = num;
-                });
-                el.appendChild(img);
-              });
-            }
+        }else if(key==='img'){
+          el=document.createElement('div');
+          el.style.display='flex';
+          el.style.flexDirection='column';
+          el.style.alignItems='center';
+          el.dataset.number=poke.img||'';
+          if(poke.name && poke.img){
+            const pokeObj=pokemonData.find(p=>p.name===poke.name);
+            createImageCell(el, pokeObj, poke.img);
           }
-        } else if (dropdowns[key]) {
-          el = document.createElement('select');
-          dropdowns[key].forEach(opt => {
-            const option = document.createElement('option');
-            option.value = opt;
-            option.innerText = opt;
-            if (poke[key] === opt) option.selected = true;
-            el.appendChild(option);
-          });
-        } else if (key === 'level') {
-          el = document.createElement('input');
-          el.type = 'number';
-          el.min = 1;
-          el.max = 100;
-          el.value = poke[key] || '';
-        } else {
-          el = document.createElement('input');
-          el.value = poke[key] || '';
+        }else if(dropdowns[key]){
+          el=document.createElement('select');
+          dropdowns[key].forEach(opt=>{ const option=document.createElement('option'); option.value=opt; option.innerText=opt; if(poke[key]===opt) option.selected=true; el.appendChild(option); });
+        }else if(key==='level'){
+          el=document.createElement('input'); el.type='number'; el.min=1; el.max=100; el.value=poke[key]||'';
+        }else{
+          el=document.createElement('input'); el.value=poke[key]||'';
         }
 
         td.appendChild(el);
@@ -228,52 +152,86 @@ function buildTable(livingdex) {
 
       table.appendChild(row);
     }
+
     container.appendChild(table);
   });
 }
 
-function addBox() {
-  const newBox = { title: "Neue Box", pokemon: Array(30).fill(null), collapsed: false };
+function createImageCell(cell, pokeObj, selectedNumber){
+  cell.innerHTML='';
+  const idx=(selectedNumber? pokeObj.numbers.indexOf(selectedNumber):0);
+  const img=document.createElement('img');
+  img.src=getPokemonImage(pokeObj.name, idx>=0?idx:0);
+  img.width=48;
+  img.style.cursor='pointer';
+  img.classList.add('selected');
+  cell.appendChild(img);
+  cell.dataset.number=pokeObj.numbers[idx>=0?idx:0];
+
+  if(pokeObj.numbers.length>1){
+    img.addEventListener('click',()=>{
+      const existingPopup=cell.querySelector('.grid-popup');
+      if(existingPopup){ existingPopup.remove(); return; }
+      const popup=document.createElement('div');
+      popup.className='grid-popup';
+      pokeObj.numbers.forEach((num,i)=>{
+        const formImg=document.createElement('img');
+        formImg.src=`/pkmnicons/${num}.png`;
+        if(num===cell.dataset.number) formImg.classList.add('selected');
+        formImg.addEventListener('click', ()=>{
+          cell.dataset.number=num;
+          img.src=formImg.src;
+          popup.remove();
+        });
+        popup.appendChild(formImg);
+      });
+      cell.appendChild(popup);
+    });
+  }
+}
+
+function addBox(){
+  const newBox={title:"Neue Box",pokemon:Array(30).fill(null),collapsed:false};
   livingdexData.push(newBox);
   buildTable(livingdexData);
 }
 
-function moveBox(index, direction) {
-  const newIndex = index + direction;
-  if (newIndex < 0 || newIndex >= livingdexData.length) return;
-  const [moved] = livingdexData.splice(index, 1);
-  livingdexData.splice(newIndex, 0, moved);
+function moveBox(index,direction){
+  const newIndex=index+direction;
+  if(newIndex<0||newIndex>=livingdexData.length) return;
+  const [moved]=livingdexData.splice(index,1);
+  livingdexData.splice(newIndex,0,moved);
   buildTable(livingdexData);
 }
 
-function downloadJSON() {
-  const tables = document.querySelectorAll('table');
-  const updated = [];
-  tables.forEach(table => {
-    const box = { title: table.caption.querySelector('span:nth-child(2)').innerText, pokemon: [] };
-    const rows = table.querySelectorAll('tr');
-    rows.forEach((row, rowIndex) => {
-      if (rowIndex === 0) return;
-      const cells = row.querySelectorAll('td');
-      const poke = {};
-      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key, i) => {
-        if (key === 'img') {
-          poke[key] = cells[i].querySelector('.img-cell')?.dataset.number || '';
-        } else {
-          const el = cells[i].querySelector('input, select');
-          poke[key] = el ? el.value : '';
+function downloadJSON(){
+  const tables=document.querySelectorAll('table');
+  const updated=[];
+  tables.forEach(table=>{
+    const box={title:table.caption.querySelector('span:nth-child(2)').innerText,pokemon:[]};
+    const rows=table.querySelectorAll('tr');
+    rows.forEach((row,rowIndex)=>{
+      if(rowIndex===0) return;
+      const cells=row.querySelectorAll('td');
+      const poke={};
+      ['name','img','gender','game','trainer','id','ball','level','nature','ability'].forEach((key,i)=>{
+        if(key==='img'){
+          poke[key]=cells[i].dataset.number||'';
+        }else{
+          const el=cells[i].querySelector('input, select');
+          poke[key]=el? el.value:'';
         }
       });
-      box.pokemon.push(poke.name ? poke : null);
+      box.pokemon.push(poke.name?poke:null);
     });
     updated.push(box);
   });
 
-  const blob = new Blob([JSON.stringify(updated, null, 2)], {type: "application/json"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'livingdex.json';
+  const blob=new Blob([JSON.stringify(updated,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='livingdex.json';
   a.click();
   URL.revokeObjectURL(url);
 }
