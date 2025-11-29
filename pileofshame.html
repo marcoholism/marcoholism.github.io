@@ -225,15 +225,19 @@ async function loadBacklog() {
       }
 
       // Kommendes Release? -> leicht transparent/blass
-      if (releaseDate > today) {
-        tile.classList.add("upcoming");
-      }
+      if (releaseDate > today) tile.classList.add("upcoming");
+
+      // Badge je nach Status
+      let badge = "";
+      if (game.status === "wip") badge = `<span class="game-badge">WIP</span>`;
+      if (game.status === "done" && game.completion === "casual") badge = `<span class="game-badge">Casual</span>`;
+      if (game.status === "done" && game.completion === "100%") badge = `<span class="game-badge">100%</span>`;
 
       // HTML der Card
       tile.innerHTML = `
         <div class="game-wrapper">
           <img class="game-cover" src="${game.cover}" alt="${game.title}">
-          ${game.status === "wip" ? `<span class="game-badge">WIP</span>` : ""}
+          ${badge}
         </div>
         <div class="game-title">${game.title}</div>
       `;
