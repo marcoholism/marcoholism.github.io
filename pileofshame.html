@@ -163,6 +163,12 @@ h1 {
   letter-spacing: 1px;       /* leichte Buchstabenabstände für Struktur */
 }
 
+/* Spiele mit zukünftigem Release */
+.game-tile.upcoming {
+  opacity: 0.55;              /* leicht transparent */
+  filter: grayscale(20%);     /* optional: etwas entsättigen */
+}
+
 </style>
 </head>
 
@@ -191,9 +197,11 @@ async function loadBacklog() {
 
     const grid = document.getElementById("gameGrid");
     let currentYear = null;
+    const today = new Date();
 
     data.games.forEach(game => {
-      const year = new Date(game.release).getFullYear();
+      const releaseDate = new Date(game.release);
+      const year = releaseDate.getFullYear();
 
       // Neue Jahresüberschrift einfügen, falls Jahr gewechselt
       if (year !== currentYear) {
@@ -212,6 +220,11 @@ async function loadBacklog() {
       if (game.status === "done") {
         if (game.completion === "casual") tile.classList.add("done-casual");
         if (game.completion === "100%") tile.classList.add("done-full");
+      }
+
+      // Kommendes Release? -> leicht transparent/blass
+      if (releaseDate > today) {
+        tile.classList.add("upcoming");
       }
 
       // HTML der Card
