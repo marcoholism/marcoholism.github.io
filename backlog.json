@@ -15,7 +15,7 @@
       "cover": "covers/hollow-knight.jpg",
       "release": "1998-07-17",
       "status": "done",
-      "completion": "casual",
+      "completion": "casual"c,
       "platform": "Nintendo 64",
       "series": "Banjo-Kazooie",
       "note": ""
@@ -32,7 +32,7 @@
     },
     {
       "title": "Metroid Prime 4: Beyond",
-      "cover": "covers/hollow-knight.jpg",
+      "cover": "covers/metroidprime4.png",
       "release": "2025-12-04",
       "status": "open",
       "completion": null,
