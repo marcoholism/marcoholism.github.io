@@ -149,6 +149,17 @@ h1 {
 .game-wrapper {
   position: relative;
 }
+
+.year-title {
+  font-size: 1.5rem;
+  color: #e6e1ff;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(168,85,247,0.3);
+  padding-bottom: 0.3rem;
+}
+
 </style>
 </head>
 
@@ -176,8 +187,21 @@ async function loadBacklog() {
     data.games.sort((a, b) => new Date(b.release) - new Date(a.release));
 
     const grid = document.getElementById("gameGrid");
+    let currentYear = null;
 
     data.games.forEach(game => {
+      const year = new Date(game.release).getFullYear();
+
+      // Neue Jahresüberschrift einfügen, falls Jahr gewechselt
+      if (year !== currentYear) {
+        currentYear = year;
+        const yearDiv = document.createElement("div");
+        yearDiv.classList.add("year-title");
+        yearDiv.textContent = currentYear;
+        grid.appendChild(yearDiv);
+      }
+
+      // Tile erzeugen
       const tile = document.createElement("div");
       tile.classList.add("game-tile");
 
