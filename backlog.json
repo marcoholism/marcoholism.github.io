@@ -91,6 +91,26 @@
       "note": ""
     },
     {
+      "title": "Pokémon Legenden: Arceus",
+      "cover": "covers/pkmnarceus.jpg",
+      "release": "2022-01-28",
+      "status": "open",
+      "completion": null,
+      "platform": "Switch",
+      "series": "Pokémon",
+      "note": ""
+    },
+    {
+      "title": "Pokémon Legenden: Z-A",
+      "cover": "covers/pkmnza.jpg",
+      "release": "2025-10-16",
+      "status": "done",
+      "completion": "casual",
+      "platform": "Switch2",
+      "series": "Pokémon",
+      "note": ""
+    },
+    {
       "title": "Elden Ring",
       "cover": "covers/eldenring.jpg",
       "release": "2022-02-25",
