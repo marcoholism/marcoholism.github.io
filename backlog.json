@@ -1,0 +1,54 @@
+{
+  "games": [
+    {
+      "title": "Hollow Knight",
+      "cover": "covers/hollow-knight.jpg",
+      "release": "2017-02-24",
+      "status": "wip",
+      "completion": null,
+      "platform": "PC",
+      "series": "Hollow Knight",
+      "note": ""
+    },
+    {
+      "title": "Zelda: Tears of the Kingdom",
+      "cover": "covers/zelda-totk.jpg",
+      "release": "2023-05-12",
+      "status": "open",
+      "completion": null,
+      "platform": "Switch",
+      "series": "The Legend of Zelda",
+      "note": ""
+    },
+    {
+      "title": "Final Fantasy VII Remake",
+      "cover": "covers/ff7-remake.jpg",
+      "release": "2020-04-10",
+      "status": "open",
+      "completion": null,
+      "platform": "PS5",
+      "series": "Final Fantasy",
+      "note": "Story angefangen"
+    },
+    {
+      "title": "Red Dead Redemption 2",
+      "cover": "covers/rdr2.jpg",
+      "release": "2018-10-26",
+      "status": "done",
+      "completion": "casual",
+      "platform": "PC",
+      "series": "Red Dead",
+      "note": ""
+    },
+    {
+      "title": "Pokémon Karmesin",
+      "cover": "covers/pokemon-scarlet.jpg",
+      "release": "2022-11-18",
+      "status": "done",
+      "completion": "100%",
+      "platform": "Switch",
+      "series": "Pokémon",
+      "note": ""
+    }
+  ]
+}
