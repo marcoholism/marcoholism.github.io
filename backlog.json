@@ -31,6 +31,16 @@
       "note": ""
     },
     {
+      "title": "The Legend of Zelda: Majoras’s Mask",
+      "cover": "covers/zeldamm.jpg",
+      "release": "2000-11-17",
+      "status": "done",
+      "completion": "100%",
+      "platform": "Nintendo 64",
+      "series": "The Legend of Zelda",
+      "note": ""
+    },
+    {
       "title": "Metroid Prime 4: Beyond",
       "cover": "covers/metroidprime4.png",
       "release": "2025-12-04",
