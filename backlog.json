@@ -65,7 +65,7 @@
       "cover": "covers/pkmnkarmesin.jpg",
       "release": "2022-11-18",
       "status": "done",
-      "completion": null,
+      "completion": "casual",
       "platform": "Switch",
       "series": "Pokémon",
       "note": ""
@@ -74,8 +74,8 @@
       "title": "Elden Ring",
       "cover": "covers/eldenring.jpg",
       "release": "2022-02-25",
-      "status": "open",
-      "completion": null,
+      "status": "done",
+      "completion": "casual",
       "platform": "XBox Series S",
       "series": "Elden Ring",
       "note": ""
