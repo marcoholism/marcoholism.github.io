@@ -151,16 +151,18 @@ h1 {
 }
 
 .year-title {
-  display: block;            /* Ganze Zeile einnehmen */
+  display: block;
   width: 100%;
-  font-size: 1rem;           /* Dezent */
-  color: rgba(255,255,255,0.5); /* Leicht transparent / dezent */
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
   font-weight: 600;
-  margin: 2rem 0 1rem;       /* Abstand nach oben/unten */
+  margin: 2rem 0 1rem;
   text-align: left;
-  border-bottom: 1px solid rgba(168,85,247,0.2); /* feiner Trenner */
+  border-bottom: 1px solid rgba(168,85,247,0.2);
   padding-bottom: 0.25rem;
-  letter-spacing: 1px;       /* leichte Buchstabenabstände für Struktur */
+  letter-spacing: 1px;
+
+  grid-column: 1 / -1; /* <- volle Breite im Grid */
 }
 
 /* Spiele mit zukünftigem Release */
