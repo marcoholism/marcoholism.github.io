@@ -11,6 +11,16 @@
       "note": ""
     },
     {
+      "title": "Star Wars: Rogue Squadron",
+      "cover": "covers/swrs.jpg",
+      "release": "1999-01-10",
+      "status": "done",
+      "completion": "100%",
+      "platform": "Nintendo 64",
+      "series": "Star Wars",
+      "note": ""
+    },
+    {
       "title": "Banjo-Kazooie",
       "cover": "covers/banjokazooie.jpg",
       "release": "1998-07-17",
