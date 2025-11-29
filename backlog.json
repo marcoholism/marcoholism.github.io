@@ -21,6 +21,16 @@
       "note": ""
     },
     {
+      "title": "The Legend of Zelda: Link’s Awakening",
+      "cover": "covers/zeldala.jpg",
+      "release": "1999-01-01",
+      "status": "done",
+      "completion": "100%",
+      "platform": "Game Boy Color",
+      "series": "The Legend of Zelda",
+      "note": ""
+    },
+    {
       "title": "The Legend of Zelda: Ocarina of Time",
       "cover": "covers/zeldaoot.jpg",
       "release": "1998-12-11",
