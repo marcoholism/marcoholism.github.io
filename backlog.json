@@ -69,6 +69,16 @@
       "platform": "Switch",
       "series": "Pokémon",
       "note": ""
+    },
+    {
+      "title": "Elden Ring",
+      "cover": "covers/eldenring.jpg",
+      "release": "2022-02-25",
+      "status": "open",
+      "completion": null,
+      "platform": "XBox Series S",
+      "series": "Elden Ring",
+      "note": ""
     }
   ]
 }
