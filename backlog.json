@@ -2,7 +2,7 @@
   "games": [
     {
       "title": "Super Mario 64",
-      "cover": "covers/hollow-knight.jpg",
+      "cover": "covers/mario64.jpg",
       "release": "1997-03-01",
       "status": "done",
       "completion": "100%",
@@ -12,7 +12,7 @@
     },
     {
       "title": "Banjo-Kazooie",
-      "cover": "covers/hollow-knight.jpg",
+      "cover": "covers/banjokazooie.jpg",
       "release": "1998-07-17",
       "status": "done",
       "completion": "casual",
@@ -22,7 +22,7 @@
     },
     {
       "title": "The Legend of Zelda: Ocarina of Time",
-      "cover": "covers/hollow-knight.jpg",
+      "cover": "covers/zeldaoot.jpg",
       "release": "1998-12-11",
       "status": "done",
       "completion": "100%",
