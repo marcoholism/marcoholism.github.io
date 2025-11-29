@@ -1,12 +1,42 @@
 {
   "games": [
     {
+      "title": "Super Mario 64",
+      "cover": "covers/hollow-knight.jpg",
+      "release": "1997-03-01",
+      "status": "done",
+      "completion": "100%",
+      "platform": "Nintendo 64",
+      "series": "Super Mario",
+      "note": ""
+    },
+    {
+      "title": "Banjo-Kazooie",
+      "cover": "covers/hollow-knight.jpg",
+      "release": "1998-07-17",
+      "status": "done",
+      "completion": null,
+      "platform": "Nintendo 64",
+      "series": "Banjo-Kazooie",
+      "note": ""
+    },
+    {
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "cover": "covers/hollow-knight.jpg",
+      "release": "1998-12-11",
+      "status": "done",
+      "completion": "100%",
+      "platform": "Nintendo 64",
+      "series": "The Legend of Zelda",
+      "note": ""
+    },
+    {
       "title": "Metroid Prime 4: Beyond",
       "cover": "covers/hollow-knight.jpg",
       "release": "2025-12-04",
       "status": "open",
       "completion": null,
-      "platform": "PC",
+      "platform": "Switch2",
       "series": "Metroid Prime",
       "note": ""
     },
@@ -16,7 +46,7 @@
       "release": "2017-02-24",
       "status": "wip",
       "completion": null,
-      "platform": "PC",
+      "platform": "Switch",
       "series": "Hollow Knight",
       "note": ""
     },
@@ -30,52 +60,12 @@
       "series": "The Legend of Zelda",
       "note": ""
     },
-        {
-      "title": "Zelda: Tears of the Kingdom",
-      "cover": "covers/zelda-totk.jpg",
-      "release": "2023-05-12",
-      "status": "open",
-      "completion": null,
-      "platform": "Switch",
-      "series": "The Legend of Zelda",
-      "note": ""
-    },
-    {
-      "title": "Zelda: Tears of the Kingdom",
-      "cover": "covers/zelda-totk.jpg",
-      "release": "2023-05-12",
-      "status": "open",
-      "completion": null,
-      "platform": "Switch",
-      "series": "The Legend of Zelda",
-      "note": ""
-    },
-    {
-      "title": "Final Fantasy VII Remake",
-      "cover": "covers/ff7-remake.jpg",
-      "release": "2020-04-10",
-      "status": "open",
-      "completion": null,
-      "platform": "PS5",
-      "series": "Final Fantasy",
-      "note": "Story angefangen"
-    },
-    {
-      "title": "Red Dead Redemption 2",
-      "cover": "covers/rdr2.jpg",
-      "release": "2018-10-26",
-      "status": "done",
-      "completion": "casual",
-      "platform": "PC",
-      "series": "Red Dead",
-      "note": ""
-    },
     {
       "title": "Pokémon Karmesin",
       "cover": "covers/pokemon-scarlet.jpg",
       "release": "2022-11-18",
       "status": "done",
-      "completion": "100%",
+      "completion": null,
       "platform": "Switch",
       "series": "Pokémon",
       "note": ""
