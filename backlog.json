@@ -20,6 +20,26 @@
       "series": "The Legend of Zelda",
       "note": ""
     },
+        {
+      "title": "Zelda: Tears of the Kingdom",
+      "cover": "covers/zelda-totk.jpg",
+      "release": "2023-05-12",
+      "status": "open",
+      "completion": null,
+      "platform": "Switch",
+      "series": "The Legend of Zelda",
+      "note": ""
+    },
+    {
+      "title": "Zelda: Tears of the Kingdom",
+      "cover": "covers/zelda-totk.jpg",
+      "release": "2023-05-12",
+      "status": "open",
+      "completion": null,
+      "platform": "Switch",
+      "series": "The Legend of Zelda",
+      "note": ""
+    },
     {
       "title": "Final Fantasy VII Remake",
       "cover": "covers/ff7-remake.jpg",
