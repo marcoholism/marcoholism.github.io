@@ -1,5 +1,5 @@
-# Melina
-ID: melina
+# Varre
+ID: varre
 EVENTS: E1–E5
 REGION: Liurnia
 PHASE: Midgame
@@ -12,3 +12,10 @@ TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
 REQUIRES: 
 PONR: Nach Leyndell-Asche nicht mehr verfügbar
 TAGS: Hauptquest, Endgame
+
+---
+
+E2
+TITLE: Hilf Kalé
+REQUIRES: varre_E3
+TEXT: Sammle 3 Items für Kalé, um seine Questlinie zu starten.
