@@ -163,7 +163,7 @@ async function loadQuestFile(file) {
 }
 
 async function renderTimeline() {
-  const events = await loadQuestFile('all_quests.quest');
+  const events = await loadQuestFile('https://marcoholism.us/all_quests.quest');
 
   events.forEach(event => {
     const card = document.createElement('div');
