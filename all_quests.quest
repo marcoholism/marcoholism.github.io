@@ -1,27 +1,30 @@
 E1_varre
-QUEST: Varre
+QUEST: Varré
 TITLE: Erstes Treffen
-TEXT: Sprich mit Varre am Seeufer.
-REWARDS: 500 Runes
+TEXT: Sprich mit Varré nach dem du Limgrave erreicht hast.
+REWARDS:
+REQUIRES: 
 PONR:
-TAGS: Hauptquest
-
----
-
-E2_varre
-QUEST: Varre
-TITLE: Zweites Treffen
-TEXT: Hilf Varre bei der Quest…
-REWARDS: 1 Spirit Emblem
-PONR:
-TAGS: Hauptquest
+TAGS:
 
 ---
 
 E1_melina
 QUEST: Melina
 TITLE: Melina erscheint
-TEXT: Melina bietet ihre Hilfe am Erdenbaum an.
-REWARDS: 1 Great Rune Fragment
+TEXT: Melina bietet ihre Hilfe als Jungfer an.
+REWARDS: 
+REQUIRES: 
 PONR: Nach Leyndell-Asche nicht mehr verfügbar
-TAGS: Hauptquest, Endgame
+TAGS:
+
+---
+
+E2_melina
+QUEST: Melina
+TITLE: Tafelrundfeste
+TEXT: Melina lädt dich zur Tafelrundfeste ein.
+REWARDS: 1 Great Rune Fragment
+REQUIRES: Raste an einem Ort der Gnade außerhalb von Limgrave oder Kämpfe gegen Margit
+PONR:
+TAGS:

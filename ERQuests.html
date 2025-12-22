@@ -116,7 +116,7 @@ main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
   background: rgba(201,162,77,0.05);
 }
 
-.rewards {
+.rewards, .requires {
   margin-top: 0.8rem;
   padding: 0.5rem 0.8rem;
   background: rgba(201,162,77,0.05);
@@ -157,6 +157,7 @@ async function loadQuestFile(file) {
     const textMatch = block.match(/TEXT: ([\s\S]+?)(\nPONR:|\nTAGS:|\nREWARDS:|$)/);
     const ponrMatch = block.match(/PONR: ([^\n]+)/);
     const tagsMatch = block.match(/TAGS: ([^\n]+)/);
+    const requiresMatch = block.match(/REQUIRES: ([^\n]+)/);
     const rewardsMatch = block.match(/REWARDS: ([^\n]+)/);
 
     return {
@@ -167,6 +168,7 @@ async function loadQuestFile(file) {
       text: textMatch ? textMatch[1].trim() : '',
       ponr: ponrMatch ? ponrMatch[1] : '',
       tags: tagsMatch ? tagsMatch[1].split(',').map(t=>t.trim()) : [],
+      requires: requiresMatch ? requiresMatch[1] : '',
       rewards: rewardsMatch ? rewardsMatch[1] : ''
     };
   });
@@ -187,8 +189,9 @@ async function renderTimeline() {
       <h2>${event.quest} <span class="event-id">${event.eventDisplayID}</span></h2>
       <p><strong>${event.title}</strong>: ${event.text}</p>
       ${event.ponr ? `<div class="ponr"><strong>PoNR:</strong> ${event.ponr}</div>` : ''}
-      ${event.tags.length ? '<div class="tags">' + event.tags.map(t=>'<span class="tag">'+t+'</span>').join('') + '</div>' : ''}
+      ${event.rewards ? `<div class="requires"><strong>Bedingungen:</strong> ${event.requires}</div>` : ''}
       ${event.rewards ? `<div class="rewards"><strong>Belohnung:</strong> ${event.rewards}</div>` : ''}
+      ${event.tags.length ? '<div class="tags">' + event.tags.map(t=>'<span class="tag">'+t+'</span>').join('') + '</div>' : ''}
     `;
 
     const btn = document.createElement('button');
