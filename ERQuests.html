@@ -82,7 +82,6 @@ main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 
 .meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.6rem; }
 
-/* Point of No Return */
 .ponr {
   margin-top: 1rem;
   padding: 0.7rem 1rem;
@@ -132,13 +131,16 @@ main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 <script>
 const timelineContainer = document.getElementById('timeline-container');
 
+// Passe hier den Pfad an, z.B. GitHub Raw URL oder lokal
+const QUEST_FILE_PATH = 'all_quests.quest';
+
 async function loadQuestFile(file) {
   const text = await fetch(file).then(r => r.text());
-  const blocks = text.split(/^E\d+/m).filter(Boolean);
-  const eventMatches = [...text.matchAll(/(E\d+)/g)];
+  const blocks = text.split(/^E\d+_\w+/m).filter(Boolean);
+  const eventMatches = [...text.matchAll(/(E\d+_\w+)/g)];
 
   const events = eventMatches.map((match, i) => {
-    const block = blocks[i].trim();
+    const block = blocks[i] ? blocks[i].trim() : '';
     const questMatch = block.match(/QUEST: (.+)/);
     const titleMatch = block.match(/TITLE: (.+)/);
     const textMatch = block.match(/TEXT: ([\s\S]+?)(\nREQUIRES:|\nPONR:|\nTAGS:|\nREWARDS:|$)/);
@@ -163,7 +165,7 @@ async function loadQuestFile(file) {
 }
 
 async function renderTimeline() {
-  const events = await loadQuestFile('https://marcoholism.us/all_quests.quest');
+  const events = await loadQuestFile(QUEST_FILE_PATH);
 
   events.forEach(event => {
     const card = document.createElement('div');

@@ -1,26 +1,30 @@
-eventID: E1_varre
+E1_varre
 QUEST: Varre
-TITLE: Melina segnet den Spieler
-TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
-REQUIRES: 
-REWARDS:
-PONR: Nach Leyndell-Asche nicht mehr verfügbar
-TAGS: Hauptquest, Endgame
+TITLE: Erstes Treffen
+TEXT: Sprich mit Varre am Seeufer.
+REQUIRES:
+REWARDS: 500 Runes
+PONR:
+TAGS: Hauptquest
 
 ---
 
-eventID: E1_melina
+E2_varre
+QUEST: Varre
+TITLE: Zweites Treffen
+TEXT: Hilf Varre bei der Quest…
+REQUIRES: E1_varre
+REWARDS: 1 Spirit Emblem
+PONR:
+TAGS: Hauptquest
+
+---
+
+E1_melina
 QUEST: Melina
-TITLE: Melina segnet den Spieler
-TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
-REQUIRES: 
-REWARDS:
+TITLE: Melina erscheint
+TEXT: Melina bietet ihre Hilfe am Erdenbaum an.
+REQUIRES: E2_varre
+REWARDS: 1 Great Rune Fragment
 PONR: Nach Leyndell-Asche nicht mehr verfügbar
 TAGS: Hauptquest, Endgame
-
----
-
-eventID: E1_kale
-TITLE: Hilf Kalé
-REQUIRES: 
-TEXT: Sammle 3 Items für Kalé, um seine Questlinie zu starten.
