@@ -147,8 +147,8 @@ const QUEST_FILE_PATH = 'all_quests.quest'; // Pfad anpassen
 
 async function loadQuestFile(file) {
   const text = await fetch(file).then(r => r.text());
-  const blocks = text.split(/^E\d+_\w+/m).filter(Boolean);
-  const eventMatches = [...text.matchAll(/(E\d+_\w+)/g)];
+  const blocks = text.split(/^(E|O)\d+_\w+/m).filter(Boolean);
+  const eventMatches = [...text.matchAll(/((E|O)\d+_\w+)/g)];
 
   return eventMatches.map((match, i) => {
     const block = blocks[i] ? blocks[i].trim() : '';
