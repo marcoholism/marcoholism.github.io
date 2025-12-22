@@ -1,0 +1,14 @@
+# Melina
+ID: melina
+EVENTS: E1–E5
+REGION: Liurnia
+PHASE: Midgame
+
+---
+
+E3
+TITLE: Melina segnet den Spieler
+TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
+REQUIRES: varre_E4, kale_E2
+PONR: Nach Leyndell-Asche nicht mehr verfügbar
+TAGS: Hauptquest, Endgame
