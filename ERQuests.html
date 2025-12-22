@@ -52,10 +52,24 @@ main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 }
 
 .timeline-card {
+  position: relative;
   background: linear-gradient(180deg, #1a1a1a, var(--bg-panel));
   border: 1px solid rgba(201,162,77,0.15);
   border-radius: 10px;
   padding: 1.5rem 1.7rem;
+}
+
+/* Bulletpoints auf der Linie */
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  left: -2.6rem;
+  top: 1.3rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201,162,77,0.15);
 }
 
 .timeline-card h2 {
@@ -129,7 +143,7 @@ main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 
 <script>
 const timelineContainer = document.getElementById('timeline-container');
-const QUEST_FILE_PATH = 'all_quests.quest'; // Pfad anpassen, z.B. GitHub Raw URL oder lokal
+const QUEST_FILE_PATH = 'all_quests.quest'; // Pfad anpassen
 
 async function loadQuestFile(file) {
   const text = await fetch(file).then(r => r.text());
@@ -147,6 +161,7 @@ async function loadQuestFile(file) {
 
     return {
       eventID: match[1],
+      eventDisplayID: match[1].split('_')[0], // nur E1, E2...
       quest: questMatch ? questMatch[1] : '',
       title: titleMatch ? titleMatch[1] : '',
       text: textMatch ? textMatch[1].trim() : '',
@@ -164,9 +179,12 @@ async function renderTimeline() {
     const card = document.createElement('div');
     card.className = 'timeline-card';
 
+    const storageKey = 'done_' + event.eventID;
+    const done = localStorage.getItem(storageKey);
+    if(done) card.style.opacity = '0.45'; // persistenter Status beim Laden
+
     card.innerHTML = `
-      <h2>${event.quest} <span class="event-id">${event.eventID.split('_')[0]}</span></h2>
-      <div class="meta">${event.quest}</div>
+      <h2>${event.quest} <span class="event-id">${event.eventDisplayID}</span></h2>
       <p><strong>${event.title}</strong>: ${event.text}</p>
       ${event.ponr ? `<div class="ponr"><strong>PoNR:</strong> ${event.ponr}</div>` : ''}
       ${event.tags.length ? '<div class="tags">' + event.tags.map(t=>'<span class="tag">'+t+'</span>').join('') + '</div>' : ''}
@@ -174,8 +192,7 @@ async function renderTimeline() {
     `;
 
     const btn = document.createElement('button');
-    const storageKey = 'done_'+event.eventID;
-    btn.textContent = localStorage.getItem(storageKey) ? '↺ Rückgängig' : '✓ Erledigt';
+    btn.textContent = done ? '↺ Rückgängig' : '✓ Erledigt';
     btn.style.marginTop = '1rem';
     btn.style.background = 'transparent';
     btn.style.border = '1px solid rgba(201,162,77,0.4)';
@@ -185,10 +202,10 @@ async function renderTimeline() {
     btn.style.cursor = 'pointer';
 
     btn.addEventListener('click', () => {
-      const done = localStorage.getItem(storageKey);
-      localStorage.setItem(storageKey, done ? '' : 'true');
-      card.style.opacity = done ? '1' : '0.45';
-      btn.textContent = done ? '✓ Erledigt' : '↺ Rückgängig';
+      const current = localStorage.getItem(storageKey);
+      localStorage.setItem(storageKey, current ? '' : 'true');
+      card.style.opacity = current ? '1' : '0.45';
+      btn.textContent = current ? '✓ Erledigt' : '↺ Rückgängig';
     });
 
     timelineContainer.appendChild(card);
