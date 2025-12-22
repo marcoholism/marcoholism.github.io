@@ -6,7 +6,7 @@ PHASE: Midgame
 
 ---
 
-E3
+E2
 TITLE: Melina segnet den Spieler
 TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
 REQUIRES: 
@@ -15,7 +15,7 @@ TAGS: Hauptquest, Endgame
 
 ---
 
-E2
+E3
 TITLE: Hilf Kalé
-REQUIRES: varre_E3
+REQUIRES: varre_E2
 TEXT: Sammle 3 Items für Kalé, um seine Questlinie zu starten.
