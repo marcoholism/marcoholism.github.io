@@ -143,40 +143,39 @@ main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 
 <script>
 const timelineContainer = document.getElementById('timeline-container');
-const QUEST_FILE_PATH = 'all_quests.quest'; // Pfad anpassen
+const QUEST_FILE_PATH = 'all_quests.quest';
 
 async function loadQuestFile(file) {
   const text = await fetch(file).then(r => r.text());
-  const eventMatches = [...text.matchAll(/^([EO]\d+_\w+)/gm)]; // erkennt E1_varre, O1_melina
-  const blocks = text.split(/^([EO]\d+_\w+)/gm)
-                     .filter((block, i) => i % 2 === 1) // nur IDs behalten
-                     .map((id, i) => {
-                        const content = text.split(/^([EO]\d+_\w+)/gm).filter(Boolean)[i*2+1];
-                        return { id, content: content.trim() };
-                      });
 
-  return eventMatches.map((match, i) => {
-    const block = blocks[i] ? blocks[i].trim() : '';
+  // Regex: ID + Block
+  const regex = /^([EO]\d+_\w+)\s*([\s\S]+?)(?=^[EO]\d+_\w+|\Z)/gm;
+  const events = [];
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    const id = match[1];
+    const block = match[2];
+
     const questMatch = block.match(/QUEST: (.+)/);
     const titleMatch = block.match(/TITLE: (.+)/);
     const textMatch = block.match(/TEXT: ([\s\S]+?)(\nPONR:|\nTAGS:|\nREWARDS:|$)/);
     const ponrMatch = block.match(/PONR: ([^\n]+)/);
     const tagsMatch = block.match(/TAGS: ([^\n]+)/);
-    const requiresMatch = block.match(/REQUIRES: ([^\n]+)/);
     const rewardsMatch = block.match(/REWARDS: ([^\n]+)/);
 
-    return {
-      eventID: match[1],
-      eventDisplayID: match[1].split('_')[0], // nur E1, E2...
+    events.push({
+      eventID: id,
+      eventDisplayID: id.split('_')[0],
       quest: questMatch ? questMatch[1] : '',
       title: titleMatch ? titleMatch[1] : '',
       text: textMatch ? textMatch[1].trim() : '',
       ponr: ponrMatch ? ponrMatch[1] : '',
       tags: tagsMatch ? tagsMatch[1].split(',').map(t=>t.trim()) : [],
-      requires: requiresMatch ? requiresMatch[1] : '',
       rewards: rewardsMatch ? rewardsMatch[1] : ''
-    };
-  });
+    });
+  }
+
+  return events;
 }
 
 async function renderTimeline() {
@@ -188,13 +187,12 @@ async function renderTimeline() {
 
     const storageKey = 'done_' + event.eventID;
     const done = localStorage.getItem(storageKey);
-    if(done) card.style.opacity = '0.45'; // persistenter Status beim Laden
+    if(done) card.style.opacity = '0.45';
 
     card.innerHTML = `
       <h2>${event.quest} <span class="event-id">${event.eventDisplayID}</span></h2>
       <p><strong>${event.title}</strong>: ${event.text}</p>
       ${event.ponr ? `<div class="ponr"><strong>PoNR:</strong> ${event.ponr}</div>` : ''}
-      ${event.requires ? `<div class="requires"><strong>Bedingungen:</strong> ${event.requires}</div>` : ''}
       ${event.rewards ? `<div class="rewards"><strong>Belohnung:</strong> ${event.rewards}</div>` : ''}
       ${event.tags.length ? '<div class="tags">' + event.tags.map(t=>'<span class="tag">'+t+'</span>').join('') + '</div>' : ''}
     `;
