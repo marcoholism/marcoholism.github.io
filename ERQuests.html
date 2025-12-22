@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Elden Ring – Optimaler Questpfad</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -117,7 +116,7 @@ main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 
 <header>
   <h1>Optimaler Questpfad</h1>
-  <p>Eine empfohlene Reihenfolge aller wichtigen Quests in <em>Elden Ring</em>, um keine Inhalte zu verpassen.</p>
+  <p>Eine empfohlene Reihenfolge aller wichtigen Quests in <em>Elden Ring</em>, einfach abhaken.</p>
 </header>
 
 <main>
@@ -130,24 +129,21 @@ main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 
 <script>
 const timelineContainer = document.getElementById('timeline-container');
-
-// Passe hier den Pfad an, z.B. GitHub Raw URL oder lokal
-const QUEST_FILE_PATH = 'all_quests.quest';
+const QUEST_FILE_PATH = 'all_quests.quest'; // Pfad anpassen, z.B. GitHub Raw URL oder lokal
 
 async function loadQuestFile(file) {
   const text = await fetch(file).then(r => r.text());
   const blocks = text.split(/^E\d+_\w+/m).filter(Boolean);
   const eventMatches = [...text.matchAll(/(E\d+_\w+)/g)];
 
-  const events = eventMatches.map((match, i) => {
+  return eventMatches.map((match, i) => {
     const block = blocks[i] ? blocks[i].trim() : '';
     const questMatch = block.match(/QUEST: (.+)/);
     const titleMatch = block.match(/TITLE: (.+)/);
-    const textMatch = block.match(/TEXT: ([\s\S]+?)(\nREQUIRES:|\nPONR:|\nTAGS:|\nREWARDS:|$)/);
+    const textMatch = block.match(/TEXT: ([\s\S]+?)(\nPONR:|\nTAGS:|\nREWARDS:|$)/);
     const ponrMatch = block.match(/PONR: ([^\n]+)/);
     const tagsMatch = block.match(/TAGS: ([^\n]+)/);
     const rewardsMatch = block.match(/REWARDS: ([^\n]+)/);
-    const requiresMatch = block.match(/REQUIRES: ([^\n]+)/);
 
     return {
       eventID: match[1],
@@ -156,12 +152,9 @@ async function loadQuestFile(file) {
       text: textMatch ? textMatch[1].trim() : '',
       ponr: ponrMatch ? ponrMatch[1] : '',
       tags: tagsMatch ? tagsMatch[1].split(',').map(t=>t.trim()) : [],
-      rewards: rewardsMatch ? rewardsMatch[1] : '',
-      requires: requiresMatch ? requiresMatch[1].split(',').map(r=>r.trim()) : []
+      rewards: rewardsMatch ? rewardsMatch[1] : ''
     };
   });
-
-  return events;
 }
 
 async function renderTimeline() {
@@ -170,9 +163,6 @@ async function renderTimeline() {
   events.forEach(event => {
     const card = document.createElement('div');
     card.className = 'timeline-card';
-
-    const requiresMet = !event.requires.length || event.requires.every(r => localStorage.getItem('done_'+r));
-    if(!requiresMet) card.style.opacity = 0.3;
 
     card.innerHTML = `
       <h2>${event.quest} <span class="event-id">${event.eventID}</span></h2>
