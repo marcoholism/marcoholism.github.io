@@ -1,0 +1,26 @@
+E1
+QUEST: Varre
+TITLE: Melina segnet den Spieler
+TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
+REQUIRES: 
+REWARDS:
+PONR: Nach Leyndell-Asche nicht mehr verfügbar
+TAGS: Hauptquest, Endgame
+
+---
+
+E1
+QUEST: Melina
+TITLE: Melina segnet den Spieler
+TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
+REQUIRES: 
+REWARDS:
+PONR: Nach Leyndell-Asche nicht mehr verfügbar
+TAGS: Hauptquest, Endgame
+
+---
+
+E3
+TITLE: Hilf Kalé
+REQUIRES: varre_E2
+TEXT: Sammle 3 Items für Kalé, um seine Questlinie zu starten.

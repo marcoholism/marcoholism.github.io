@@ -1,241 +1,211 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elden Ring – Optimaler Questpfad</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elden Ring – Optimaler Questpfad</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg-dark: #0e0e0e;
-      --bg-panel: #161616;
-      --gold: #c9a24d;
-      --gold-soft: #9f8440;
-      --danger: #b84c4c;
-      --text-main: #e6e6e6;
-      --text-muted: #a8a8a8;
-    }
+<style>
+:root {
+  --bg-dark: #0e0e0e;
+  --bg-panel: #161616;
+  --gold: #c9a24d;
+  --gold-soft: #9f8440;
+  --danger: #b84c4c;
+  --text-main: #e6e6e6;
+  --text-muted: #a8a8a8;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Crimson Pro', serif;
-      background: radial-gradient(circle at top, #1b1b1b, var(--bg-dark));
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+body {
+  font-family: 'Crimson Pro', serif;
+  background: radial-gradient(circle at top, #1b1b1b, var(--bg-dark));
+  color: var(--text-main);
+  line-height: 1.6;
+}
 
-    header, footer { text-align: center; padding: 2.5rem 1rem; }
-    header { border-bottom: 1px solid rgba(201,162,77,0.2); }
-    footer { border-top: 1px solid rgba(201,162,77,0.15); color: var(--text-muted); font-size: 0.9rem; }
+header, footer { text-align: center; padding: 2.5rem 1rem; }
+header { border-bottom: 1px solid rgba(201,162,77,0.2); }
+footer { border-top: 1px solid rgba(201,162,77,0.15); color: var(--text-muted); font-size: 0.9rem; }
 
-    header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-    }
+header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
 
-    main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 
-    /* Timeline */
-    .timeline {
-      position: relative;
-      margin-left: 2rem;
-      padding-left: 2rem;
-      border-left: 2px solid rgba(201,162,77,0.35);
-      display: grid;
-      gap: 2.2rem;
-    }
+/* Timeline */
+.timeline {
+  position: relative;
+  margin-left: 2rem;
+  padding-left: 2rem;
+  border-left: 2px solid rgba(201,162,77,0.35);
+  display: grid;
+  gap: 2.2rem;
+}
 
-    .timeline-step {
-      position: relative;
-      padding-left: 0;
-    }
+.timeline-card {
+  background: linear-gradient(180deg, #1a1a1a, var(--bg-panel));
+  border: 1px solid rgba(201,162,77,0.15);
+  border-radius: 10px;
+  padding: 1.5rem 1.7rem;
+}
 
-    .timeline-step::before {
-      content: "";
-      position: absolute;
-      left: -2.6rem;
-      top: 1.2rem;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 4px rgba(201,162,77,0.15);
-    }
+.timeline-card h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
 
-    .timeline-card {
-      background: linear-gradient(180deg, #1a1a1a, var(--bg-panel));
-      border: 1px solid rgba(201,162,77,0.15);
-      border-radius: 10px;
-      padding: 1.5rem 1.7rem;
-    }
+.event-id {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-soft);
+  border: 1px solid rgba(201,162,77,0.35);
+  padding: 0.1rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(201,162,77,0.08);
+}
 
-    .timeline-card h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-    }
+.meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.6rem; }
 
-    .event-id {
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      color: var(--gold-soft);
-      border: 1px solid rgba(201,162,77,0.35);
-      padding: 0.1rem 0.45rem;
-      border-radius: 6px;
-      background: rgba(201,162,77,0.08);
-    }
+/* Point of No Return */
+.ponr {
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  border-left: 4px solid var(--danger);
+  background: rgba(184,76,76,0.1);
+  color: #e2bcbc;
+  font-size: 0.95rem;
+}
 
-    .meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.6rem; }
+.ponr strong { color: #f0d0d0; }
 
-    /* Point of No Return */
-    .ponr {
-      margin-top: 1rem;
-      padding: 0.7rem 1rem;
-      border-left: 4px solid var(--danger);
-      background: rgba(184,76,76,0.1);
-      color: #e2bcbc;
-      font-size: 0.95rem;
-    }
+.tags { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag {
+  border: 1px solid rgba(201,162,77,0.35);
+  color: var(--gold-soft);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  background: rgba(201,162,77,0.05);
+}
 
-    .ponr strong { color: #f0d0d0; }
-
-    .tags { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag {
-      border: 1px solid rgba(201,162,77,0.35);
-      color: var(--gold-soft);
-      padding: 0.2rem 0.6rem;
-      font-size: 0.8rem;
-      border-radius: 999px;
-      background: rgba(201,162,77,0.05);
-    }
-  </style>
+.rewards {
+  margin-top: 0.8rem;
+  padding: 0.5rem 0.8rem;
+  background: rgba(201,162,77,0.05);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--gold-soft);
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Optimaler Questpfad</h1>
-    <p>
-      Eine empfohlene Reihenfolge aller wichtigen Quests in <em>Elden Ring</em>, um keine Inhalte zu verpassen und Questlines sinnvoll miteinander zu verknüpfen.
-    </p>
-  </header>
+<header>
+  <h1>Optimaler Questpfad</h1>
+  <p>Eine empfohlene Reihenfolge aller wichtigen Quests in <em>Elden Ring</em>, um keine Inhalte zu verpassen.</p>
+</header>
 
-  <main>
-    <section class="timeline" id="timeline-container">
-      <!-- Dynamisch per JS gefüllt -->
-    </section>
-  </main>
+<main>
+  <section class="timeline" id="timeline-container"></section>
+</main>
 
-  <footer>
-    <p>Fan-Projekt · Elden Ring © FromSoftware / Bandai Namco</p>
-  </footer>
+<footer>
+  <p>Fan-Projekt · Elden Ring © FromSoftware / Bandai Namco</p>
+</footer>
 
-  <script>
-    const timelineContainer = document.getElementById('timeline-container');
+<script>
+const timelineContainer = document.getElementById('timeline-container');
 
-    async function loadAllQuestFiles(files) {
-      const allEvents = [];
+async function loadQuestFile(file) {
+  const text = await fetch(file).then(r => r.text());
+  const blocks = text.split(/^E\d+/m).filter(Boolean);
+  const eventMatches = [...text.matchAll(/(E\d+)/g)];
 
-      for (const file of files) {
-        const text = await fetch(file).then(r => r.text());
-        const questID = text.match(/^ID: (\w+)/m)[1];
-        const questTitle = text.match(/^# (.+)$/m)[1];
+  const events = eventMatches.map((match, i) => {
+    const block = blocks[i].trim();
+    const questMatch = block.match(/QUEST: (.+)/);
+    const titleMatch = block.match(/TITLE: (.+)/);
+    const textMatch = block.match(/TEXT: ([\s\S]+?)(\nREQUIRES:|\nPONR:|\nTAGS:|\nREWARDS:|$)/);
+    const ponrMatch = block.match(/PONR: ([^\n]+)/);
+    const tagsMatch = block.match(/TAGS: ([^\n]+)/);
+    const rewardsMatch = block.match(/REWARDS: ([^\n]+)/);
+    const requiresMatch = block.match(/REQUIRES: ([^\n]+)/);
 
-        const blocks = text.split(/^---$/m).filter(Boolean);
+    return {
+      eventID: match[1],
+      quest: questMatch ? questMatch[1] : '',
+      title: titleMatch ? titleMatch[1] : '',
+      text: textMatch ? textMatch[1].trim() : '',
+      ponr: ponrMatch ? ponrMatch[1] : '',
+      tags: tagsMatch ? tagsMatch[1].split(',').map(t=>t.trim()) : [],
+      rewards: rewardsMatch ? rewardsMatch[1] : '',
+      requires: requiresMatch ? requiresMatch[1].split(',').map(r=>r.trim()) : []
+    };
+  });
 
-        blocks.forEach(block => {
-          const matchE = block.match(/^E(\d+)/m);
-          if (!matchE) return;
-          const eventID = 'E' + parseInt(matchE[1], 10);
+  return events;
+}
 
-          const titleMatch = block.match(/TITLE: (.+)/);
-          const textMatch = block.match(/TEXT: ([\s\S]+?)(\nREQUIRES:|\nPONR:|\nTAGS:|$)/);
-          const ponrMatch = block.match(/PONR: ([^\n]+)/);
-          const tagsMatch = block.match(/TAGS: ([^\n]+)/);
-          const requiresMatch = block.match(/REQUIRES: ([^\n]+)/);
+async function renderTimeline() {
+  const events = await loadQuestFile('all_quests.quest');
 
-          allEvents.push({
-            questID,
-            questTitle,
-            eventID,
-            title: titleMatch ? titleMatch[1] : '',
-            text: textMatch ? textMatch[1].trim() : '',
-            ponr: ponrMatch ? ponrMatch[1] : '',
-            tags: tagsMatch ? tagsMatch[1].split(',').map(t=>t.trim()) : [],
-            requires: requiresMatch ? requiresMatch[1].split(',').map(r=>r.trim()) : []
-          });
-        });
-      }
+  events.forEach(event => {
+    const card = document.createElement('div');
+    card.className = 'timeline-card';
 
-      // Sortieren nach globaler E-Nummer
-      allEvents.sort((a,b)=> parseInt(a.eventID.slice(1))-parseInt(b.eventID.slice(1)) );
-      return allEvents;
-    }
+    const requiresMet = !event.requires.length || event.requires.every(r => localStorage.getItem('done_'+r));
+    if(!requiresMet) card.style.opacity = 0.3;
 
-    async function renderTimeline() {
-      const files = [
-        'https://marcoholism.us/varre.quest'
-      ];
-      const allEvents = await loadAllQuestFiles(files);
+    card.innerHTML = `
+      <h2>${event.quest} <span class="event-id">${event.eventID}</span></h2>
+      <div class="meta">${event.quest}</div>
+      <p><strong>${event.title}</strong>: ${event.text}</p>
+      ${event.ponr ? `<div class="ponr"><strong>PoNR:</strong> ${event.ponr}</div>` : ''}
+      ${event.tags.length ? '<div class="tags">' + event.tags.map(t=>'<span class="tag">'+t+'</span>').join('') + '</div>' : ''}
+      ${event.rewards ? `<div class="rewards"><strong>Belohnung:</strong> ${event.rewards}</div>` : ''}
+    `;
 
-      allEvents.forEach(event => {
-        const card = document.createElement('div');
-        card.className = 'timeline-card';
+    const btn = document.createElement('button');
+    const storageKey = 'done_'+event.eventID;
+    btn.textContent = localStorage.getItem(storageKey) ? '↺ Rückgängig' : '✓ Erledigt';
+    btn.style.marginTop = '1rem';
+    btn.style.background = 'transparent';
+    btn.style.border = '1px solid rgba(201,162,77,0.4)';
+    btn.style.color = 'var(--gold-soft)';
+    btn.style.padding = '0.3rem 0.8rem';
+    btn.style.borderRadius = '6px';
+    btn.style.cursor = 'pointer';
 
-        // Check REQUIRES
-        const requiresMet = !event.requires.length || event.requires.every(r => localStorage.getItem('done_'+r));
-        if (!requiresMet) card.style.opacity = 0.3;
+    btn.addEventListener('click', () => {
+      const done = localStorage.getItem(storageKey);
+      localStorage.setItem(storageKey, done ? '' : 'true');
+      card.style.opacity = done ? '1' : '0.45';
+      btn.textContent = done ? '✓ Erledigt' : '↺ Rückgängig';
+    });
 
-        card.innerHTML = `
-          <h2>${event.questTitle} <span class="event-id">${event.eventID}</span></h2>
-          <div class="meta">${event.region || ''} · ${event.phase || ''}</div>
-          <p><strong>${event.title}</strong>: ${event.text}</p>
-          ${event.ponr?`<div class="ponr"><strong>PoNR:</strong> ${event.ponr}</div>`:''}
-          ${event.tags.length ? '<div class="tags">'+event.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div>':''}
-        `;
+    timelineContainer.appendChild(card);
+    card.appendChild(btn);
+  });
+}
 
-        // Erledigt-Button
-        const btn = document.createElement('button');
-        btn.textContent = '✓ Erledigt';
-        btn.style.marginTop = '1rem';
-        btn.style.background = 'transparent';
-        btn.style.border = '1px solid rgba(201,162,77,0.4)';
-        btn.style.color = 'var(--gold-soft)';
-        btn.style.padding = '0.3rem 0.8rem';
-        btn.style.borderRadius = '6px';
-        btn.style.cursor = 'pointer';
-
-        const storageKey = 'done_' + event.questID + '_' + event.eventID;
-        if(localStorage.getItem(storageKey) === 'true') {
-          card.style.opacity = 0.45;
-          btn.textContent = '↺ Rückgängig';
-        }
-
-        btn.addEventListener('click', () => {
-          const done = localStorage.getItem(storageKey) === 'true';
-          localStorage.setItem(storageKey, !done);
-          card.style.opacity = done ? '1' : '0.45';
-          btn.textContent = done ? '✓ Erledigt' : '↺ Rückgängig';
-        });
-
-        card.appendChild(btn);
-        timelineContainer.appendChild(card);
-      });
-    }
-
-    renderTimeline();
-  </script>
+renderTimeline();
+</script>
 
 </body>
 </html>
