@@ -189,7 +189,7 @@ async function renderTimeline() {
       <h2>${event.quest} <span class="event-id">${event.eventDisplayID}</span></h2>
       <p><strong>${event.title}</strong>: ${event.text}</p>
       ${event.ponr ? `<div class="ponr"><strong>PoNR:</strong> ${event.ponr}</div>` : ''}
-      ${event.rewards ? `<div class="requires"><strong>Bedingungen:</strong> ${event.requires}</div>` : ''}
+      ${event.requires ? `<div class="requires"><strong>Bedingungen:</strong> ${event.requires}</div>` : ''}
       ${event.rewards ? `<div class="rewards"><strong>Belohnung:</strong> ${event.rewards}</div>` : ''}
       ${event.tags.length ? '<div class="tags">' + event.tags.map(t=>'<span class="tag">'+t+'</span>').join('') + '</div>' : ''}
     `;

@@ -15,7 +15,29 @@ TITLE: Melina erscheint
 TEXT: Melina bietet ihre Hilfe als Jungfer an.
 REWARDS: 
 REQUIRES: 
-PONR: Nach Leyndell-Asche nicht mehr verfügbar
+PONR:
+TAGS:
+
+---
+
+O1_melina
+QUEST: Melina
+TITLE: Strahlen der Gnade (optional)
+TEXT: Melina gibt dir mehr Hintergrundinfos.
+REWARDS: 
+REQUIRES: E1 abgeschlossen und an Hütte am Sturmhügel rasten
+PONR:
+TAGS:
+
+---
+
+O2_melina
+QUEST: Melina
+TITLE: Melinas Ziel (optional)
+TEXT: Melina gibt dir mehr Hintergrundinfos.
+REWARDS: 
+REQUIRES: E1 abgeschlossen und im Tunnel zum Schloss rasten
+PONR:
 TAGS:
 
 ---
