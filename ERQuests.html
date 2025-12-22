@@ -165,7 +165,7 @@ async function renderTimeline() {
     card.className = 'timeline-card';
 
     card.innerHTML = `
-      <h2>${event.quest} <span class="event-id">${event.eventID}</span></h2>
+      <h2>${event.quest} <span class="event-id">${event.eventID.split('_')[0]}</span></h2>
       <div class="meta">${event.quest}</div>
       <p><strong>${event.title}</strong>: ${event.text}</p>
       ${event.ponr ? `<div class="ponr"><strong>PoNR:</strong> ${event.ponr}</div>` : ''}
