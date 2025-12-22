@@ -1,4 +1,4 @@
-E1
+eventID: E1_varre
 QUEST: Varre
 TITLE: Melina segnet den Spieler
 TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
@@ -9,7 +9,7 @@ TAGS: Hauptquest, Endgame
 
 ---
 
-E1
+eventID: E1_melina
 QUEST: Melina
 TITLE: Melina segnet den Spieler
 TEXT: Melina erscheint am Erdenbaum und bietet ihre Hilfe an.
@@ -20,7 +20,7 @@ TAGS: Hauptquest, Endgame
 
 ---
 
-E3
+eventID: E1_kale
 TITLE: Hilf Kalé
-REQUIRES: varre_E2
+REQUIRES: 
 TEXT: Sammle 3 Items für Kalé, um seine Questlinie zu starten.
