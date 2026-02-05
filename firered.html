@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <title>Pokémon Feuerrot – 100 %-Checkliste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    /* ======================
-       Farben & Basis
-    ====================== */
     :root {
       --bg: #0e0f12;
       --text: #d6d9df;
       --muted: #8b90a0;
+
+      --h1: #b4c5ff;
+      --h2: #b8e0c8;
+      --h3: #e7c7a8;
+      --link: #a8d8ff;
     }
 
     body {
       margin: 0;
-      padding: 2rem;
       background: var(--bg);
       color: var(--text);
       font-family: "JetBrains Mono", "Fira Code", monospace;
@@ -24,33 +26,50 @@
     }
 
     /* ======================
-       Überschriften (Markdown-Stil)
+       Container mit Padding
     ====================== */
-    h1,
-    h2,
-    h3 {
-      font-weight: 500;
-      margin: 1.5rem 0 0.5rem;
+    .container {
+      max-width: 900px;
+      width: 90%;
+      padding: 2rem 3rem;
+      margin: 0 auto;
+      box-sizing: border-box;
     }
 
-    h1 { color: #b4c5ff; } /* sanftes Blau */
-    h2 { color: #b8e0c8; } /* entspanntes Grün */
-    h3 { color: #e7c7a8; } /* warmes Peach */
+    /* ======================
+       Überschriften
+    ====================== */
+    h1, h2, h3 {
+      font-weight: 500;
+      margin: 1.5rem 0 0.5rem;
+      word-break: break-word;
+    }
 
-    h1::before { content: "# ";   color: var(--muted); }
-    h2::before { content: "## ";  color: var(--muted); }
+    h1 { color: var(--h1); }
+    h2 { color: var(--h2); }
+    h3 { color: var(--h3); }
+
+    h1::before { content: "# "; color: var(--muted); }
+    h2::before { content: "## "; color: var(--muted); }
     h3::before { content: "### "; color: var(--muted); }
 
     /* ======================
-       Listen
+       Text & Listen
     ====================== */
+    p {
+      margin: 0.5rem 0;
+      word-wrap: break-word;
+    }
+
     ul {
       list-style: none;
       padding-left: 1.5rem;
+      margin: 0.5rem 0 1rem;
     }
 
     li {
       margin: 0.25rem 0;
+      word-break: break-word;
     }
 
     li::before {
@@ -60,25 +79,13 @@
     }
 
     /* ======================
-       Text
-    ====================== */
-    p {
-      margin: 0.5rem 0;
-    }
-
-    /* ======================
-       Links (Markdown-artig)
+       Links
     ====================== */
     a {
-      color: #a8d8ff;
+      color: var(--link);
       text-decoration: none;
       border-bottom: 1px solid rgba(168, 216, 255, 0.3);
-      transition: color 0.15s ease, border-color 0.15s ease;
-    }
-
-    a:hover {
-      color: #cbe7ff;
-      border-bottom-color: rgba(203, 231, 255, 0.8);
+      word-break: break-word;
     }
 
     a::after {
@@ -86,42 +93,63 @@
       color: var(--muted);
       font-size: 0.85em;
     }
+
+    a:hover {
+      border-bottom-color: rgba(203, 231, 255, 0.8);
+    }
+
+    /* ======================
+       Mobile Anpassungen
+    ====================== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.5rem 2rem;
+        width: 95%;
+      }
+
+      h1 { font-size: 1.4rem; }
+      h2 { font-size: 1.2rem; }
+      h3 { font-size: 1.05rem; }
+      body { font-size: 0.95rem; }
+    }
   </style>
 </head>
 
 <body>
+  <div class="container">
 
-  <h1>Pokémon Feuerrot 100%</h1>
-  
-  <p>Willkommen auf meiner 100 %-Checkliste für Pokémon Feuerrot. Hier dokumentiere ich alle gefundenen Items, besiegte Trainer und gefangene Pokémon.</p>
+    <h1>Pokémon Feuerrot 100%</h1>
+    
+    <p>Willkommen auf meiner 100 %-Checkliste für Pokémon Feuerrot. Hier dokumentiere ich alle gefundenen Items, besiegte Trainer und gefangene Pokémon.</p>
 
-  <h2>Alabastia</h2>
-  <h3>Items</h3>
-  <ul>
-    <li>Trank (PC) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2429s">Link</a></li>
-    <li>Pokédex - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3990s">Link</a></li>
-    <li>5 Pokébälle - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=4017s">Link</a></li>
-    <li>Karte - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=4097s">Link</a></li>
-  </ul>
-  <h3>Trainer</h3>
-  <ul>
-    <li>Rivale (1) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2952s">Link</a></li>
-  </ul>
-  <h3>Pokémon</h3>
-  <ul>
-    <li>Glumanda (1) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2804s">Link</a></li>
-  </ul>
-  
-  <h2>Route 1</h2>
-  <h3>Items</h3>
-  <ul>
-    <li>Trank (geschenkt) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3304s">Link</a></li>
-  </ul>
-  <h3>Pokémon</h3>
-  <ul>
-    <li>Rattfratz (2) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5440s">Link</a></li>
-    <li>Taubsi (3) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5619s">Link</a></li>
-  </ul>
+    <h2>Alabastia</h2>
+    <h3>Items</h3>
+    <ul>
+      <li>Trank (PC) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2429s">Link</a></li>
+      <li>Pokédex - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3990s">Link</a></li>
+      <li>5 Pokébälle - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=4017s">Link</a></li>
+      <li>Karte - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=4097s">Link</a></li>
+    </ul>
+    <h3>Trainer</h3>
+    <ul>
+      <li>Rivale (1) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2952s">Link</a></li>
+    </ul>
+    <h3>Pokémon</h3>
+    <ul>
+      <li>Glumanda (1) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2804s">Link</a></li>
+    </ul>
+    
+    <h2>Route 1</h2>
+    <h3>Items</h3>
+    <ul>
+      <li>Trank (geschenkt) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3304s">Link</a></li>
+    </ul>
+    <h3>Pokémon</h3>
+    <ul>
+      <li>Rattfratz (2) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5440s">Link</a></li>
+      <li>Taubsi (3) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5619s">Link</a></li>
+    </ul>
 
+  </div>
 </body>
 </html>
