@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Markdown-Liste</title>
+  <style>
+    :root {
+      --bg: #0e0f12;
+      --text: #d6d9df;
+      --muted: #8b90a0;
+      --accent: #9aa5ff;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-weight: 500;
+      color: var(--accent);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    h1::before { content: "# "; color: var(--muted); }
+    h2::before { content: "## "; color: var(--muted); }
+    h3::before { content: "### "; color: var(--muted); }
+
+    ul {
+      list-style: none;
+      padding-left: 1.5rem;
+    }
+
+    li::before {
+      content: "- ";
+      color: var(--muted);
+      margin-left: -1.5rem;
+    }
+
+    li {
+      margin: 0.25rem 0;
+    }
+
+    p {
+      color: var(--text);
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Meine Liste</h1>
+
+  <ul>
+    <li>Erster Punkt</li>
+    <li>Zweiter Punkt</li>
+    <li>Dritter Punkt</li>
+  </ul>
+
+  <h2>Notizen</h2>
+
+  <p>Das fühlt sich an wie Markdown, ist aber pures HTML.</p>
+
+</body>
+</html>
