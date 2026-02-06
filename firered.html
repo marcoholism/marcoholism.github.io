@@ -34,12 +34,14 @@
       padding: 2rem 3rem;
       margin: 0 auto;
       box-sizing: border-box;
+      position: relative
     }
 
     /* ======================
        Überschriften
     ====================== */
     h1, h2, h3 {
+      position: relative;
       font-weight: 500;
       margin: 1.5rem 0 0.5rem;
       word-break: break-word;
@@ -50,6 +52,16 @@
     h1 { color: var(--h1); }
     h2 { color: var(--h2); }
     h3 { color: var(--h3); }
+    
+    h1::before,
+    h2::before,
+    h3::before {
+      position: absolute;
+      right: 100%;
+      margin-right: 1ch;
+      white-space: nowrap;
+      text-align: right;
+    }
 
     h1::before { content: "# "; color: var(--muted); }
     h2::before { content: "## "; color: var(--muted); }
@@ -75,9 +87,13 @@
     }
 
     ul li::before {
-      content: "- ";
+      content: "├─ ";
       color: var(--muted);
       margin-left: -1.5rem;
+    }
+
+    ul li:last-child::before {
+      content: "└─ ";
     }
 
     /* ======================
