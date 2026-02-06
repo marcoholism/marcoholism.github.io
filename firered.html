@@ -1,228 +1,282 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Pokémon Feuerrot – 100 %-Checkliste</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<title>Pokémon Feuerrot – 100 %-Checkliste</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    :root {
-      --bg: #0e0f12;
-      --text: #d6d9df;
-      --muted: #8b90a0;
+<style>
+:root {
+  --bg: #0e0f12;
+  --text: #d6d9df;
+  --muted: #8b90a0;
 
-      --h1: #b4c5ff;
-      --h2: #b8e0c8;
-      --h3: #e7c7a8;
-      --link: #a8d8ff;
-    }
+  --h1: #b4c5ff;
+  --h2: #b8e0c8;
+  --h3: #e7c7a8;
+  --link: #a8d8ff;
+}
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "JetBrains Mono", "Fira Code", monospace;
-      line-height: 1.6;
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  line-height: 1.6;
+}
 
-    /* ======================
-       Container mit Padding
-    ====================== */
-    .container {
-      max-width: 900px;
-      width: 90%;
-      padding: 2rem 3rem;
-      margin: 0 auto;
-      box-sizing: border-box;
-      position: relative
-    }
+.container {
+  max-width: 900px;
+  width: 90%;
+  padding: 2rem 3rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+}
 
-    /* ======================
-       Überschriften
-    ====================== */
-    h1, h2, h3 {
-      position: relative;
-      font-weight: 500;
-      margin: 1.5rem 0 0.5rem;
-      word-break: break-word;
-    }
-    
-    h2 span {font-size: 60%;font-style: italic;background-color: var(--h2); color: var(--bg); padding: 2px;border-radius:3px;}
+/* Überschriften & Markdown-Hashes */
+h1, h2, h3, details summary {
+  position: relative;
+  font-weight: 500;
+  margin: 1.5rem 0 0.5rem;
+  word-break: break-word;
+}
 
-    h1 { color: var(--h1); }
-    h2 { color: var(--h2); }
-    h3 { color: var(--h3); }
-    
-    h1::before,
-    h2::before,
-    h3::before {
-      position: absolute;
-      right: 100%;
-      margin-right: 1ch;
-      white-space: nowrap;
-      text-align: right;
-    }
+h1 { color: var(--h1); font-size: 1.6rem; }
+h2 { color: var(--h2); font-size: 1.2rem; }
+h3 { color: var(--h3); font-size: 1.05rem; }
 
-    h1::before { content: "# "; color: var(--muted); }
-    h2::before { content: "## "; color: var(--muted); }
-    h3::before { content: "### "; color: var(--muted); }
+h1::before,
+h2::before,
+h3::before,
+details summary::before {
+  position: absolute;
+  right: 100%;
+  margin-right: 1ch;
+  white-space: nowrap;
+  text-align: right;
+  color: var(--muted);
+}
 
-    /* ======================
-       Text & Listen
-    ====================== */
-    p {
-      margin: 0.5rem 0;
-      word-wrap: break-word;
-    }
+h1::before { content: "# "; }
+h2::before { content: "## "; }
+h3::before { content: "### "; }
 
-    ul {
-      list-style: none;
-      padding-left: 1.5rem;
-      margin: 0.5rem 0 1rem;
-    }
+/* Collapsible Summary */
+details summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  color: var(--h2);
+  font-size: 1.2rem;
+}
 
-    li {
-      margin: 0.25rem 0;
-      word-break: break-word;
-    }
+details summary::-webkit-details-marker { display: none; }
+details summary::marker { content: none; }
 
-    ul li::before {
-      content: "├─ ";
-      color: var(--muted);
-      margin-left: -1.5rem;
-    }
+/* Markdown-Hash links */
+details summary::before {
+  content: "##";
+  position: absolute;
+  right: 100%;           /* links vom Text */
+  margin-right: 1ch;
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: right;
+}
 
-    ul li:last-child::before {
-      content: "└─ ";
-    }
+/* Haken-Button für abgeschlossene Bereiche */
+details summary.completed::after {
+  content: "✔";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: var(--bg);
+  background-color: #a8ffb0;
+  border-radius: 3px;
+  padding: 0.15em 0.4em;
+  margin-left: 0.5rem;
+  box-shadow: 0 0 4px rgba(168, 255, 176, 0.6);
+}
 
-    /* ======================
-       Links
-    ====================== */
-    a {
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(168, 216, 255, 0.3);
-      word-break: break-word;
-    }
+/* Text & Listen */
+p {
+  margin: 0.5rem 0;
+  word-wrap: break-word;
+}
 
-    a::after {
-      content: " ↗";
-      color: var(--muted);
-      font-size: 0.85em;
-    }
+ul {
+  list-style: none;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
 
-    a:hover {
-      border-bottom-color: rgba(203, 231, 255, 0.8);
-    }
+li {
+  margin: 0.25rem 0;
+  word-break: break-word;
+}
 
-    /* ======================
-       Mobile Anpassungen
-    ====================== */
-    @media (max-width: 600px) {
-      .container {
-        padding: 1.5rem 2rem;
-        width: 95%;
-      }
+ul li::before {
+  content: "├─ ";
+  color: var(--muted);
+  margin-left: -1.5rem;
+}
 
-      h1 { font-size: 1.4rem; }
-      h2 { font-size: 1.2rem; }
-      h3 { font-size: 1.05rem; }
-      body { font-size: 0.95rem; }
-    }
-  </style>
+ul li:last-child::before {
+  content: "└─ ";
+}
+
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(168, 216, 255, 0.3);
+  word-break: break-word;
+}
+
+a::after {
+  content: " ↗";
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+a:hover {
+  border-bottom-color: rgba(203, 231, 255, 0.8);
+}
+
+ul li a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(168,216,255,0.3);
+  color: var(--link);
+  transition: all 0.15s ease;
+}
+ul li a:hover {
+  color: #cbe7ff;
+  border-bottom-color: rgba(203,231,255,0.8);
+}
+
+.link-arrow {
+  color: #a8ffb0;        /* grün wie der Haken */
+  font-weight: bold;
+  margin: 0 0.25rem;     /* Abstand zum Text und Link */
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 2rem;
+    width: 95%;
+  }
+
+  h1 { font-size: 1.4rem; }
+  h2, details summary { font-size: 1.2rem; }
+  h3 { font-size: 1.05rem; }
+  body { font-size: 0.95rem; }
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <h1>Pokémon Feuerrot 100%</h1>
-    
-    <p>Willkommen auf meiner 100 %-Checkliste für Pokémon Feuerrot. Hier dokumentiere ich alle gefundenen Items, besiegte Trainer und gefangene Pokémon.</p>
+<h1>Pokémon Feuerrot 100%</h1>
+<p>Willkommen auf meiner 100 %-Checkliste für Pokémon Feuerrot. Hier dokumentiere ich alle gefundenen Items, besiegte Trainer und gefangene Pokémon. Die Nachweise findest du dann über die jeweiligen Links zu meinen VODs auf YouTube.</p>
 
-    <h2>Alabastia <span>abgeschlossen</span></h2>
-    <h3>Items</h3>
-    <ul>
-      <li>Trank (PC) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2429s">Link</a></li>
-      <li>Pokédex - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3990s">Link</a></li>
-      <li>5 Pokébälle - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=4017s">Link</a></li>
-      <li>Karte - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=4097s">Link</a></li>
-    </ul>
-    <h3>Trainer</h3>
-    <ul>
-      <li>Rivale (1) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2952s">Link</a></li>
-    </ul>
-    
-    <h2>Route 1 <span>abgeschlossen</span></h2>
-    <h3>Items</h3>
-    <ul>
-      <li>Trank (geschenkt) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3304s">Link</a></li>
-    </ul>
+<details open>
+  <summary class="completed">Alabastia</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Trank (PC): <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2429s">Part 1 ⏱[40:29]</a></li>
+    <li>Pokédex: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3990s">Part 1 ⏱[1:06:30]</a></li>
+    <li>5 Pokébälle: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=4017s">Part 1 ⏱[1:06:57]</a></li>
+    <li>Karte: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=4097s">Part 1 ⏱[1:08:17]</a></li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Rivale (1): <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2952s">Part 1 ⏱[49:12]</a></li>
+  </ul>
+</details>
 
-    <h2>Vertania City</h2>
-    <h3>Items</h3>
-    <ul>
-      <li>Eichs Paket - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3800s">Link</a></li>
-      <li>Beleber</li>
-      <li>Trank - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3646s">Link</a></li>
-      <li>Lehrkanal - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5266s">Link</a></li>
-      <li>TM26</li>
-      <li>Machoband (versteckt)</li>
-    </ul>
-    <h3>Trainer</h3>
-    <ul>
-      <li>Dompteur Hendrik</li>
-      <li>Schwarzgurt Yu</li>
-      <li>Ass-Trainer Richard</li>
-      <li>Dompteur Jörg</li>
-      <li>Schwarzgurt Hiroshi</li>
-      <li>Ass-Trainer Hildeo</li>
-      <li>Ass-Trainer Markus</li>
-      <li>Schwarzgurt Eugen</li>
-      <li>Giovanni</li>
-    </ul>
-    
-    <h2>Route 2</h2>
-    <h3>Items</h3>
-    <ul>
-      <li>Para-Heiler</li>
-      <li>Äther</li>
-      <li>VM05</li>
-    </ul>
-    
-    <h2>Vertania Wald <span>abgeschlossen</span></h2>
-    <h3>Items</h3>
-    <ul>
-      <li>Pokéball - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6543s">Link</a></li>
-      <li>Gegengift - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6974s">Link</a></li>
-      <li>Gegengift (versteckt) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6465s">Link</a></li>
-      <li>Trank - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6682s">Link</a></li>
-      <li>Trank - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7190s">Link</a></li>
-      <li>Trank (versteckt) - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7272s">Link</a></li>
-    </ul>
-    <h3>Trainer</h3>
-    <ul>
-      <li>Käfersammler Baldur - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6735s">Link</a></li>
-      <li>Käfersammler Eusebius - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6798s">Link</a></li>
-      <li>Käfersammler Emil - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7004s">Link</a></li>
-      <li>Käfersammler Hilmar - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7096s">Link</a></li>
-      <li>Käfersammler Rudolf - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7223s">Link</a></li>
-    </ul>  
-    
-    <h2>Pokédex</h2>    
-    <ol>
-      <li>Glumanda - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2804s">Link</a></li>
-      <li>Raupy - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7545s">Link</a></li>
-      <li>Hornliu - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7369s">Link</a></li>
-      <li>Kokuna - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7856s">Link</a></li>
-      <li>Taubsi - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5619s">Link</a></li>
-      <li>Rattfratz - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5440s">Link</a></li>     
-      <li>Pikachu – <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=8083s">Link</a></li>
-      <li>Zubat – <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=11637s">Link</a></li>
+<details open>
+  <summary>Route 1</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Trank (geschenkt): <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3304s">Part 1 ⏱[55:04]</a></li>
+  </ul>
+</details>
+
+<details open>
+  <summary>Vertania City</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Eichs Paket: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3800s">Part 1 ⏱[55:04]</a></li>
+    <li>Beleber</li>
+    <li>Trank: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3646s">Part 1 ⏱[1:00:46]</a></li>
+    <li>Lehrkanal: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5266s">Part 1 ⏱[1:27:46]</a></li>
+    <li>TM26</li>
+    <li>Machoband (versteckt)</li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Dompteur Hendrik</li>
+    <li>Schwarzgurt Yu</li>
+    <li>Ass-Trainer Richard</li>
+    <li>Dompteur Jörg</li>
+    <li>Schwarzgurt Hiroshi</li>
+    <li>Ass-Trainer Hildeo</li>
+    <li>Ass-Trainer Markus</li>
+    <li>Schwarzgurt Eugen</li>
+    <li>Giovanni</li>
+  </ul>
+</details>
+
+<details open>
+  <summary>Route 2</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Para-Heiler</li>
+    <li>Äther</li>
+    <li>VM05</li>
+  </ul>
+</details>
+
+<details open>
+  <summary class="completed">Vertania Wald</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Pokéball: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6543s">Part 1 ⏱[1:49:03]</a></li>
+    <li>Gegengift: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6974s">Part 1 ⏱[1:56:14]</a></li>
+    <li>Gegengift (versteckt): <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6465s">Part 1 ⏱[1:47:45]</a></li>
+    <li>Trank: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6682s">Part 1 ⏱[1:51:22]</a></li>
+    <li>Trank: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7190s">Part 1 ⏱[1:59:50]</a></li>
+    <li>Trank (versteckt): <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7272s">Part 1 ⏱[2:01:12]</a></li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Käfersammler Baldur: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6735s">Part 1 ⏱[1:52:15]</a></li>
+    <li>Käfersammler Eusebius: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=6798s">Part 1 ⏱[1:53:18]</a></li>
+    <li>Käfersammler Emil: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7004s">Part 1 ⏱[1:56:44]</a></li>
+    <li>Käfersammler Hilmar: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7096s">Part 1 ⏱[1:58:16]</a></li>
+    <li>Käfersammler Rudolf: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7223s">Part 1 ⏱[2:00:23]</a></li>
+  </ul>
+</details>
+
+  <h2>Pokédex</h2>    
+  <ol>
+    <li>Glumanda - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=2804s">Link</a></li>
+    <li>Raupy - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7545s">Link</a></li>
+    <li>Hornliu - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7369s">Link</a></li>
+    <li>Kokuna - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=7856s">Link</a></li>
+    <li>Taubsi - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5619s">Link</a></li>
+    <li>Rattfratz - <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5440s">Link</a></li>     
+    <li>Pikachu – <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=8083s">Link</a></li>
+    <li>Zubat – <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=11637s">Link</a></li>
     </ol>
-    
-    
 
-  </div>
+</div>
 </body>
 </html>
