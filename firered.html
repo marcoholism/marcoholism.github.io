@@ -103,6 +103,22 @@ details summary.completed::after {
   box-shadow: 0 0 4px rgba(168, 255, 176, 0.6);
 }
 
+/* Haken-Button für abgeschlossene Bereiche */
+details ul li span.missed::before {
+  content: "⚠︎";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: var(--bg);
+  background-color: var(--h3);
+  border-radius: 3px;
+  padding: 0.15em 0.4em;
+  margin-right: 0.5rem;
+  box-shadow: 0 0 4px rgba(168, 255, 176, 0.6);
+}
+
 /* Text & Listen */
 p {
   margin: 0.5rem 0;
@@ -178,7 +194,7 @@ ul li a:hover {
 <div class="container">
 
 <h1>Pokémon Feuerrot 100%</h1>
-<p>Willkommen auf meiner 100 %-Checkliste für Pokémon Feuerrot. Hier dokumentiere ich alle gefundenen Items, besiegte Trainer und gefangene Pokémon. Die Nachweise findest du dann über die jeweiligen Links zu meinen VODs auf YouTube mit der Logik Nummer des VODs und Timestamp. Folgende Orte sind nicht aufgeführt, weil es dort weder Items noch Trainer gibt: Route 5, Digdas Höhle, Route 7.</p>
+<p>Willkommen auf meiner 100 %-Checkliste für Pokémon Feuerrot. Hier dokumentiere ich alle gefundenen Items, besiegte Trainer und gefangene Pokémon. Die Nachweise findest du dann über die jeweiligen Links zu meinen VODs auf YouTube mit der Logik Nummer des VODs und Timestamp. Folgende Orte sind nicht aufgeführt, weil es dort weder Items noch Trainer gibt: Route 5, Digdas Höhle.</p>
 
 <details>
   <summary class="completed">Alabastia</summary>
@@ -208,23 +224,23 @@ ul li a:hover {
   <h3>Items</h3>
   <ul>
     <li>Eichs Paket: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3800s">P1[55:04]</a></li>
-    <li>Beleber</li>
+    <li><span class="missed">Beleber</span>: 7 Orden</li>
     <li>Trank: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=3646s">P1[1:00:46]</a></li>
     <li>Lehrkanal: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5266s">P1[1:27:46]</a></li>
-    <li>TM26</li>
-    <li>Machoband (versteckt)</li>
+    <li><span class="missed">TM26</span>: 7 Orden</li>
+    <li><span class="missed">Machoband (versteckt)</span>: 7 Orden</li>
   </ul>
   <h3>Trainer</h3>
   <ul>
-    <li>Dompteur Hendrik</li>
-    <li>Schwarzgurt Yu</li>
-    <li>Ass-Trainer Richard</li>
-    <li>Dompteur Jörg</li>
-    <li>Schwarzgurt Hiroshi</li>
-    <li>Ass-Trainer Hildeo</li>
-    <li>Ass-Trainer Markus</li>
-    <li>Schwarzgurt Eugen</li>
-    <li>Giovanni</li>
+    <li><span class="missed">Dompteur Hendrik</span>: 7 Orden</li>
+    <li><span class="missed">Schwarzgurt Yu</span>: 7 Orden</li>
+    <li><span class="missed">Ass-Trainer Richard</span>: 7 Orden</li>
+    <li><span class="missed">Dompteur Jörg</span>: 7 Orden</li>
+    <li><span class="missed">Schwarzgurt Hiroshi</span>: 7 Orden</li>
+    <li><span class="missed">Ass-Trainer Hildeo</span>: 7 Orden</li>
+    <li><span class="missed">Ass-Trainer Markus</span>: 7 Orden</li>
+    <li><span class="missed">Schwarzgurt Eugen</span>: 7 Orden</li>
+    <li><span class="missed">Giovanni</span>: 7 Orden</li>
   </ul>
 </details>
 
@@ -305,7 +321,7 @@ ul li a:hover {
   </ul>
   <h3>Trainer</h3>
   <ul>
-    <li>Göre Adelheid</li>
+    <li><span class="missed">Göre Adelheid</span>: Surfer</li>
   </ul>
 </details>
 
@@ -428,15 +444,15 @@ ul li a:hover {
   </ul>
 </details>
 
-<details open>
-  <summary>Orania City</summary>
+<details>
+  <summary class="completed">Orania City</summary>
   <h3>Items</h3>
   <ul>
     <li>Rad-Coupon: <a href="https://www.youtube.com/watch?v=rphGHSRLwy4&t=9877s">P2[2:44:37]</a></li>
     <li>Angel: <a href="https://www.youtube.com/watch?v=rphGHSRLwy4&t=9987s">P2[2:46:27]</a></li>
     <li>Kampffahnder: <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=9249s">P5[2:34:09]</a></li>
     <li>TM34: <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=1386s">P4[23:06]</a></li>
-    <li>Top-Äther (versteckt)</li>
+    <li>Top-Äther (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=366s">P6[06:06]</a></li>
   </ul>
   <h3>Trainer</h3>
   <ul>
@@ -479,7 +495,7 @@ ul li a:hover {
     <li>TM44: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=11675s">P3[3:14:35]</a></li>
     <li>Äther: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=11922s">P3[3:18:42]</a></li>
     <li>Superball: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=13083s">P3[3:38:03]</a></li>
-    <li>VM01</li>
+    <li><span class="missed">VM01</span>: Lavakeks</li>
     <li>TM31: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=12865s">P3[3:34:25]</a></li>
     <li>Hypertrank (versteckt): <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=11294s">P3[3:08:14]</a></li>
     <li>Supertrank: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=12176s">P3[3:22:56]</a></li>
@@ -488,7 +504,7 @@ ul li a:hover {
     <li>Amrenabeere (versteckt): <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=13024s">P3[3:37:04]</a></li>
     <li>Maronbeere (versteckt): <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=13040s">P3[3:37:20]</a></li>
     <li>Sternenstaub: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=13365s">P3[3:42:45]</a></li>
-    <li>Lavakeks (versteckt)</li>
+    <li><span class="missed">Lavakeks (versteckt)</span>: Surfer</li>
   </ul>
   <h3>Trainer</h3>
   <ul>
@@ -542,7 +558,7 @@ ul li a:hover {
   <ul>
     <li>Ewigstein: <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=5276s">P4[1:27:56]</a></li>
     <li>Supertrank (versteckt): <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=5141s">P4[1:25:41]</a></li>
-    <li>Top-Äther (versteckt)</li>
+    <li><span class="missed">Top-Äther (versteckt)</spa>: Surfer</li>
     <li>Persimbeere (versteckt): <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=5217s">P4[1:26:57]</a></li>
     <li>Amrenabeere (versteckt): <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=5194s">P4[1:26:34]</a></li>
     <li>Nanabbeere (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=3676s">P5[1:01:16]</a></li>
@@ -554,7 +570,7 @@ ul li a:hover {
     <li>Wanderer Luzius: <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=3598s">P5[59:58]</a></li>
     <li>Wanderer Heimke: <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=3763s">P5[1:02:43]</a></li>
     <li>Pokémaniac Benno: <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=3847s">P5[1:04:07]</a></li>
-    <li>Pokémaniac Mark</li>
+    <li><span class="missed">Pokémaniac Mark</span>: Surfer</li>
   </ul>
 </details>
 
@@ -589,6 +605,14 @@ ul li a:hover {
 </details>
 
 <details>
+  <summary class="completed">Lavandia</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Pokéflöte: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5244s">P6[1:27:24]</a></li>
+  </ul>
+</details>
+
+<details>
   <summary class="completed">Route 8</summary>
   <h3>Items</h3>
   <ul>
@@ -613,11 +637,11 @@ ul li a:hover {
   </ul>
 </details>
 
-<details open>
-  <summary>Route 7</summary>
+<details>
+  <summary class="completed">Route 7</summary>
   <h3>Items</h3>
   <ul>
-    <li>Nirbebeere (versteckt)</li>
+    <li>Nirbebeere (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=410s">P6[06:50]</a></li>
   </ul>
 </details>
 
@@ -647,6 +671,202 @@ ul li a:hover {
   </ul>
 </details>
 
+<details>
+  <summary class="completed">Rocket-Gamer-Paradies</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>10 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7272s">P5[2:01:12]</a></li>
+    <li>20 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7291s">P5[2:01:31]</a></li>
+    <li>10 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7303s">P5[2:01:43]</a></li>
+    <li>20 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7321s">P5[2:02:01]</a></li>
+    <li>10 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7338s">P5[2:02:18]</a></li>
+    <li>40 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7350s">P5[2:02:30]</a></li>
+    <li>10 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7401s">P5[2:03:21]</a></li>
+    <li>10 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7419s">P5[2:03:39]</a></li>
+    <li>10 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7445s">P5[2:04:05]</a></li>
+    <li>100 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7478s">P5[2:04:38]</a></li>
+    <li>10 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7511s">P5[2:05:11]</a></li>
+    <li>10 Münzen (versteckt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7524s">P5[2:05:24]</a></li>
+    <li>20 Münzen (geschenkt): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7466s">P5[2:04:26]</a></li>
+    <li>10 Münzen (geschenkt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1104s">P6[18:24]</a></li>
+    <li>20 Münzen (geschenkt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1139s">P6[18:59]</a></li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=731s">P6[12:11]</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary class="completed">Rocket HQ</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Fluchtseil: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1477s">P6[24:37]</a></li>
+    <li>Hypertrank: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1901s">P6[31:41]</a></li>
+    <li>AP-Plus (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1383s">P6[23:03]</a></li>
+    <li>Mondstein: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1707s">P6[28:27]</a></li>
+    <li>Supertrank: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1775s">P6[29:35]</a></li>
+    <li>X-Tempo: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1720s">P6[28:40]</a></li>
+    <li>TM12: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1736s">P6[28:56]</a></li>
+    <li>Sonderbonbon: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2219s">P6[36:59]</a></li>
+    <li>Nugget (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2121s">P6[35:21]</a></li>
+    <li>TM21: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2194s">P6[36:34]</a></li>
+    <li>Schattenglas: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2369s">P6[39:29]</a></li>
+    <li>Liftöffner: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2605s">P6[43:25]</a></li>
+    <li>Silph Scope: <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=3436s">P6[57:16]</a></li>
+    <li>Top-Äther: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2436s">P6[40:36]</a></li>
+    <li>Kalzium: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2849s">P6[47:29]</a></li>
+    <li>TM49: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2487s">P6[41:27]</a></li>
+    <li>Netzball (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3271s">P6[54:31]</a></li>
+    <li>Nestball (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3256s">P6[54:16]</a></li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1404s">P6[23:24]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1285s">P6[21:25]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1930s">P6[32:10]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1835s">P6[30:35]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2720s">P6[45:20]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=1561s">P6[26:01]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2140s">P6[35:40]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2258s">P6[37:38]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2510s">P6[41:50]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=2890s">P6[48:10]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3084s">P6[51:24]</a></li>
+    <li>Giovanni: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3307s">P6[55:07]</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary class="completed">Pokémon Turm</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Fluchtseil: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3810s">P6[1:03:30]</a></li>
+    <li>Elixier: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3977s">P6[1:06:17]</a></li>
+    <li>Superball: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3995s">P6[1:06:35]</a></li>
+    <li>Aufwecker: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3987s">P6[1:06:27]</a></li>
+    <li>Riesenpilz (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4154s">P6[1:09:14]</a></li>
+    <li>Schutzband: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4245s">P6[1:10:45]</a></li>
+    <li>Nugget: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4332s">P6[1:12:12]</a></li>
+    <li>X-Treffer: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4651s">P6[1:17:31]</a></li>
+    <li>Sonderbonbon: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4805s">P6[1:20:05]</a></li>
+    <li>Sanftglocke (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5381s">P6[1:29:41]</a></li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Rivale (5): <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=4199s">P5[1:09:59]</a></li>
+    <li>Exorzistin Trudlinde: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3773s">P6[1:02:53]</a></li>
+    <li>Exorzistin Anastasia: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3669s">P6[1:01:09]</a></li>
+    <li>Exorzistin Walburga: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3733s">P6[1:02:13]</a></li>
+    <li>Exorzistin Birte: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3838s">P6[1:03:58]</a></li>
+    <li>Exorzistin Roswita: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3900s">P6[1:05:00]</a></li>
+    <li>Exorzistin Paula: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4012s">P6[1:06:52]</a></li>
+    <li>Exorzistin Ruth: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4111s">P6[1:08:31]</a></li>
+    <li>Exorzistin Brunhilde: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4199s">P6[1:09:59]</a></li>
+    <li>Exorzistin Jaime: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4261s">P6[1:11:01]</a></li>
+    <li>Exorzistin Mareike: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4300s">P6[1:11:40]</a></li>
+    <li>Exorzistin Marika: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4543s">P6[1:15:43]</a></li>
+    <li>Exorzistin Marianne: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4667s">P6[1:17:47]</a></li>
+    <li>Exorzistin Hannelore: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4715s">P6[1:18:35]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4931s">P6[1:22:11]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5022s">P6[1:23:42]</a></li>
+    <li>Team Rocket Rüpel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5104s">P6[1:25:04]</a></li>
+  </ul>
+</details>
+
+<details open>
+  <summary>Route 12</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>Superangel: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7050s">P6[1:57:30]</a></li>
+    <li><span class="missed">Überreste (versteckt)</span>:</li>
+    <li>Eisen: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7304s">P6[2:01:44]</a></li>
+    <li><span class="missed">Netzball (geschenkt)</span>: Großes Karpardor</li>
+    <li>Hypertrank (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5754s">P6[1:35:54]</a></li>
+    <li>Sonderbonbon (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7414s">P6[2:03:34]</a></li>
+    <li>TM27: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5497s">P6[1:31:37]</a></li>
+    <li><span class="missed">TM48</span>: Surfer</li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Anlger Arthur: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5537s">P6[1:32:17]</a></li>
+    <li>Anlger Ruprecht: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5622s">P6[1:33:42]</a></li>
+    <li>Angler Hans: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5687s">P6[1:34:47]</a></li>
+    <li>Angler Alois: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5772s">P6[1:36:12]</a></li>
+    <li>Junges Glück Sira & Deniz: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=5886s">P6[1:38:06]</a></li>
+    <li>Rocker Xaver: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7135s">P6[1:58:55]</a></li>
+    <li>Camper Laurenz: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7247s">P6[2:00:47]</a></li>
+    <li>Angler Ansgar: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7332s">P6[2:02:12]</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary class="completed">Route 13</summary>
+  <h3>Items</h3>
+  <ul>
+    <li>AP-Plus (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=8321s">P6[2:18:41]</a></li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Picknicker Kirsten: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7619s">P6[2:06:59]</a></li>
+    <li>Vogelfänger Eilmar: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7715s">P6[2:08:35]</a></li>
+    <li>Picknicker Janka: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7791s">P6[2:09:51]</a></li>
+    <li>Schönheit Lola: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=8234s">P6[2:17:14]</a></li>
+    <li>Schönheit Sylvia: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=8110s">P6[2:15:10]</a></li>
+    <li>Picknicker Tabitha: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=8358s">P6[2:19:18]</a></li>
+    <li>Picknicker Hilde: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=8440s">P6[2:20:40]</a></li>
+    <li>Vogelfänger Fritjof: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=9104s">P6[2:31:44]</a></li>
+    <li>Vogelfänger Joschka: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=8793s">P6[2:26:33]</a></li>
+    <li>Biker Hiob: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=9291s">P6[2:34:51]</a></li>
+  </ul>
+</details>
+
+<details open>
+  <summary>Route 14</summary>
+  <h3>Items</h3>
+  <ul>
+    <li><span class="missed">Sananabeere (versteckt)</span>:</li>
+    <li>Zink (versteckt): <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=10477s">P6[2:54:37]</a></li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Vogelfänger Armin: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=9511s">P6[2:38:31]</a></li>
+    <li>Vogelfänger Malte: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=9380s">P6[2:36:20]</a></li>
+    <li>Vogelfänger Anton: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=9739s">P6[2:42:19]</a></li>
+    <li>Vogelfänger Vincent: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=9638s">P6[2:40:38]</a></li>
+    <li>Vogelfänger Till: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=10050s">P6[2:47:30]</a></li>
+    <li>Vogelfänger Genadi: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=10106s">P6[2:48:26]</a></li>
+    <li>Zwil. Berta & Enke: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=10728s">P6[2:58:48]</a></li>
+    <li>Biker Gerald: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=10195s">P6[2:49:55]</a></li>
+    <li>Biker Sascha: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=10275s">P6[2:51:15]</a></li>
+    <li>Biker Blasius: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=10356s">P6[2:52:36]</a></li>
+    <li>Biker Darius: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=10598s">P6[2:56:38]</a></li>
+  </ul>
+</details>
+
+<details open>
+  <summary>Route 15</summary>
+  <h3>Items</h3>
+  <ul>
+    <li><span class="missed">EP-Teiler</span>: 50 Pokémon gefangen</li>
+    <li>TM18: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=12694s">P6[3:31:34]</a></li>
+  </ul>
+  <h3>Trainer</h3>
+  <ul>
+    <li>Biker Elert: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=11640s">P6[3:14:00]</a></li>
+    <li>Biker Arne: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=11797s">P6[3:16:37]</a></li>
+    <li>Schönheit Ilona: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=11863s">P6[3:17:43]</a></li>
+    <li>Schönheit Tia: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=11941s">P6[3:19:01]</a></li>
+    <li>Picknicker Gundula: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=11993s">P6[3:19:53]</a></li>
+    <li>Vogelfänger Vitali: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=12070s">P6[3:21:10]</a></li>
+    <li>Vogelfänger Edwin: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=12163s">P6[3:22:43]</a></li>
+    <li>Picknicker Roxana: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=12318s">P6[3:25:18]</a></li>
+    <li>Picknicker Heidi: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=12445s">P6[3:27:25]</a></li>
+    <li>Mühlensippe Sergio & Eva: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=12529s">P6[3:28:49]</a></li>
+    <li>Picknicker Jenny: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=12627s">P6[3:30:27]</a></li>
+  </ul>
+</details>
+
   <h2>Pokédex</h2>    
   <ol>
     <li>Bisasam: <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=128s">P4[02:08]</a></li>
@@ -672,6 +892,7 @@ ul li a:hover {
     <li>Zubat: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=11637s">P1[3:13:57]</a></li>
     <li>Myrapla: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=7083s">P3[1:58:03]</a></li>
     <li>Paras: <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=3022s">P4[50:22]</a></li>
+    <li>Bluzuk: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=7494s">P6[2:04:54]</a></li>
     <li>Digda: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=6554s">P3[1:49:14]</a></li>
     <li>Digdri: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=2784s">P3[46:24]</a></li>
     <li>Mauzi: <a href="https://www.youtube.com/watch?v=rphGHSRLwy4&t=6933s">P2[1:55:33]</a></li>
@@ -679,11 +900,14 @@ ul li a:hover {
     <li>Menki: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=5872s">P1[1:7:52]</a></li>
     <li>Abra: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=8954s">P3[2:29:14]</a></li>
     <li>Kleinstein: <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=3318s">P4[55:18]</a></li>
+    <li>Nebulak: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=3964s">P6[1:06:04]</a></li>
+    <li>Alpollo: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=4491s">P6[1:14:51]</a></li>
     <li>Traumato: <a href="https://www.youtube.com/watch?v=BQw8raIoJME&t=6427s">P3[1:47:07]</a></li>
     <li>Pantimos: <a href="https://www.youtube.com/watch?v=_Khbb1gB1hU&t=2231s">P4[37:11]</a></li>
     <li>Karpador: <a href="https://www.youtube.com/watch?v=8_Fl7KoJEZA&t=11810s">P1[3:16:50]</a></li>
     <li>Evoli: <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=6467s">P5[1:47:47]</a></li>
     <li>Blitza: <a href="https://www.youtube.com/watch?v=VsYNKO6dMVQ&t=7898s">P5[2:11:38]</a></li>
+    <li>Relaxo: <a href="https://www.youtube.com/watch?v=AtzOtQ_IO-Y&t=6938s">P6[1:55:38]</a></li>
   </ol>
 
 </div>
